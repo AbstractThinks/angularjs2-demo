@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>template - bind propery</title>
+    <script type="text/javascript" src="lib/system@0.16.11.js"></script>
+    <script type="text/javascript" src="lib/angular2.dev.js"></script>
+    <script type="text/javascript" src="lib/system.config.js"></script>
+</head>
+<body>
+	<ez-app></ez-app>
+    
+    <script type="module">
+    	import {bind,Component,View,bootstrap} from "angular2/angular2";
+
+        @Component({selector:"ez-app"})
+        @View({
+			template:`<h1 [style.color]="color">Hello,Angular2</h1>`
+		})
+        class EzApp{
+        	constructor(){
+            	this.color = "red";
+            }
+        }
+                
+        bootstrap(EzApp);
+
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <!-- Main Header -->
+    <my-header [hidden]="!switch.showMenu"></my-header>
+    <my-aside [hidden]="!switch.showMenu"></my-aside>
+    <!-- Content Wrapper. Contains page content -->
+    
+        <!-- Content Header (Page header) -->
+        <!--<section class="content-header">
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+                <li class="active">Here</li>
+            </ol>
+        </section>-->
+        <!-- Main content -->
+        <!-- <section class="content"> -->
+            <router-outlet></router-outlet>
+            <!-- Your Page Content Here -->
+        <!-- </section> -->
+        <!-- /.content -->
+    <!-- /.content-wrapper -->
+    <!-- Main Footer -->
+</div>
