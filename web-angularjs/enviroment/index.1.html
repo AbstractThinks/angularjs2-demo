@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>hello,angular2</title>
+    <!--模块加载器-->
+    <!-- ES6-Shim 提供兼容性垫片，使ES6能兼容于传统的JavaScript引擎。 -->
+    <script src="../node_modules/es6-shim/es6-shim.js"></script>
+    <!-- 实现异步Task跟踪，分析，错误记录、开发调试跟踪等 -->
+    <script src="../node_modules/zone.js/dist/zone.js"></script>
+    <!-- Decorators特性 -->
+    <script src="../node_modules/reflect-metadata/Reflect.js"></script>
+    <!-- 处理 异步 数据流 -->
+    <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+    <!--system--> 
+     <script src="../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="./systemjs.config.js"></script>
+    <script>
+      System.import('app.ts').catch(function(err){ console.error(err); });
+    </script>
+   
+</head>
+<body>
+    
+    <my-app></my-app>
+
+    
+</body>
+
+</html>
