@@ -358,6 +358,13 @@ class EzApp{
 }
 
 ```
+### @NgModule
+
+```javascript
+
+参考 http://www.cnblogs.com/dojo-lzz/p/5878073.html
+
+```
 
 ### Router
 
