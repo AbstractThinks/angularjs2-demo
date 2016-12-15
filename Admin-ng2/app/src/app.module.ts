@@ -21,7 +21,7 @@ import {AppRoutingModule} from './appRouter/appRouter.module';
 
     ],
     providers: [
-            {provide: APP_BASE_HREF, useValue : '/app' }
+            {provide: APP_BASE_HREF, useValue : '#' }
     ],
     bootstrap: [ AppComponent ]
 })
