@@ -4,8 +4,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     devtool: 'inline-source-map',
     entry: {
-        'polyfills': './app/src/polyfills.ts',
-        'vendor': './app/src/vendor.ts',
+        'polyfills': './app/polyfills.ts',
+        'vendor': './app/vendor.ts',
         'app': './app/src/app.ts'
     },
     output: {
