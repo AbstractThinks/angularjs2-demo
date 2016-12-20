@@ -1,0 +1,31 @@
+<div class="ui grid fluid-height gradient">
+    <div class="six wide centered column">
+        <form class="ui fluid form segment mt8rem login-transparent">
+            <div class="field">
+                <img class="ui small centered circular image" src="../../build/assets/angular.png">
+            </div>
+            <div class="field">
+                <label>账号</label>
+                <div class="ui left icon input">
+                  <input type="text" placeholder="账号" [(ngModel)]="username" name="name">
+                  <i class="user icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <label>密码</label>
+                <div class="ui left icon input">
+                  <input type="password" placeholder="密码" [(ngModel)]="password" name="psd">
+                  <i class="lock icon"></i>
+                </div>
+            </div>
+            <!-- <div class="field">
+                <div class="ui checkbox">
+                    <input type="checkbox" tabindex="0" class="hidden">
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div> -->
+            <a class="ui fluid linkedin button" (click)="loginHandle()">Submit</a>
+        </form>
+    </div>
+
+</div>

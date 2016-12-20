@@ -1,0 +1,70 @@
+<div class="ui ng-container row gradient">
+    <my-header></my-header>
+    <img class="ui small centered circular image" src="../../build/assets/angular.png">
+    <div class="ui top attached menu">
+        <a class="item" routerLink="/">
+            <i class="reply icon"></i>
+            返回
+        </a>
+    </div>
+    <div class="ui attached segment">
+        <table class="ui striped table">
+            <thead>
+                <tr>
+                    <th>设备编号</th>
+                    <th>设备名称</th>
+                    <th>单价</th>
+                    <th>保管人</th>
+                    <th>联系电话</th>
+                    <th>借出时间</th>
+                    <th>供货商</th>
+                    <th>联系电话</th>
+                    <th>报废</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let infoData of infoDatas" class="transition hidden">
+                    <td><a routerLink="/detailed/{{infoData.code}}">{{infoData.code}}</a></td>
+                    <td>{{infoData.name}}</td>
+                    <td>{{infoData.price}}</td>
+                    <td>{{infoData.keeper}}</td>
+                    <td>{{infoData.phone}}</td>
+                    <td>{{infoData.date}}</td>
+                    <td>{{infoData.supplier}}</td>
+                    <td>{{infoData.supplierTel}}</td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="ui bottom attached menu">
+        <div class="right menu">
+            <!-- <div class="ui pagination menu"> -->
+            <a class="item">
+                <i class="angle left icon"></i>
+            </a>
+            <a class="item">
+            1
+            </a>
+            <div class="disabled item">
+            ...
+            </div>
+            <a class="item">
+            10
+            </a>
+            <a class="item">
+            11
+            </a>
+            <a class="item">
+            12
+            </a>
+            <a class="item">
+                <i class="angle right icon"></i>
+            </a>
+            <!-- </div> -->
+        </div>
+
+    </div>
+</div>
+<my-footer></my-footer>

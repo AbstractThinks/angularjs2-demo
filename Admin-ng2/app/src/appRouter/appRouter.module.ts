@@ -1,19 +1,31 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {IndexComponent} from '../index/index.component';
-import {LoginComponent} from '../login/login.component';
 
+
+import {LoginComponent} from '../login/login.component';
+import {InfoComponent} from '../info/info.component';
+import {DetailedComponent} from '../detailed/detailed.component';
+
+/// <reference path="../../../typings/globals/jquery/index.d.ts" />
 const appRoutes: Routes = [
-        { path: 'index', component: IndexComponent },
-        { path: 'login', component: LoginComponent }
+
+        { path: 'login', component: LoginComponent },
+        { path: '', component: InfoComponent },
+        { path: 'detailed/:id', component: DetailedComponent }
 ];
 
 @NgModule({
   imports: [
-          RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes,{ useHash: true })
   ],
+
   exports: [
-          RouterModule
-  ]
+    RouterModule
+  ],
+
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+    constructor() {
+        $('.loading-dimmer').removeClass('visible active').addClass('hidden').removeAttr("style");
+    }
+}

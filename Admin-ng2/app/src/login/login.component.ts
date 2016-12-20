@@ -1,9 +1,25 @@
-import {Component}     from '@angular/core';
-
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
-  template:  ` <h2>login </h2> `,
-  // directives: [RouterOutlet],
-  // providers:  [CrisisService]
+  templateUrl: './login.html',
+  styleUrls: ['./login.style.css']
 })
-export class LoginComponent { }
+export class LoginComponent {
+
+    username:string = "";
+    password:string = "";
+
+    constructor(private router: Router) {
+    }
+
+    loginHandle():void {
+        if (this.username == 'admin' && this.password == "123456") {
+            alert(true);
+            this.router.navigate(['/']);
+        } else {
+            alert(false);
+
+        }
+    }
+}
