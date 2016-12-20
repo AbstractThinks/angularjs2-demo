@@ -5,6 +5,13 @@ html,body {
 .loading-dimmer {
     background-color: rgba(255,255,255,1)!important;
 }
+.ui.inverted.dimmer.loading-dimmer .ui.loader:after {
+    border-color: #FFF transparent transparent!important;
+}
+.ui.dimmer .ui.loader {
+    color: rgba(255,255,255,.9)!important;
+}
+
 .fluid-height {
     height: 100%!important;
 }
