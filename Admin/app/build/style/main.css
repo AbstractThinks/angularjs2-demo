@@ -5,12 +5,20 @@ html, body {
     height: 100%;
     font:12px/1.5 Arial,sans-serif; 
 }
+my-app {
+	height: 100%;
+}
 ng-component,
 my-app {
+	width: 100%;
 	display: block;
 	min-height: 100%;
 }
-
 my-app:after {
-	clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;
+	clear:both;
+	content:'.';
+	display:block;
+	width: 0;
+	height: 0;
+	visibility:hidden;
 }

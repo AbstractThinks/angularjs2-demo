@@ -32,11 +32,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'raw'
+                loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 versions'
             },
             {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+                test: /\.(scss|sass)$/,
+                loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 versions!sass?sourceMap'
             }
 
         ]
