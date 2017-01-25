@@ -1,0 +1,16 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font:12px/1.5 Arial,sans-serif; 
+}
+ng-component,
+my-app {
+	display: block;
+	min-height: 100%;
+}
+
+my-app:after {
+	clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;
+}
