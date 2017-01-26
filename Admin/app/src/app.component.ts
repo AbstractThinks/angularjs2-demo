@@ -10,7 +10,10 @@ import {Component}     from '@angular/core';
 @Component({
         selector: 'my-app',
         template:  `<router-outlet></router-outlet>`,
-        styleUrls: [require('./assets/style/main.css')],
+        styleUrls: [
+        	require('./assets/style/main.css'),
+        	require('./assets/style/semantic.css'),
+        ],
 })
 
 export class AppComponent { }

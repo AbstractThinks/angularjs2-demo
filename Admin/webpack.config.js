@@ -27,17 +27,19 @@ module.exports = {
                 loader: 'html'
             },
             {
-                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-                loader: 'file?name=build/assets/[name].[ext]'
+                test: /\.(scss|sass)$/,
+                loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 versions'
+                loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
             },
+            
             {
-                test: /\.(scss|sass)$/,
-                loader: 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 versions!sass?sourceMap'
-            }
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file?name=build/assets/[name].[ext]'
+            },
+            
 
         ]
     },
