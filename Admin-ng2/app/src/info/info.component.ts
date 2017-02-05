@@ -7,7 +7,7 @@ import {
     AfterContentChecked,
     ViewChild,
 
-}     from '@angular/core';
+} from '@angular/core';
 import {FooterComponent} from '../footer/footer.component';
 import { Http } from '@angular/http';
 
@@ -37,9 +37,9 @@ export class InfoComponent implements AfterViewChecked {
     }
 
 
-    modifyHandle():void {
-        this.infoModal.show({inverted: true});
-    }
+    // modifyHandle():void {
+    //     this.infoModal.show({inverted: true});
+    // }
 
     handleGetData():void {
         this.http
@@ -59,6 +59,13 @@ export class InfoComponent implements AfterViewChecked {
     }
 
     handleSave ():void {
+        // this.http
+        //     .post('http://k12.iyunbei.com/api/equipment')
+        //     .toPromise()
+        //     .then((response) => {
+               
+
+        //     })
         this.infoDatas.push({"name":"John Jesse1","date":"September 14, 2013","email":"jhlilk22@yahoo.com","male":"Yes"})
     }
     handleLibrarySave ():void {

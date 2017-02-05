@@ -35,3 +35,6 @@ html,body {
 }
 .ui.inverted.menu { background:rgba(0,0,0,0) }
 .ui.inverted.dimmer {background:rgba(0,0,0,0.85)!important;}
+.container-min-height {
+    min-height: 100%;
+}

@@ -1,4 +1,4 @@
-<div class="ui ng-container row gradient">
+<div class="ui ng-container row gradient container-min-height">
     <my-header></my-header>
     <img class="ui small centered circular image" src="../../build/assets/angular.png">
     <div class="ui top attached menu">
@@ -14,25 +14,24 @@
                     <th>设备编号</th>
                     <th>设备名称</th>
                     <th>单价</th>
-                    <th>保管人</th>
-                    <th>联系电话</th>
                     <th>借出时间</th>
                     <th>供货商</th>
                     <th>联系电话</th>
-                    <th>报废</th>
+                    <th>设备状态</th>
+                    <th>历史记录</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let infoData of infoDatas" class="transition hidden">
-                    <td><a routerLink="/detailed/{{infoData.code}}">{{infoData.code}}</a></td>
-                    <td>{{infoData.name}}</td>
-                    <td>{{infoData.price}}</td>
-                    <td>{{infoData.keeper}}</td>
-                    <td>{{infoData.phone}}</td>
-                    <td>{{infoData.date}}</td>
-                    <td>{{infoData.supplier}}</td>
-                    <td>{{infoData.supplierTel}}</td>
-                    <td></td>
+                    <td><a routerLink="/detailed/{{infoData.code}}">{{infoData.barCode}}</a></td>
+                    <td>{{infoData.id}}</td>
+                    <td>{{infoData.equipmentGeneralId}}</td>
+                    <td>{{infoData.comment}}</td>
+                    <td>{{infoData.staffId}}</td>
+                    <td>{{infoData.seriesNumber}}</td>
+                    <td *ngIf="infoData.status == '尚未出借'" (click)="borrowHandle(infoData)">{{infoData.status}}</td>
+                    <td *ngIf="infoData.status == '未归还'" >{{infoData.status}}</td>
+                    <td   (click)="libraryHistoryHandle(infoData.id)">历史记录</td>
                 </tr>
 
             </tbody>
@@ -68,3 +67,86 @@
     </div>
 </div>
 <my-footer></my-footer>
+<sm-modal title="Hello from Modal" class="" icon="home" #libraryModal>
+    <modal-content>
+        <form class="ui form">
+            <div class="four fields">
+                <div class="field">
+                  <label>流水号</label>
+                  <input type="text" name="first-name" placeholder="First Name" [(ngModel)]="borrowData.seriesNumber">
+                </div>
+                <div class="field">
+                  <label>barCode</label>
+                  <input type="text" name="last-name" placeholder="Last Name" [(ngModel)]="borrowData.barCode">
+                </div>
+                <div class="field">
+                  <label>staffId</label>
+                  <input type="text" name="first-name" placeholder="First Name" [(ngModel)]="borrowData.staffId">
+                </div>
+                <div class="field">
+                  <label>status</label>
+                  <input type="text" name="last-name" placeholder="Last Name" [(ngModel)]="borrowData.status">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                  <label>comment</label>
+                  <input type="text" name="first-name" placeholder="First Name" [(ngModel)]="borrowData.comment">
+                </div>
+                <div class="field">
+                  <label>dueDate</label>
+                  <input type="text" name="last-name" placeholder="Last Name" [(ngModel)]="borrowData.dueDate">
+                </div>
+                <div class="field">
+                  <label>equipmentGeneralId</label>
+                  <input type="text" name="last-name" placeholder="Last Name" [(ngModel)]="borrowData.equipmentGeneralId">
+                </div>
+            </div>
+
+
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleLibrarySave()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="libraryModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+<sm-modal title="Hello from Modal" class="" icon="home" #libraryHistoryModal>
+    <modal-content>
+        <table class="ui striped table">
+            <thead>
+                <tr>
+                    <th>设备编号</th>
+                    <th>设备名称</th>
+                    <th>单价</th>
+                    <th>借出时间</th>
+                    <th>供货商</th>
+                    <th>联系电话</th>
+                    <th>设备状态</th>
+                    <th>历史记录</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let infoData of historys" class="transition hidden">
+                    <td><a routerLink="/detailed/{{infoData.code}}">{{infoData.barCode}}</a></td>
+                    <td>{{infoData.id}}</td>
+                    <td>{{infoData.equipmentGeneralId}}</td>
+                    <td>{{infoData.comment}}</td>
+                    <td>{{infoData.staffId}}</td>
+                    <td>{{infoData.seriesNumber}}</td>
+                    <td *ngIf="infoData.status == '尚未出借'" (click)="borrowHandle(infoData)">{{infoData.status}}</td>
+                    <td *ngIf="infoData.status == '未归还'" >{{infoData.status}}</td>
+                    <td (click)="libraryHistoryModal(infoData.id)">历史记录</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button red" (click)="libraryHistoryModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>

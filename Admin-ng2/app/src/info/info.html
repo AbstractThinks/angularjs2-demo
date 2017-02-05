@@ -1,7 +1,7 @@
 
-<div class="ui ng-container row gradient">
+<div class="ui ng-container row gradient container-min-height">
     <my-header></my-header>
-    <img class="ui small centered circular image" src="../../build/assets/angular.png">
+    <!-- <img class="ui small centered circular image" src="../../build/assets/angular.png"> -->
     <!-- <div class="ui left top attached menu">
         <div class="left menu">
             <div class="ui item">
@@ -28,10 +28,10 @@
             <i class="plus icon"></i>
             修改设备
         </a>
-        <a class="item" (click)="libraryModal.show({inverted: true})">
+       <!--  <a class="item" (click)="libraryModal.show({inverted: true})">
             <i class="grid layout icon"></i>
             新增出库
-        </a>
+        </a> -->
     </div>
     <div class="ui attached segment">
         <table class="ui striped table">
@@ -46,7 +46,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let infoData of infoDatas" class="transition hidden">
-                    <td><a routerLink="/detailed/{{infoData.code}}">{{infoData.code}}</a></td>
+                    <td><a routerLink="/detailed/2">{{infoData.code}}</a></td>
                     <td>{{infoData.name}}</td>
                     <td>{{infoData.num}}</td>
                     <td>{{infoData.library}}</td>
@@ -89,36 +89,34 @@
 <sm-modal title="Hello from Modal" class="" icon="home" #infoModal>
     <modal-content>
         <form class="ui form">
-            <div class="four fields">
+            <div class="three fields">
                 <div class="field">
-                  <label>First Name</label>
-                  <input type="text" name="first-name" placeholder="First Name">
+                  <label>设备名称</label>
+                  <input type="text" name="first-name" >
                 </div>
                 <div class="field">
-                  <label>Last Name</label>
-                  <input type="text" name="last-name" placeholder="Last Name">
+                  <label>设备品牌</label>
+                  <input type="text" name="last-name" >
                 </div>
                 <div class="field">
-                  <label>First Name</label>
-                  <input type="text" name="first-name" placeholder="First Name">
-                </div>
-                <div class="field">
-                  <label>Last Name</label>
-                  <input type="text" name="last-name" placeholder="Last Name">
+                  <label>设备型号</label>
+                  <input type="text" name="first-name" >
                 </div>
             </div>
-            <div class="two fields">
+            <div class="three fields">
                 <div class="field">
-                  <label>First Name</label>
-                  <input type="text" name="first-name" placeholder="First Name">
+                  <label>设备类型</label>
+                  <input type="text" name="last-name" >
                 </div>
                 <div class="field">
-                  <label>Last Name</label>
-                  <input type="text" name="last-name" placeholder="Last Name">
+                  <label>设备价格</label>
+                  <input type="text" name="first-name" >
+                </div>
+                <div class="field">
+                  <label>供应商</label>
+                  <input type="text" name="last-name" >
                 </div>
             </div>
-
-
         </form>
     </modal-content>
     <modal-actions>
@@ -129,45 +127,4 @@
     </modal-actions>
 </sm-modal>
 
-<sm-modal title="Hello from Modal" class="" icon="home" #libraryModal>
-    <modal-content>
-        <form class="ui form">
-            <div class="four fields">
-                <div class="field">
-                  <label>First Name</label>
-                  <input type="text" name="first-name" placeholder="First Name">
-                </div>
-                <div class="field">
-                  <label>Last Name</label>
-                  <input type="text" name="last-name" placeholder="Last Name">
-                </div>
-                <div class="field">
-                  <label>First Name</label>
-                  <input type="text" name="first-name" placeholder="First Name">
-                </div>
-                <div class="field">
-                  <label>Last Name</label>
-                  <input type="text" name="last-name" placeholder="Last Name">
-                </div>
-            </div>
-            <div class="two fields">
-                <div class="field">
-                  <label>First Name</label>
-                  <input type="text" name="first-name" placeholder="First Name">
-                </div>
-                <div class="field">
-                  <label>Last Name</label>
-                  <input type="text" name="last-name" placeholder="Last Name">
-                </div>
-            </div>
 
-
-        </form>
-    </modal-content>
-    <modal-actions>
-        <div class="ui buttons">
-            <div class="ui button green" (click)="handleLibrarySave()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
-            <div class="ui button red" (click)="libraryModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
-        </div>
-    </modal-actions>
-</sm-modal>
