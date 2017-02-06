@@ -1,5 +1,5 @@
 
-<div class="ui ng-container row gradient container-min-height">
+<div class="ui container row">
     <my-header></my-header>
     <!-- <img class="ui small centered circular image" src="../../build/assets/angular.png"> -->
     <!-- <div class="ui left top attached menu">
@@ -24,16 +24,16 @@
             <i class="content icon"></i>
             新增设备
         </a>
-        <a class="item" (click)="modifyHandle()">
+        <!-- <a class="item" (click)="modifyHandle()">
             <i class="plus icon"></i>
             修改设备
-        </a>
+        </a> -->
        <!--  <a class="item" (click)="libraryModal.show({inverted: true})">
             <i class="grid layout icon"></i>
             新增出库
         </a> -->
     </div>
-    <div class="ui attached segment">
+    <div class="ui attached segment table-frame">
         <table class="ui striped table">
             <thead>
                 <tr>
@@ -92,29 +92,43 @@
             <div class="three fields">
                 <div class="field">
                   <label>设备名称</label>
-                  <input type="text" name="first-name" >
+                  <input type="text" name="first-name"  [(ngModel)]="equipment.name">
                 </div>
                 <div class="field">
                   <label>设备品牌</label>
-                  <input type="text" name="last-name" >
+                  <input type="text" name="last-name"  [(ngModel)]="equipment.brand">
                 </div>
                 <div class="field">
                   <label>设备型号</label>
-                  <input type="text" name="first-name" >
+                  <input type="text" name="first-name"  [(ngModel)]="equipment.model">
                 </div>
             </div>
             <div class="three fields">
                 <div class="field">
                   <label>设备类型</label>
-                  <input type="text" name="last-name" >
+                  <input type="text" name="last-name"  [(ngModel)]="equipment.type">
                 </div>
                 <div class="field">
                   <label>设备价格</label>
-                  <input type="text" name="first-name" >
+                  <input type="number" name="first-name"  [(ngModel)]="equipment.price">
                 </div>
                 <div class="field">
                   <label>供应商</label>
-                  <input type="text" name="last-name" >
+                  <input type="text" name="last-name"  [(ngModel)]="equipment.supplier">
+                </div>
+            </div>
+            <div class="three fields">
+                <div class="field">
+                  <label>购买时间</label>
+                  <input type="date" name="last-name"  [(ngModel)]="equipment.purchaseDate">
+                </div>
+                <div class="field">
+                  <label>生产日期</label>
+                  <input type="date" name="first-name"  [(ngModel)]="equipment.productionDate">
+                </div>
+                <div class="field">
+                  <label>数量</label>
+                  <input type="number" name="first-name"  [(ngModel)]="equipment.totalQuantity">
                 </div>
             </div>
         </form>

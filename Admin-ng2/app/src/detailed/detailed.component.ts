@@ -3,45 +3,41 @@ import {
     AfterViewChecked,
     ViewChild,
 
-}     from '@angular/core';
+} from '@angular/core';
 import {FooterComponent} from '../footer/footer.component';
-import { Http } from '@angular/http';
-import {ActivatedRoute} from '@angular/router';
+import { Http,Headers,Response } from '@angular/http';
+import {Location} from '@angular/common';
+import {UrlService} from '../service/urlService.component';
+
 @Component({
   templateUrl: './detailed.html',
+  providers: [UrlService]
   // directives: [FooterComponent]
 })
 export class DetailedComponent implements AfterViewChecked{
+
     infoDatas:any = [];
+    borrowData:any = [];
+    historys:any = [];
+
     @ViewChild('libraryModal')
     libraryModal:any;
     @ViewChild('libraryHistoryModal')
     libraryHistoryModal:any;
-    constructor(private http: Http, private router: ActivatedRoute) {
-        // console.log()
-        // this.http
-        //     .get('../app/mockData/tableDatas2.json')
-        //     .toPromise()
-        //     .then((response) => {
-        //         this.infoDatas = response.json();
-        //     });
+
+    constructor(private http: Http, private location: Location, private urlService: UrlService) {
+
         let that = this;
+
+
         this.http
-            .get(`http://k12.iyunbei.com/api/equipment-specific?equipmentGeneralId=${this.router.url._value[1].path}`)
+            .get(`http://k12.iyunbei.com/api/equipment-specific?equipmentGeneralId=${location.path().split('/detailed/')[1]}`)
             .toPromise()
             .then((response) => {
                 console.log(response.json())
                 that.infoDatas = response.json();
             });
-        this.borrowData = {
-            "seriesNumber":"",
-            "barCode":"",
-            "staffId":"",
-            "status":"",
-            "comment":"",
-            "dueDate":"",
-            "equipmentGeneralId":""
-        }
+        this.borrowData = {}
         this.historys = []
 
     }
@@ -80,21 +76,24 @@ export class DetailedComponent implements AfterViewChecked{
         this.libraryHistoryModal.show({inverted: true});
         let that = this;
         this.http
-            .get(`http://k12.iyunbei.com/api/equipment-history?equipmentSpecificId=8`)
+            .get(`http://k12.iyunbei.com/api/equipment-history?equipmentSpecificId=${e}`)
             .toPromise()
             .then((response) => {
-                that.historys = [
-                    ...that.historys,
-                    ...response.json()
-                ]
+                console.log(response.json())
+                that.historys = response.json()
             })
     }
     handleLibrarySave(e:any):void {
+        let that = this;
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let data = this.urlService.urlEncode(that.borrowData).substr(1);
+        alert(data)
         this.http
-            .post('../app/mockData/tableDatas.json')
+            .post(`http://k12.iyunbei.com/api/equipment-specific/?${data}`,data,{headers: headers})
             .toPromise()
             .then((response) => {
-                that.infoDatas = response.json();
+                console.log(response.json())
+                // that.infoDatas = response.json();
             })
     }
 
