@@ -21,7 +21,7 @@ import {UrlService} from '../service/urlService.component'
   // directives: [FooterComponent]
 })
 export class InfoComponent implements AfterViewChecked {
-    infoDatas:any = [];
+    infoDatas:any = {};
     equipment:any = {};
 
     @ViewChild('infoModal')
@@ -29,7 +29,7 @@ export class InfoComponent implements AfterViewChecked {
 
     constructor(private http: Http, private urlService: UrlService) {
         this.http
-            .get('../app/mockData/tableDatas.json')
+            .get('http://k12.iyunbei.com/api/equipment/1/1/10')
             .toPromise()
             .then((response) => {
                 let that = this;
@@ -53,6 +53,7 @@ export class InfoComponent implements AfterViewChecked {
                 let that = this;
                 setTimeout(function () {
                     that.infoDatas = response.json();
+                    that.infoModal.hide()
                 }, 5000);
 
             })

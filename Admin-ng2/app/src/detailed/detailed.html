@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let infoData of infoDatas" class="transition hidden">
-                    <td><a routerLink="/detailed/{{infoData.code}}">{{infoData.barCode}}</a></td>
+                    <td>{{infoData.barCode}}</td>
                     <td>{{infoData.id}}</td>
                     <td>{{infoData.equipmentGeneralId}}</td>
                     <td>{{infoData.comment}}</td>

@@ -42,15 +42,25 @@
                     <th>设备数量</th>
                     <th>库存号</th>
                     <th>使用状态</th>
+                    <th>设备数量</th>
+                    <th>库存号</th>
+                    <th>使用状态</th>
+                    <th>设备数量</th>
+                    <th>库存号</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let infoData of infoDatas" class="transition hidden">
-                    <td><a routerLink="/detailed/2">{{infoData.code}}</a></td>
+                <tr *ngFor="let infoData of infoDatas.entries" class="transition hidden">
+                    <td><a routerLink="/detailed/{{infoData.id}}">{{infoData.id}}</a></td>
+                    <td>{{infoData.brand}}</td>
+                    <td>{{infoData.inventoryQuantity}}</td>
+                    <td>{{infoData.model}}</td>
                     <td>{{infoData.name}}</td>
-                    <td>{{infoData.num}}</td>
-                    <td>{{infoData.library}}</td>
-                    <td>{{infoData.status}}</td>
+                    <td>{{infoData.price}}</td>
+                    <td>{{infoData.schoolId}}</td>
+                    <td>{{infoData.supplier}}</td>
+                    <td>{{infoData.totalQuantity}}</td>
+                    <td>{{infoData.type}}</td>
                 </tr>
             </tbody>
         </table>
