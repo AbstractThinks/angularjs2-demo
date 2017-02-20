@@ -8,7 +8,7 @@ import {AppComponent } from './app.component';
 import {LoginComponent} from './login/login.component';
 import {InfoComponent} from './info/info.component';
 import {DetailedComponent} from './detailed/detailed.component';
-import {FooterComponent} from './footer/footer.component';
+// import {FooterComponent} from './footer/footer.component';
 import {HeaderComponent} from './header/header.component';
 import {Routing} from './appRouter/appRouter.component';
 
