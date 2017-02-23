@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// import {appLoginModule} from '../appLoginModule/login.module';
+import {appLoginModule} from '../appLoginModule/login.module';
 import {Login1Component} from '../appLoginModule/login1.component'
 const appRoutes: Routes = [
 
@@ -12,10 +12,10 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes,{ useHash: true }), 
+    RouterModule.forRoot(appRoutes,{ useHash: true }),
+    appLoginModule, 
   ],
-   declarations: [
-    Login1Component,
+  declarations: [
   ],
   exports: [
     RouterModule

@@ -17,7 +17,7 @@ enableProdMode();
         BrowserModule,
         HttpModule,
         AppRoutingModule,
-        MaterialModule.forRoot(),
+        
     ],
     declarations: [
     	AppComponent,

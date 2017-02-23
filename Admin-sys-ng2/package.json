@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --watch",
-    "start": "browser-sync start --server --no-notify --files --files './'",
+    "start": "browser-sync start --server --no-notify --files './'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
