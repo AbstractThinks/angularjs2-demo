@@ -1,0 +1,49 @@
+{
+  "name": "school",
+  "version": "1.0.0",
+  "description": "manage system of school",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js --watch",
+    "start": "browser-sync start --server --no-notify --files --files './'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angular2"
+  ],
+  "author": "jesse",
+  "license": "ISC",
+  "devDependencies": {
+    "angular2-template-loader": "^0.6.0",
+    "array-flatten": "^2.1.1",
+    "autoprefixer": "^6.7.5",
+    "awesome-typescript-loader": "^3.0.0-beta.9",
+    "css-loader": "^0.26.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "node-sass": "^4.5.0",
+    "postcss-loader": "^1.3.1",
+    "precss": "^1.4.0",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.2",
+    "style-loader": "^0.13.1",
+    "typescript": "^2.0.10",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "@angular/common": "^2.2.3",
+    "@angular/compiler": "^2.2.3",
+    "@angular/core": "^2.3.1",
+    "@angular/forms": "^2.3.1",
+    "@angular/http": "^2.2.3",
+    "@angular/material": "^2.0.0-beta.2",
+    "@angular/platform-browser": "^2.2.3",
+    "@angular/platform-browser-dynamic": "^2.2.3",
+    "@angular/router": "^3.2.3",
+    "core-js": "^2.4.1",
+    "ng2-materialize": "^1.1.1",
+    "rxjs": "^5.0.0-beta.12",
+    "zone.js": "^0.6.26"
+  }
+}
