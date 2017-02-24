@@ -1,21 +1,27 @@
-<md-sidenav-container class="container">
-  <md-sidenav #sidenav class="sidenav"  mode="side" >
-	
+<md-sidenav-container class="container" color="primary">
+  <md-sidenav #sidenav class="sidenav" mode="side" >
 	<md-list>
-		<h3 md-subheader>学校管理系统</h3>
-		<a md-list-item href="..." *ngFor="let menuitem of menu">
-			<md-icon md-list-icon>{{menuitem.iconFont}}</md-icon>
-			<h4 md-line>{{menuitem.name}}</h4>
-		</a>
+		<h3 md-subheader  fxLayout="row" fxLayoutAlign=" center" ><md-icon color="primary">cloud</md-icon><span>&nbsp;学校管理系统</span></h3>
 		<md-divider></md-divider>
+		<a md-menu-item routerLink="{{menuitem.url}}" *ngFor="let menuitem of menu">
+			<md-icon>{{menuitem.iconFont}}</md-icon>
+			<span>{{menuitem.name}}</span>
+		</a>
+		
 	</md-list>
+
   </md-sidenav>
 
   <div class="sidenav-content" fxLayout="row" fxLayoutAlign="space-between center" >
-    <button md-button (click)="sidenav.toggle()">
-      <md-icon md-list-icon>menuitem</md-icon>
-    </button>
-    <div fxLayout="row" fxLayoutAlign="end center" >
+  	<md-toolbar color="primary">
+	  <md-toolbar-row>
+	    <!-- <span>Third Line</span> -->
+	    <button md-icon-button (click)="sidenav.toggle()">
+	      <md-icon >menuitem</md-icon>
+	    </button>
+	  
+	   
+		<div class="spacer"></div>
 		<button md-icon-button [mdMenuTriggerFor]="menubtn">
 		    <md-icon>more_vert</md-icon>
 		</button>
@@ -34,10 +40,17 @@
 		    </button>
 		</md-menu>
 
-    </div>
+    
+	  </md-toolbar-row>
+	</md-toolbar>
+    
+    
     
   </div>
-<router-outlet></router-outlet>
+  <div class="content-container">
+  	<router-outlet></router-outlet>
+  </div>
+
 </md-sidenav-container>
 
 

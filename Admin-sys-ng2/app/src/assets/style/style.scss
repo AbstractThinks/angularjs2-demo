@@ -13,11 +13,13 @@ my-app{
 }
 login1-form,
 .login-form-container,
-md-sidenav-container {
+md-sidenav-container{
 	height: 100%;
 	width: 100%;
 }
-
+.spacer {
+  flex: 1 1 auto;
+}
 
 /**
  *  login
@@ -34,8 +36,16 @@ login1-form {
  * nav
  */
 
-md-list a {
-	text-decoration: none;
+md-sidenav .mat-menu-item {
+	padding: 0px 40px;
+}
+
+/**
+ * content
+ */
+
+.content-container {
+	padding: 20px;
 }
 
 
