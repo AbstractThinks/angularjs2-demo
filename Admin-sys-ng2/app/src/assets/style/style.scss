@@ -20,6 +20,15 @@ md-sidenav-container{
 .spacer {
   flex: 1 1 auto;
 }
+.mat-card {
+	margin: 8px;
+}
+.pd8 {
+	padding: 8;
+}
+
+
+
 
 /**
  *  login
@@ -46,6 +55,13 @@ md-sidenav .mat-menu-item {
 
 .content-container {
 	padding: 20px;
+}
+
+/**
+ * myresources-component
+ */
+myresources-component {
+	width: 100%;
 }
 
 

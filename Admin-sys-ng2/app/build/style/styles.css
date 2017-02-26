@@ -14,6 +14,12 @@ login1-form, .login-form-container, md-sidenav-container {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto; }
 
+.mat-card {
+  margin: 8px; }
+
+.pd8 {
+  padding: 8; }
+
 /**
  *  login
  */
@@ -34,5 +40,11 @@ md-sidenav .mat-menu-item {
  */
 .content-container {
   padding: 20px; }
+
+/**
+ * myresources-component
+ */
+myresources-component {
+  width: 100%; }
 
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJidWlsZC9zdHlsZS9zdHlsZXMuY3NzIiwic291cmNlUm9vdCI6IiJ9*/
