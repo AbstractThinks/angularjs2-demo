@@ -11,7 +11,7 @@ import {PersonnelComponent} from '../appContentModule/component/personnel/person
 import {PreparingexamsComponent} from '../appContentModule/component/preparingexams/preparingexams.component';
 import {PreparinglessonComponent} from '../appContentModule/component/preparinglesson/preparinglesson.component';
 import {ResourcesComponent} from '../appContentModule/component/resources/resources.component';
-
+import {DetailedComponent} from '../appContentModule/component/detailed/detailed.component';
 
 
 export const appContentRoutes: Routes = [
@@ -28,7 +28,8 @@ export const appContentRoutes: Routes = [
         { path: 'personnel', component: PersonnelComponent},
         { path: 'preparingexams', component: PreparingexamsComponent},
         { path: 'preparinglesson', component: PreparinglessonComponent},
-       	{ path: 'resources', component: ResourcesComponent}
+       	{ path: 'resources', component: ResourcesComponent},
+        { path: 'detailed', component: DetailedComponent}
       ]
     }
 ];

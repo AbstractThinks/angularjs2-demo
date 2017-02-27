@@ -1,9 +1,11 @@
-html,
+
+
+
 /**
  * global
  */
 
-body,
+html,body,
 my-app{
 	height: 100%;
 	width: 100%;
@@ -13,9 +15,11 @@ my-app{
 }
 login1-form,
 .login-form-container,
-md-sidenav-container{
+md-sidenav-container,{
 	height: 100%;
 	width: 100%;
+	background-color: #303030;
+    color: #fff;
 }
 .spacer {
   flex: 1 1 auto;
@@ -23,11 +27,17 @@ md-sidenav-container{
 .mat-card {
 	margin: 8px;
 }
-.pd8 {
-	padding: 8;
+
+@for $i from 1 to 10 {
+    .pd#{$i*8} {
+        padding: #{$i*8}px;
+    }
 }
-
-
+@for $i from 1 to 10 {
+    .mg#{$i*8} {
+        margin: #{$i*8}px;
+    }
+}
 
 
 /**
@@ -61,7 +71,34 @@ md-sidenav .mat-menu-item {
  * myresources-component
  */
 myresources-component {
+	height: 100%;
 	width: 100%;
+	display: block;
+}
+
+/**
+ * assets-component
+ */
+assets-component {
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+/**
+ * personnel-component
+ */
+
+personnel-component {
+	height: 100%;
+    width: 100%;
+}
+/**
+ * personal-component
+ */
+personal-component {
+	height: 100%;
+    width: 100%;
 }
 
 

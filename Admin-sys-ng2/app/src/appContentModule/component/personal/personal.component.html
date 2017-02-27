@@ -1,6 +1,158 @@
-<md-tab-group>
-  <md-tab label="Tab 1"><span mdTooltip="Tooltip!">I have a tooltip</span></md-tab>
+<!-- <md-tab-group>
+  <md-tab label="Tab 1">
+
+
+  	<div class="button-row">
+    <button md-button>Flat button</button>
+    <button md-raised-button>Raised button</button>
+    <button md-fab><md-icon>check</md-icon></button>
+    <button md-mini-fab><md-icon>check</md-icon></button>
+  </div>
+  <image-upload></image-upload>
+  <div class="button-row">
+    <a md-button routerLink=".">Flat button</a>
+    <a md-raised-button routerLink=".">Raised button</a>
+    <a md-fab routerLink="."><md-icon>check</md-icon></a>
+    <a md-mini-fab routerLink="."><md-icon>check</md-icon></a>
+  </div>
+  	  	<md-input-container>
+		  <input mdInput placeholder="bangding"  [(ngModel)]="infoDatas.purchaseDate" name="first" [ngModelOptions]="{standalone: true}">
+		</md-input-container>
+		<p class="alert alert-danger" >required error</p>
+
+  	<md-input-container>
+	  <input mdInput placeholder="Favorite food" value="Sushi">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="date" type="date">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="datetime-local" type="datetime-local">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="email" type="email">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="month" type="month">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="number" type="number">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="password" type="password">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="search" type="search">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="tel" type="tel">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="time" type="time">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="url" type="url">
+	</md-input-container>
+	<md-input-container>
+	  <input mdInput placeholder="week" type="week">
+	</md-input-container>
+	  <ng2-file-input></ng2-file-input> 
+	<md-radio-group>
+	  <md-radio-button value="0">
+	    男
+	  </md-radio-button>
+	  <md-radio-button value="1">
+	    女
+	  </md-radio-button>
+	  <md-select placeholder="Favorite food" name="food">
+	    <md-option value="apple">
+	     apple
+	    </md-option>
+	    <md-option value="banana">
+	     banana
+	    </md-option>
+	    <md-option value="pear">
+	     pear
+	    </md-option>
+	   	
+	  </md-select>
+	  <md-slide-toggle>Slide me!</md-slide-toggle>
+	  <md-slider thumbLabel min="1" max="100" step="1" value="10"></md-slider>
+	</md-radio-group>
+	<md-chip-list>
+	  <md-chip>One fish</md-chip>
+	  <md-chip>Two fish</md-chip>
+	  <md-chip color="primary" selected="true">Primary fish</md-chip>
+	  <md-chip color="accent" selected="true">Accent fish</md-chip>
+	</md-chip-list>
+  </md-tab>
   <md-tab label="Tab 2">
 	<md-spinner></md-spinner>
+	<md-progress-bar mode="indeterminate"></md-progress-bar>
   </md-tab>
+</md-tab-group> -->
+
+
+<md-tab-group>
+	<md-tab label="个人信息">
+		<!-- <div fxLayout="row" fxLayoutAlign="space-around start" > -->
+			<div fxLayout="column" fxLayoutAlign="center center" >
+				<div class="row" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" class="pd16">
+					<div>
+					    <md-input-container>
+					        <input mdInput placeholder="教师姓名" value="Sushi">
+					    </md-input-container>
+					</div>
+					<div>
+					    <md-input-container >
+					        <input mdInput placeholder="教师编号" value="Sushi">
+					    </md-input-container>
+					</div>
+					<div>
+					    <md-input-container >
+					        <input mdInput placeholder="教师编号" value="Sushi">
+					    </md-input-container>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div>
+			   <md-select placeholder="性别" name="food">
+			    <md-option value="apple">
+			     男
+			    </md-option>
+			    <md-option value="banana">
+			     女
+			    </md-option>
+			  </md-select>
+			</div>
+
+
+		<!-- </div> -->
+		<!-- <div fxLayout="row" fxLayoutAlign="space-around start" > -->
+			<div fxFlex="20"></div>
+			<div fxFlex="20"></div>
+			<div fxFlex="20"></div>
+			
+		<!-- </div> -->
+		<!-- <div fxLayout="row" fxLayoutAlign="space-around start" > -->
+			<div fxFlex="20"></div>
+			<div fxFlex="20"></div>
+			<div fxFlex="20"></div>
+			
+		<!-- </div> -->
+		<!-- <div fxLayout="row" fxLayoutAlign="space-around start" > -->
+			<div fxFlex="20"></div>
+			<div fxFlex="20"></div>
+			<div fxFlex="20"></div>
+			
+		<!-- </div> -->
+		<!-- <div fxLayout="row" fxLayoutAlign="space-around start" > -->
+			<div fxFlex="20"></div>
+			<div fxFlex="20"></div>
+			<div fxFlex="20"></div>
+			
+		<!-- </div> -->
+	</md-tab>
 </md-tab-group>

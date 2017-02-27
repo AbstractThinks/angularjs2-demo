@@ -1,2 +1,25 @@
-
-assets
+<table class="ui striped celled table primary" color="">
+    <thead>
+        <tr>
+            <th>设备编码</th>
+            <th>设备名称</th>
+            <th>设备数量</th>
+            <th>库存号</th>
+            <th>使用状态</th>
+            <th>设备数量</th>
+            <th>库存号</th>
+            <th>使用状态</th>
+            <th>设备数量</th>
+            <th>库存号</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let infoData of data.resources">
+            <td>{{infoData.name}}</td>
+            <td>{{infoData.price}}</td>
+            <td>{{infoData.person}}</td>
+            <td>{{infoData.status}}</td>
+            <td>{{infoData.date}}</td>
+        </tr>
+    </tbody>
+</table>
