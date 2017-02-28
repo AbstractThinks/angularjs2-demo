@@ -1,0 +1,62 @@
+<md-sidenav-container class="container" color="primary">
+  <md-sidenav #sidenav class="sidenav" mode="">
+	<md-list>
+		<h3 md-subheader  fxLayout="row" fxLayoutAlign=" center" ><md-icon >cloud</md-icon><span>&nbsp;学校管理系统</span></h3>
+		<md-divider></md-divider>
+		<a md-menu-item routerLink="{{menuitem.url}}" *ngFor="let menuitem of menu">
+			<md-icon>{{menuitem.iconFont}}</md-icon>
+			<span>{{menuitem.name}}</span>
+		</a>
+		
+	</md-list>
+
+  </md-sidenav>
+
+  
+
+  <div class="sidenav-content" fxLayout="row" fxLayoutAlign="space-between center" >
+  	<md-toolbar color="primary">
+	  <!-- <md-toolbar-row> -->
+	    <!-- <span>Third Line</span> -->
+	    <button md-icon-button (click)="sidenav.toggle()">
+	      <md-icon >menuitem</md-icon>
+	    </button>
+		<div class="spacer"></div>
+
+		<img class="ui mini circular image" src="../assets/img/header.png" [mdMenuTriggerFor]="menubtn">
+		<!-- <md-divider></md-divider> -->
+		<!-- <md-icon >more_vert</md-icon> -->
+		<button md-icon-button [mdMenuTriggerFor]="menubtn">
+		    <md-icon>notifications</md-icon>
+		</button>
+		<md-menu #menubtn="mdMenu">
+		    <button md-menu-item>
+		        <md-icon>dialpad</md-icon>
+		        <span>Redial</span>
+		    </button>
+		    <button md-menu-item disabled>
+		        <md-icon>voicemail</md-icon>
+		        <span>Check voicemail</span>
+		    </button>
+		    <button md-menu-item>
+		        <md-icon>notifications_off</md-icon>
+		        <span>Disable alerts</span>
+		    </button>
+		</md-menu>
+
+    
+	  <!-- </md-toolbar-row> -->
+	</md-toolbar>
+    
+    
+    
+  </div>
+  <div fxfill fxLayout="row" fxLayoutAlign=" none" class="content-container">
+  	<router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>
+
+
+
+
