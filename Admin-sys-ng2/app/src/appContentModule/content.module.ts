@@ -15,6 +15,10 @@ import { appContentRoutesModule } from '../appRouterModule/appContentRouter.modu
 import { ContentComponent } from './content.component';
 import { PublicModule } from '../appPublicModule/public.module';
 import {PersonalComponent} from './component/personal/personal.component';
+import {PersonalInfomationComponent} from './component/personal/infomation.component';
+import {PersonalFavouriteComponent} from './component/personal/favourite.component';
+import {PersonalUploadComponent} from './component/personal/upload.component';
+
 import {AssetsComponent} from './component/assets/assets.component';
 import {AuditingComponent} from './component/auditing/auditing.component';
 import {MyresourcesComponent} from './component/myresources/myresources.component';
@@ -25,12 +29,18 @@ import {ResourcesComponent} from './component/resources/resources.component';
 import {DetailedComponent} from './component/detailed/detailed.component';
 
 
+
 @NgModule({
 	imports: [
         FormsModule,
 		MaterialModule.forRoot(),
 		FlexLayoutModule.forRoot(),
-        Ng2FileInputModule.forRoot(),
+        Ng2FileInputModule.forRoot({
+            dropText:"请将文件拖拽到这里",
+            browseText:"选择文件",
+            removeText:"移除文件",
+            invalidFileText:"你选择了一个无效的文件"
+        }),
 		CommonModule,
 		PublicModule,
 		appContentRoutesModule,
@@ -42,6 +52,9 @@ import {DetailedComponent} from './component/detailed/detailed.component';
     declarations: [
         ContentComponent,
         PersonalComponent,
+        PersonalInfomationComponent,
+        PersonalFavouriteComponent,
+        PersonalUploadComponent,
         AssetsComponent,
         AuditingComponent,
         MyresourcesComponent,

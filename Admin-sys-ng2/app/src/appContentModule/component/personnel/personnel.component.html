@@ -1,4 +1,23 @@
-人事管理中心
+<div fxLayout="column" fxLayoutAlign="center center" class="full-width" class.xs="pd0 mg-tb16" class.sm="pd16" class.md="pd32" class.lg="pd64 pd-10" class.xl="pd64 pd-20">
+	<md-toolbar>
+		<button md-raised-button>新增员工</button>
+		<button md-raised-button>修改员工</button>
+		<button md-raised-button>删除员工</button>
+		<button md-raised-button>查询员工</button>
+	</md-toolbar>
+	<ngx-datatable 
+		class="material"
+		[rows]="rows" 
+		[columns]="columns" 
+		[columnMode]="'force'"
+		[headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [count]="count"
+        [limit]="limit"
 
-
-<ngx-datatable [rows]="rows" [columns]="columns"></ngx-datatable>
+		fxFlexFill
+		>
+			
+	</ngx-datatable>
+</div>

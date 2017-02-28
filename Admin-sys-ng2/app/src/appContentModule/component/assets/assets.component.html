@@ -1,25 +1,23 @@
-<table class="ui striped celled table primary" color="">
-    <thead>
-        <tr>
-            <th>设备编码</th>
-            <th>设备名称</th>
-            <th>设备数量</th>
-            <th>库存号</th>
-            <th>使用状态</th>
-            <th>设备数量</th>
-            <th>库存号</th>
-            <th>使用状态</th>
-            <th>设备数量</th>
-            <th>库存号</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let infoData of data.resources">
-            <td>{{infoData.name}}</td>
-            <td>{{infoData.price}}</td>
-            <td>{{infoData.person}}</td>
-            <td>{{infoData.status}}</td>
-            <td>{{infoData.date}}</td>
-        </tr>
-    </tbody>
-</table>
+<div fxLayout="column" fxLayoutAlign="center center" class="full-width" class.xs="pd0 mg-tb16" class.sm="pd16" class.md="pd32" class.lg="pd64 pd-10" class.xl="pd64 pd-20">
+    <md-toolbar>
+        <button md-raised-button>新增设备</button>
+        <button md-raised-button>修改设备</button>
+        <button md-raised-button>删除设备</button>
+        <button md-raised-button>查询设备</button>
+    </md-toolbar>
+    <ngx-datatable 
+        class="material"
+        [rows]="rows" 
+        [columns]="columns" 
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [count]="count"
+        [limit]="limit"
+
+        fxFlexFill
+        >
+            
+    </ngx-datatable>
+</div>
