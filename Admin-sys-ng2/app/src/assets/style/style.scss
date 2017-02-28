@@ -73,7 +73,6 @@ ngx-datatable {
 }
 
 .ngx-datatable.material .datatable-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
     font-size: 16px;
 }
 
@@ -132,7 +131,7 @@ ngx-datatable {
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
-    line-height: 1;
+    line-height: 12px;
     letter-spacing: normal;
     text-transform: none;
     display: inline-block;
