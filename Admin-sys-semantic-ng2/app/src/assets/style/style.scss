@@ -12,7 +12,6 @@ my-app{
 	margin: 0;
 	padding: 0;
 	display: block;
-	// font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif!important;
 }
 
 .full-width {
@@ -43,17 +42,97 @@ my-app{
         margin: #{$i*8}px 0px;
     }
 }
-
-
+.primary-color {
+    background-color: #009688!important;
+}
 /**
  * login
  */
-
 login1-form {
     display: block;
-    width: 100%;
     height: 100%;
+    padding: 32px;
+    .ui.grid {
+        height: 100%;
+    }
+    .ui.grid>.row>.column+.divider {
+        left: 50%;
+        height: 50%;
+    }
+    sm-segment {
+        display: block;
+        max-width: 400px;
+        display:inline-block;
+    }
 }
+
+
+
+@media screen and (min-width: 768px) {
+    /**
+     * login
+     */
+    login1-form {
+        .ui.grid>.row>.column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 24px;
+        }
+        .ui.grid>.row>.column.login-left {
+            align-items:flex-end;
+            padding-right: 80px;
+        }
+        .ui.grid>.row>.column.login-right {
+            align-items:flex-start;
+            padding-left: 80px;
+        }
+
+    }
+     
+}
+@media screen and (max-width: 767px) { 
+    /**
+     * login
+     */
+    login1-form {
+        .ui.grid>.row>.column {
+             text-align: center;
+        }
+        .login-left>div {
+            max-width: 210px;
+            display: inline-block;
+            margin-top: 10%;
+        }
+    }
+
+}
+
+
+/**
+ * content
+ */
+
+.custom-nav-class {
+    sm-segment>div.ui.segment {
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+    }
+
+    sm-segment>div>p {
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+    }
+}
+.sidebar.ui.labeled.icon.menu>a.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 
 
 

@@ -1,52 +1,52 @@
 export const Menu:any = [
 	{
 	  name: '个人中心',
-	  iconFont: 'person',
+	  iconFont: 'user icon',
     url:'personal'
 	},
     {
       name: '我的资源',
-      iconFont: 'work',
+      iconFont: 'file text icon',
       url:'myresources'
     },
     {
       name: '人事管理',
-      iconFont: 'person_add',
+      iconFont: 'users icon',
       url:'personnel'
     },
     {
       name: '资源审核',
-      iconFont: 'visibility',
+      iconFont: 'bullseye icon',
       url:'auditing'
     },
     {
       name: '资源中心',
-      iconFont: 'view_module',
+      iconFont: 'grid layout icon',
       url:'resources'
     },
     {
       name: '排课系统',
-      iconFont: 'touch_app',
+      iconFont: 'calendar icon',
       url:'personal'
     },
     {
       name: '备课中心',
-      iconFont: 'receipt',
+      iconFont: 'book icon',
       url:'preparinglesson'
     },
     {
       name: '备考中心',
-      iconFont: 'assessment',
+      iconFont: 'hourglass half icon',
       url:'preparingexams'
     },
     {
       name: '资产管理',
-      iconFont: 'account_balance',
+      iconFont: 'money icon',
       url:'assets'
     },
     {
       name: '素材中心',
-      iconFont: 'file_download',
+      iconFont: 'world icon',
       url:'personal'
     }
  ]

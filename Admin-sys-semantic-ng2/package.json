@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --watch",
-    "start": "browser-sync start --server --no-notify --files './app'",
+    "start": "browser-sync start --server --no-notify --files './app/**/*.js,./app/**/*.scss'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -44,6 +44,7 @@
     "jquery": "^3.1.1",
     "ng-semantic": "^1.1.13",
     "ng2-pdf-viewer": "^1.0.2",
+    "ng2-sticky-nav": "^0.1.0",
     "ng2-validation": "^3.8.0",
     "rxjs": "^5.0.0-beta.12",
     "zone.js": "^0.7.7"

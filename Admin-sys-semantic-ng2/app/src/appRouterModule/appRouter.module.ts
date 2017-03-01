@@ -4,14 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {appLoginModule} from '../appLoginModule/login.module';
 import {Login1Component} from '../appLoginModule/login1.component';
-// import {appContentModule} from '../appContentModule/content.module';
-// import {appContentRoutes} from './appContentRouter.module';
+import {appContentModule} from '../appContentModule/content.module';
+import {appContentRoutes} from './appContentRouter.module';
 
 const appRoutes: Routes = [
 
     { path: '', redirectTo: 'login',  pathMatch: 'full'},
     { path: 'login', component: Login1Component },
-    // ...appContentRoutes
+    ...appContentRoutes
     
 ];
 
@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes,{ useHash: true }),
     appLoginModule,
-    // appContentModule, 
+    appContentModule, 
   ],
   declarations: [
   ],
