@@ -6,9 +6,13 @@ import {ContentComponent} from './content.component';
 import {TestContentComponent} from './test.component';
 import { NgSemanticModule } from "ng-semantic";
 import { StickyNavModule } from 'ng2-sticky-nav';
+
+import { ContentPersonalComponent } from './component/personal/personal.component';
+
 const APP_CONTENT_COMPONENT = [
 	ContentComponent,
-	TestContentComponent
+	TestContentComponent,
+	ContentPersonalComponent
 ]
 const APP_CONTENT_IMPORT = [
 	FormsModule,

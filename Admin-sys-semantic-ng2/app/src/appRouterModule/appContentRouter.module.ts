@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {ContentComponent} from '../appContentModule/content.component';
 import {TestContentComponent} from '../appContentModule/test.component'
+import {ContentPersonalComponent} from '../appContentModule/component/personal/personal.component';
 
 
 
@@ -12,8 +13,9 @@ export const appContentRoutes: Routes = [
       path: 'content',
       component: ContentComponent,
       children: [
-    		{ path: '', redirectTo: 'test',  pathMatch: 'full'},
+    		{ path: '', redirectTo: 'personal',  pathMatch: 'full'},
     		{ path: 'test', component: TestContentComponent },
+        { path: 'personal', component: ContentPersonalComponent }
       ]
     }
 ];
