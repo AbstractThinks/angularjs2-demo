@@ -42,6 +42,10 @@ my-app{
 .primary-color {
     background-color: #009688!important;
 }
+pagination-container {
+    display: block;
+    width: 100%;
+}
 /**
  * login
  */
@@ -62,49 +66,6 @@ login1-form {
         display:inline-block;
     }
 }
-
-
-
-@media screen and (min-width: 768px) {
-    /**
-     * login
-     */
-    login1-form {
-        .ui.grid>.row>.column {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 24px;
-        }
-        .ui.grid>.row>.column.login-left {
-            align-items:flex-end;
-            padding-right: 80px;
-        }
-        .ui.grid>.row>.column.login-right {
-            align-items:flex-start;
-            padding-left: 80px;
-        }
-
-    }
-     
-}
-@media screen and (max-width: 767px) { 
-    /**
-     * login
-     */
-    login1-form {
-        .ui.grid>.row>.column {
-             text-align: center;
-        }
-        .login-left>div {
-            max-width: 210px;
-            display: inline-block;
-            margin-top: 10%;
-        }
-    }
-
-}
-
 
 /**
  * content
@@ -155,6 +116,49 @@ content-personal-container {
         visibility: hidden;
     }
 }
+
+@media screen and (min-width: 768px) {
+    /**
+     * login
+     */
+    login1-form {
+        .ui.grid>.row>.column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 24px;
+        }
+        .ui.grid>.row>.column.login-left {
+            align-items:flex-end;
+            padding-right: 80px;
+        }
+        .ui.grid>.row>.column.login-right {
+            align-items:flex-start;
+            padding-left: 80px;
+        }
+
+    }
+     
+}
+@media screen and (max-width: 767px) { 
+    /**
+     * login
+     */
+    login1-form {
+        .ui.grid>.row>.column {
+             text-align: center;
+        }
+        .login-left>div {
+            max-width: 210px;
+            display: inline-block;
+            margin-top: 10%;
+        }
+    }
+
+}
+
+
+
 
 
 
