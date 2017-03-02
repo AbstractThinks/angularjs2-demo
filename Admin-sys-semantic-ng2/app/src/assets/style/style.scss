@@ -116,6 +116,15 @@ content-personal-container {
         visibility: hidden;
     }
 }
+/**
+ * personnel-component
+ */
+
+personnel-component {
+    display: block;
+    width: 100%
+}
+
 
 @media screen and (min-width: 768px) {
     /**
