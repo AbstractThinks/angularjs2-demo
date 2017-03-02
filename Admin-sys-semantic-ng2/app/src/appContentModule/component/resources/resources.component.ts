@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {BaseData} from '../../../../mockData/baseData';
 @Component({
-  selector: 'content-personal-container',
-  templateUrl:  `./personal.html`,
+  selector: 'content-resources-container',
+  templateUrl:  `./resources.html`,
   // directives: [],
 })
 
-export class ContentPersonalComponent {
+export class ContentResourcesComponent {
 	cities:any = [
 
 	]

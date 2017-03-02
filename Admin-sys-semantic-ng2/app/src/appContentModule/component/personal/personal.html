@@ -1,46 +1,129 @@
+<sm-tabs>
+    <sm-tab title="个人中心">
+        <form class="ui form">
+            <div class="ui column centered grid mg-tb8">
+                <div>
+                    <img class="ui small avatar image" src="../../../assets/img/header.png">
+                </div>
+            </div>
+            <div class="ui four column stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui three column stackable grid">
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+            </div>
+            <div class="ui column stackable grid">
+                <div class="column">
+                    <label for="">个人简介</label>
+                    <textarea placeholder="Enter address..."></textarea>
+                </div>
+            </div>
+            <div class="ui column stackable grid">
+                <div class="column">
+                    <label for="">个人简介</label>
+                    <textarea placeholder="Enter address..."></textarea>
+                </div>
+            </div>
+            <div class="ui column stackable grid">
+                <div class="column">
+                    <div>
+                        <button class="ui button green" (click)="myModal.show()">Click me</button>
+                    </div>
+                </div>
+                <sm-modal title="Hello from Modal" class="basic" #myModal>
+                    <modal-content>
+                        <sm-loader class="inverted" text="Loading..."></sm-loader>
+                    </modal-content>
+                </sm-modal>
+            </div>
+        </form>
+    </sm-tab>
+    <sm-tab title="我的收藏">
+    	<sm-list class="animated divided relaxed">
+		    <sm-item *ngFor="let menuitem of basedata.education">
+				<img class="ui middle aligned tiny image" src="../../../assets/img/header.png">
+				<span>{{menuitem.name}}</span>
+		    </sm-item>
+		    <div class="ui divider"></div>
+
+			<pagination-container></pagination-container>
 
 
-	            <form class="ui form" >
-	                <!-- <sm-loader class="inverted" text="Loading..."></sm-loader> -->
-	                <div class="field ui grid">
-						<sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
-						<sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
-						<sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
-	                </div>
-	                <div class="field ui grid">
-						<sm-select label="教师编号" placeholder="Search..." class="">
-						    <option>1</option>
-						    <option>2</option>
-						    <option>3</option>
-						</sm-select>
-						<sm-select label="教师编号" placeholder="Search..." class="">
-						    <option>1</option>
-						    <option>2</option>
-						    <option>3</option>
-						</sm-select>
-						<sm-select label="教师编号" placeholder="Search..." class="">
-						    <option>1</option>
-						    <option>2</option>
-						    <option>3</option>
-						</sm-select>
-	                </div>
-	                <div class="field ui grid">
-	                	<sm-input type="date" class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
-	                </div>
-	                <div class="field ui grid">
-	                	<sm-input type="tel" class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
-	                	<sm-input type="number" class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
-	                </div>
-	                <div class="field ui grid">
-	                <textarea type="" class="left labeled" label="教师姓名" placeholder="Enter address..."></textarea>
-	                </div>
-	               	<div class="field ui grid">
-	                <button class="ui button green" (click)="myModal.show()">Click me</button>
-<sm-modal title="Hello from Modal" class="basic" #myModal>
-    <modal-content>
-        ...
-    </modal-content>
-</sm-modal>	                </div>
-	            </form>
+		    
+		</sm-list>
+    </sm-tab>
+    <sm-tab title="上传资料">
+    	<form class="ui form">
+    		<div class="ui two column stackable grid">
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+            </div>
+            <div class="ui two column stackable grid">
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+                <div class="column">
+                    <sm-select label="性别" placeholder="Search..." class="">
+                        <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+                    </sm-select>
+                </div>
+            </div>
+            <div class="ui column stackable grid">
+                <div class="column">
+                    <label for="">个人简介</label>
+                    <textarea placeholder="Enter address..."></textarea>
+                </div>
+            </div>
+    	</form>
+    </sm-tab>
+</sm-tabs>
+
+
+
 
     

@@ -4,14 +4,16 @@
 /**
  * global
  */
-
+html.ios, 
+html.ios body,
 html,body,
 my-app{
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	display: block;
+	height: 100%!important;
+	width: 100%!important;
+	margin: 0!important;
+	padding: 0!important;
+	display: block!important;
+    background-color: white!important;
 }
 
 .full-width {
@@ -23,15 +25,10 @@ my-app{
 
 @for $i from 0 to 10 {
     .pd#{$i*8} {
-        padding: #{$i*8}px;
+        padding: #{$i*8}px!important;
     }
 }
-@for $i from 0 to 10 {
-    .pd-#{$i*10} {
-		padding-left: #{$i*0.1*100%} ;
-		padding-right: #{$i*0.1*100%} ;
-    }
-}
+
 @for $i from 0 to 10 {
     .mg#{$i*8} {
         margin: #{$i*8}px;
@@ -39,7 +36,7 @@ my-app{
 }
 @for $i from 0 to 10 {
     .mg-tb#{$i*8} {
-        margin: #{$i*8}px 0px;
+        margin: #{$i*8}px 0px!important;
     }
 }
 .primary-color {
@@ -112,7 +109,14 @@ login1-form {
 /**
  * content
  */
-
+content-container>.ui.container {
+    padding:24px 0px;
+    min-height: 100%;
+}
+.custom-nav-class {
+    z-index: 1000;
+    width: 100%;
+}
 .custom-nav-class {
     sm-segment>div.ui.segment {
         border-top-left-radius:0;
@@ -132,6 +136,27 @@ login1-form {
     justify-content: flex-start;
     align-items: center;
 }
+
+
+/**
+ * content-personal-container
+ */
+
+content-personal-container {
+    form.ui.form {
+        padding: 24px 8px;
+    }
+    .ui.list.animated.divided.relaxed:after {
+        display: block;
+        content: "clear";
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
+
+
 
 
 
