@@ -10,6 +10,7 @@ import {ContentComponent} from './content.component';
 import { PaginationComponent } from '../appPublicModule/pagination/pagination.component'
 
 // import {TestContentComponent} from './test.component';
+import { ContentIndexComponent } from './component/index/index.component';
 import { ContentPersonalComponent } from './component/personal/personal.component';
 import { ContentResourcesComponent } from './component/resources/resources.component';
 import { ContentAuditingComponent } from './component/auditing/auditing.component';
@@ -23,6 +24,7 @@ import { ContentAssetsComponent } from './component/assets/assets.component';
 const APP_CONTENT_COMPONENT = [
 	ContentComponent,
 	// TestContentComponent,
+	ContentIndexComponent,
 	ContentPersonalComponent,
 	ContentResourcesComponent,
 	ContentAuditingComponent,

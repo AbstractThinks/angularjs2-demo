@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {ContentComponent} from '../appContentModule/content.component';
 // import {TestContentComponent} from '../appContentModule/test.component'
+
+import {ContentIndexComponent} from '../appContentModule/component/index/index.component';
 import {ContentPersonalComponent} from '../appContentModule/component/personal/personal.component';
 import {ContentResourcesComponent} from '../appContentModule/component/resources/resources.component';
 import {ContentAuditingComponent} from '../appContentModule/component/auditing/auditing.component';
@@ -18,8 +20,9 @@ export const appContentRoutes: Routes = [
       path: 'content',
       component: ContentComponent,
       children: [
-    		{ path: '', redirectTo: 'personal',  pathMatch: 'full'},
+    		{ path: '', redirectTo: 'index',  pathMatch: 'full'},
     		// { path: 'test', component: TestContentComponent },
+        { path: 'index', component: ContentIndexComponent },
         { path: 'personal', component: ContentPersonalComponent },
         { path: 'personnel', component: ContentPersonnelComponent },
         { path: 'resources', component: ContentResourcesComponent },
