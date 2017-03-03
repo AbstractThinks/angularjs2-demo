@@ -1,1 +1,270 @@
-资产中心尚未开放
+<sm-tabs>
+    <sm-tab title="资产列表">
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th colspan="6">
+                        <button class="ui  small teal labeled icon button" (click)="addModal.show()">
+                            <i class="add user icon"></i>新增教师
+                        </button>
+                        <div class="ui  small primary labeled icon button" (click)="addModal.show()">
+                            <i class="search icon"></i>查询教师
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Registration Date</th>
+                    <th>E-mail address</th>
+                    <th>Premium Plan</th>
+                    <th>修改人员</th>
+                    <th>删除人员</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>John Lilki</td>
+                    <td>September 14, 2013</td>
+                    <td>jhlilk22@yahoo.com</td>
+                    <td>No</td>
+                    <td>
+                        <button class="ui  small green labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
+                            <i class="edit icon"></i>修改教师
+                        </button>
+                    </td>
+                    <td>
+                        <div class="ui  small red labeled icon button" (click)="handleRemove()">
+                            <i class="remove user icon"></i>删除教师
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>Jamie Harington</td>
+                    <td>January 11, 2014</td>
+                    <td>jamieharingonton@yahoo.com</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="ui  small green labeled icon button">
+                            <i class="edit icon"></i>修改教师
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui  small red labeled icon button">
+                            <i class="remove user icon"></i>删除教师
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>Jill Lewis</td>
+                    <td>May 11, 2014</td>
+                    <td>jilsewris22@yahoo.com</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="ui  small green labeled icon button">
+                            <i class="edit icon"></i>修改教师
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui  small red labeled icon button">
+                            <i class="remove user icon"></i>删除教师
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot class="full-width">
+                <tr>
+                    <th></th>
+                    <th colspan="6">
+                        <!-- <div class="ui right floated small primary labeled icon button">
+<i class="user icon"></i> Add User
+</div> -->
+                        <pagination-container></pagination-container>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </sm-tab>
+    <sm-tab title="供应商管理">
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th colspan="6">
+                        <button class="ui  small teal labeled icon button" (click)="addModal.show()">
+                            <i class="add user icon"></i>新增供应商
+                        </button>
+                        <div class="ui  small primary labeled icon button" (click)="addModal.show()">
+                            <i class="search icon"></i>查询供应商
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Registration Date</th>
+                    <th>E-mail address</th>
+                    <th>Premium Plan</th>
+                    <th>修改人员</th>
+                    <th>删除人员</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>John Lilki</td>
+                    <td>September 14, 2013</td>
+                    <td>jhlilk22@yahoo.com</td>
+                    <td>No</td>
+                    <td>
+                        <button class="ui  small green labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
+                            <i class="edit icon"></i>修改供应商
+                        </button>
+                    </td>
+                    <td>
+                        <div class="ui  small red labeled icon button" (click)="handleRemove()">
+                            <i class="remove user icon"></i>删除供应商
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>Jamie Harington</td>
+                    <td>January 11, 2014</td>
+                    <td>jamieharingonton@yahoo.com</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="ui  small green labeled icon button">
+                            <i class="edit icon"></i>修改供应商
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui  small red labeled icon button">
+                            <i class="remove user icon"></i>修改供应商
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>Jill Lewis</td>
+                    <td>May 11, 2014</td>
+                    <td>jilsewris22@yahoo.com</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="ui  small green labeled icon button">
+                            <i class="edit icon"></i>修改供应商
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui  small red labeled icon button">
+                            <i class="remove user icon"></i>修改供应商
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot class="full-width">
+                <tr>
+                    <th></th>
+                    <th colspan="6">
+                        <pagination-container></pagination-container>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </sm-tab>
+</sm-tabs>
+
+
+
+
+
+<sm-modal title="新增员工" class="" icon="add user icon" #addModal>
+    <modal-content>
+      <form action="" class="ui form">
+        <div class="ui three column doubling stackable grid">
+          <div class="column">
+              <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+          </div>
+          <div class="column">
+              <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+          </div>
+          <div class="column">
+              <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+          </div>
+          <div class="column">
+              <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+          </div>
+          <div class="column">
+              <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+          </div>
+          <div class="column">
+              <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+          </div>
+          <div class="column">
+              <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+          </div>
+          <div class="column">
+              <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+          </div>
+        </div>
+        <div class="ui three column doubling stackable grid">
+          <div class="column">
+            <sm-select label="性别" placeholder="Search..." class="">
+              <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+            </sm-select>
+          </div>
+          <div class="column">
+            <sm-select label="性别" placeholder="Search..." class="">
+              <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+            </sm-select>
+          </div>
+          <div class="column">
+            <sm-select label="性别" placeholder="Search..." class="">
+              <option *ngFor="let menuitem of basedata.sex" value="{{menuitem.value}}">{{menuitem.name}}</option>
+            </sm-select>
+          </div>
+        </div>
+      </form>
+        
+    </modal-content>
+
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button primary" (click)="myModalNormal.hide()">Close modal</div>
+        </div>
+    </modal-actions>
+</sm-modal>

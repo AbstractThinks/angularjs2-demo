@@ -15,7 +15,9 @@ my-app{
 	display: block!important;
     background-color: white!important;
 }
-
+body>.ui.vertical.menu .item>.header:not(.ui) {
+    font-size:1.5em;
+}
 .full-width {
 	width: 100%;
 }
@@ -45,6 +47,10 @@ my-app{
 pagination-container {
     display: block;
     width: 100%;
+    text-align: center;
+}
+.text-768-right {
+    text-align: center;
 }
 /**
  * login
@@ -71,7 +77,7 @@ login1-form {
  * content
  */
 content-container>.ui.container {
-    padding:24px 0px;
+    padding:24px 0px 80px;
     min-height: 100%;
 }
 .custom-nav-class {
@@ -127,6 +133,16 @@ personnel-component {
 
 
 @media screen and (min-width: 768px) {
+
+    /**
+     * global
+     */
+    .text-768-right {
+        text-align: right;
+    }
+    pagination-container {
+        text-align: right;
+    }
     /**
      * login
      */
@@ -147,6 +163,7 @@ personnel-component {
         }
 
     }
+    
      
 }
 @media screen and (max-width: 767px) { 

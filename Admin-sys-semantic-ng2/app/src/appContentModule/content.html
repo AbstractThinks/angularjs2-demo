@@ -17,7 +17,10 @@
 </div>
 
 
-<sm-sidebar class="left vertical inverted sidebar vertical menu" #invertedSidebar>    
+<sm-sidebar class="left vertical inverted sidebar vertical menu" #invertedSidebar>  
+	 <div class="item">
+    	<div class="header"><i class="cloud icon"></i>&nbsp;&nbsp;红原县教育</div>
+    </div>  
     <a class="item" routerLink="{{menuitem.url}}" *ngFor="let menuitem of menu">
 	    <i class="{{menuitem.iconFont}}"></i>{{menuitem.name}}
 	</a>
