@@ -7,7 +7,7 @@
     "build": "webpack --config webpack.config.js --progress --profile --bail -w ",
     "build:pro:mac": "export NODE_ENV=production && webpack --config webpack.config.js -w",
     "build:pro:mac:invalid": "export NODE_ENV=production && webpack --config webpack.config.js -p",
-    "start": "browser-sync start --server --no-notify --files './app/**/*.ts,./app/**/*.scss,./index.html'",
+    "start": "browser-sync start --server --no-notify --files './app/**/*.ts,./app/**/*.scss,,./app/**/*.html'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
