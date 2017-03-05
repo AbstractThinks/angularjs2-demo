@@ -1,0 +1,8 @@
+{
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160914114559",
+    "jquery": "registry:dt/jquery#1.10.0+20170123093700",
+    "node": "registry:env/node#6.0.0+20161105011511",
+    "swiper": "registry:dt/swiper#3.4.0+20170120190008"
+  }
+}

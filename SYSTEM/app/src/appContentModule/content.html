@@ -1,0 +1,32 @@
+<nav class="custom-nav-class" ngStickyNav>
+	<sm-segment class="raised primary-color">
+		<!-- <sm-button class="positive" >
+			
+		</sm-button> -->
+		<button class="large ui circular icon button" (click)="invertedSidebar.show({transition: 'overlay'})">
+		  <i class="align justify icon"></i>
+		</button>
+		<img class="mini ui avatar image" src='../assets/img/header.png' />
+	</sm-segment>
+</nav>
+<div class="ui container">
+	<div class="row">
+		<router-outlet></router-outlet>
+	</div>
+	
+</div>
+
+
+<sm-sidebar class="left vertical inverted sidebar vertical menu" #invertedSidebar>  
+	 <a class="item">
+    	<div class="header"><i class="cloud icon"></i>&nbsp;&nbsp;红原县教育</div>
+    </a>  
+    <a class="item" *ngFor="let menuitem of menu" routerLink="{{menuitem.url}}">
+	    <i class="{{menuitem.iconFont}}"></i>{{menuitem.name}}
+	</a>
+	 <!-- <a class="item" *ngFor="let menuitem of menu" >
+	    <i class="{{menuitem.iconFont}}"></i>{{menuitem.name}}
+	</a> -->
+</sm-sidebar>
+
+
