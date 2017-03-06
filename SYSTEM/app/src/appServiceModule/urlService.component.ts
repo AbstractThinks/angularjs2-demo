@@ -1,20 +1,16 @@
 import {Injectable} from '@angular/core';
+import { Http,Headers,Response  } from '@angular/http';
+import { urlDomain,urlDomainModule } from '../../config/config'; 
+
 
 @Injectable()
 export class UrlService {
-    urlEncode(param:any, key?:any, encode?:any): string {
-		if(param==null) return '';
-			var paramStr = '';
-			var t = typeof (param);
-			if (t == 'string' || t == 'number' || t == 'boolean') {
-			paramStr += '&' + key + '=' + ((encode==null||encode) ? param : param);
-		} else {
-			for (var i in param) {
-				var k = key == null ? i : key + (param instanceof Array ? '[' + i + ']' : '.' + i);
-				paramStr += this.urlEncode(param[i], k, encode);
-			}
-		}
-		return paramStr;
+	constructor(private http: Http) {}
+    req_get(url?:string, callback?:any): any {
+		return this.http.get(urlDomain+url).toPromise();
+    }
+    req_get_module(url?:string, callback?:any): any {
+		return this.http.get(urlDomainModule+url).toPromise();
     }
     
 }
