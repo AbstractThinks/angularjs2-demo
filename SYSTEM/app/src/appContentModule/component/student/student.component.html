@@ -1,7 +1,7 @@
 <sm-tabs>
     <sm-tab title="学生管理">
         <sm-menu title="Angular2" class="inverted teal" logo="http://semantic-ui.com/images/logo.png">
-            <a sm-item>新增教师</a>
+            <a sm-item (click)="myModal.show()">新增教师</a>
             <a sm-item>新增教师</a>
             <a sm-item>新增教师</a>
         </sm-menu>
@@ -137,7 +137,7 @@
                     <td>{{item.nation}}</td>
                     <td>{{item.status}}</td>
                     <td>
-                        <button class="ui right floated small green labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
+                        <button class="ui right floated small teal labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
                             <i class="edit icon"></i>修改教师
                         </button>
                     </td>
@@ -155,8 +155,190 @@
 </sm-tabs>
 
 
-<sm-modal title="Hello from Modal" class="basic" #myModal>
+<sm-modal title="Hello from Modal" class="ui modal fullscreen" icon="home" #myModal>
     <modal-content>
-        
+       <form class="ui form">
+
+            <div class="ui horizontal divider">
+            基本信息
+            </div>
+
+            <div class="ui column centered grid mg-tb8">
+                <div>
+                    <img class="ui small avatar image" src="../../../assets/img/header.png">
+                </div>
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui horizontal divider">
+            校内信息
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui horizontal divider">
+            个人信息
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui horizontal divider">
+            学生来源信息
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui horizontal divider">
+            基本信息
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>
+       </form>
     </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button primary" (click)="myModalNormal.hide()">Close modal</div>
+        </div>
+    </modal-actions>
 </sm-modal>
