@@ -7,6 +7,9 @@ import {BaseData} from '../../../../../mockData/baseData';
 })
 
 export class ContentPersonalComponent {
+	items:any = [
+		{"title":"学生管理"}
+	]
 	cities:any = [
 
 	]

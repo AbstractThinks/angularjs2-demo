@@ -13,7 +13,8 @@ import {ContentPreparingexamsComponent} from '../appContentModule/component/prep
 import {ContentPreparinglessonComponent} from '../appContentModule/component/preparinglesson/preparinglesson.component';
 import {ContentAssetsComponent} from '../appContentModule/component/assets/assets.component';
 import {ContentOtherComponent} from '../appContentModule/component/other/other.component';
-
+import {AchievementAnalysisComponent} from '../appContentModule/component/achievementanalysis/achievementanalysis.component';
+import {StudentComponent} from '../appContentModule/component/student/student.component';
 export const appContentRoutes: Routes = [
 
     { 
@@ -30,7 +31,9 @@ export const appContentRoutes: Routes = [
         { path: 'preparinglesson', component: ContentPreparinglessonComponent },
         { path: 'auditing', component: ContentAuditingComponent },
         { path: 'assets', component: ContentAssetsComponent },
-        { path: 'other', component: ContentOtherComponent}
+        { path: 'other', component: ContentOtherComponent},
+        { path: 'achievementanalysis', component: AchievementAnalysisComponent},
+        { path: 'student', component: StudentComponent}
       ]
     }
 ];

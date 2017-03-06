@@ -237,11 +237,11 @@ export const MenuSubmenu:any = [
             {
                 "name": "学籍管理",
                 "iconFont": "money icon",
-                "url": "assets"
+                "url": "student"
             }, {
                 "name": "成绩分析",
                 "iconFont": "money icon",
-                "url": "assets"
+                "url": "achievementanalysis"
             }, {
                 "name": "学生成长档案",
                 "iconFont": "money icon",

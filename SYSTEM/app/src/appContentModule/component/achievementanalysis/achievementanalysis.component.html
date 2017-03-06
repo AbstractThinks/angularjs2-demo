@@ -1,0 +1,19 @@
+<div class="ui horizontal divider">
+    班级占比
+</div>
+<div>
+    <div>
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <button class="ui teal button" (click)="randomize()">Update</button>
+</div>
+<div class="ui horizontal divider">
+   全校占比
+</div>
+<div>
+    <div>
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <button class="ui teal button" (click)="randomize()">Update</button>
+</div>
+

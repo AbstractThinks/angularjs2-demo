@@ -1,0 +1,162 @@
+<sm-tabs>
+    <sm-tab title="学生管理">
+        <sm-menu title="Angular2" class="inverted teal" logo="http://semantic-ui.com/images/logo.png">
+            <a sm-item>新增教师</a>
+            <a sm-item>新增教师</a>
+            <a sm-item>新增教师</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th *ngFor="let item of basedata.column">{{item.name}}</th>
+                    
+                    <th>修改人员</th>
+                    <th>删除人员</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of basedata.datas">
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>{{item.studentName}}</td>
+                    <td>{{item.studentGrade}}</td>
+                    <td>{{item.studentClass}}</td>
+                    <td>{{item.entryYear}}</td>
+                    <td>{{item.schooNum}}</td>
+                    <td>{{item.schoolId}}</td>
+                    <td>{{item.classId}}</td>
+                    <td>{{item.educationId}}</td>
+                    <td>{{item.sex}}</td>
+                    <td>{{item.nation}}</td>
+                    <td>{{item.status}}</td>
+                    <td>
+                        <button class="ui right floated small green labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
+                            <i class="edit icon"></i>修改教师
+                        </button>
+                    </td>
+                    <td>
+                        <div class="ui right floated small red labeled icon button" (click)="handleRemove()">
+                            <i class="remove user icon"></i>删除教师
+                        </div>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <pagination-container></pagination-container>
+    </sm-tab>
+    <sm-tab title="家长信息">
+        <sm-menu title="Angular2" class="inverted teal" logo="http://semantic-ui.com/images/logo.png">
+            <a sm-item>新增教师</a>
+            <a sm-item>新增教师</a>
+            <a sm-item>新增教师</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th *ngFor="let item of basedata.column">{{item.name}}</th>
+                    
+                    <th>修改人员</th>
+                    <th>删除人员</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of basedata.datas">
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>{{item.studentName}}</td>
+                    <td>{{item.studentGrade}}</td>
+                    <td>{{item.studentClass}}</td>
+                    <td>{{item.entryYear}}</td>
+                    <td>{{item.schooNum}}</td>
+                    <td>{{item.schoolId}}</td>
+                    <td>{{item.classId}}</td>
+                    <td>{{item.educationId}}</td>
+                    <td>{{item.sex}}</td>
+                    <td>{{item.nation}}</td>
+                    <td>{{item.status}}</td>
+                    <td>
+                        <button class="ui right floated small green labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
+                            <i class="edit icon"></i>修改教师
+                        </button>
+                    </td>
+                    <td>
+                        <div class="ui right floated small red labeled icon button" (click)="handleRemove()">
+                            <i class="remove user icon"></i>删除教师
+                        </div>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <pagination-container></pagination-container>
+    </sm-tab>
+    <sm-tab title="统计报表">
+        <sm-menu title="Angular2" class="inverted teal" logo="http://semantic-ui.com/images/logo.png">
+            <a sm-item>新增教师</a>
+            <a sm-item>新增教师</a>
+            <a sm-item>新增教师</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th *ngFor="let item of basedata.column">{{item.name}}</th>
+                    
+                    <th>修改人员</th>
+                    <th>删除人员</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of basedata.datas">
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>{{item.studentName}}</td>
+                    <td>{{item.studentGrade}}</td>
+                    <td>{{item.studentClass}}</td>
+                    <td>{{item.entryYear}}</td>
+                    <td>{{item.schooNum}}</td>
+                    <td>{{item.schoolId}}</td>
+                    <td>{{item.classId}}</td>
+                    <td>{{item.educationId}}</td>
+                    <td>{{item.sex}}</td>
+                    <td>{{item.nation}}</td>
+                    <td>{{item.status}}</td>
+                    <td>
+                        <button class="ui right floated small green labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
+                            <i class="edit icon"></i>修改教师
+                        </button>
+                    </td>
+                    <td>
+                        <div class="ui right floated small red labeled icon button" (click)="handleRemove()">
+                            <i class="remove user icon"></i>删除教师
+                        </div>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <pagination-container></pagination-container>
+    </sm-tab>
+</sm-tabs>
+
+
+<sm-modal title="Hello from Modal" class="basic" #myModal>
+    <modal-content>
+        
+    </modal-content>
+</sm-modal>

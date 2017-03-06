@@ -4,7 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NgSemanticModule } from "ng-semantic";
 import { StickyNavModule } from 'ng2-sticky-nav';
-
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import {ContentComponent} from './content.component';
 import { PaginationComponent } from '../appPublicModule/pagination/pagination.component'
@@ -19,6 +19,8 @@ import { ContentPreparingexamsComponent } from './component/preparingexams/prepa
 import { ContentPreparinglessonComponent } from './component/preparinglesson/preparinglesson.component';
 import { ContentAssetsComponent } from './component/assets/assets.component';
 import { ContentOtherComponent } from './component/other/other.component';
+import { AchievementAnalysisComponent } from './component/achievementanalysis/achievementanalysis.component';
+import {StudentComponent} from './component/student/student.component';
 
 const APP_CONTENT_COMPONENT = [
 	ContentComponent,
@@ -32,7 +34,9 @@ const APP_CONTENT_COMPONENT = [
 	ContentPreparinglessonComponent,
 	ContentAssetsComponent,
 	ContentOtherComponent,
-	PaginationComponent
+	AchievementAnalysisComponent,
+	StudentComponent,
+	PaginationComponent,
 
 ]
 const APP_CONTENT_IMPORT = [
@@ -40,6 +44,7 @@ const APP_CONTENT_IMPORT = [
 	RouterModule,
 	CommonModule,
 	NgSemanticModule,
+	ChartsModule,
 	StickyNavModule
 ]
 
