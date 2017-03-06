@@ -15,6 +15,9 @@ my-app{
 	display: block!important;
     background-color: white!important;
 }
+body>div.pusher {
+    height: 100%!important;
+}
 body>.ui.vertical.menu .item>.header:not(.ui) {
     font-size:1.5em;
 }
@@ -103,6 +106,9 @@ login1-form {
 content-container>.ui.container {
     padding:24px 0px 80px;
     min-height: 100%;
+}
+.sidebar .ui.accordion .title {
+    color: rgba(255,255,255,.9)!important;
 }
 .custom-nav-class {
     z-index: 1000;

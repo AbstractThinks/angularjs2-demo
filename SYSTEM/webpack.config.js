@@ -2,9 +2,9 @@ var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const ENV = (process.env.NODE_ENV === 'production') ? true : false;
+const ENV = (process.env.NODE_ENV) ? true : false;
 
-
+console.log(ENV)
 var configPlugins = [
     new webpack.optimize.CommonsChunkPlugin({
         name: ['app', 'vendor', 'polyfills']
@@ -20,11 +20,12 @@ var configPlugins = [
 if (ENV) {
     console.log('production')
     configPlugins.push(new webpack.NoEmitOnErrorsPlugin());
-    // configPlugins.push(new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
-    //   mangle: {
-    //     keep_fnames: true
-    //   }
-    // }));
+    configPlugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false
+        }
+    }));
+
     configPlugins.push(new webpack.DefinePlugin({
         'process.env': {
             'ENV': JSON.stringify(ENV)
@@ -34,8 +35,6 @@ if (ENV) {
 var config = {
     devtool: 'source-map',
     entry: {
-        // 'jquery':'./node_modules/jquery/dist/jquery.min.js',
-        // 'semantic':'./app/src/assets/style/semantic.min.js',
         'polyfills': './app/config/polyfills.ts',
         'vendor': './app/config/vendor.ts',
         'app': './app/src/app.ts'
@@ -73,7 +72,6 @@ var config = {
                 test: /\.css$/,
                 use: 'raw-loader'
             }
-
         ]
     },
     plugins: configPlugins

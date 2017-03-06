@@ -17,13 +17,30 @@
 </div>
 
 
-<sm-sidebar class="left vertical inverted sidebar vertical menu" #invertedSidebar>  
+<sm-sidebar class="left inverted sidebar vertical menu" #invertedSidebar>  
 	 <a class="item">
     	<div class="header"><i class="cloud icon"></i>&nbsp;&nbsp;红原县教育</div>
-    </a>  
-    <a class="item" *ngFor="let menuitem of menu" routerLink="{{menuitem.url}}">
-	    <i class="{{menuitem.iconFont}}"></i>{{menuitem.name}}
+    </a>
+	<div class="item">
+		<div class="ui input"><input type="text" placeholder="Search..."></div>
+	</div> 
+	<a class="item" routerLink="index">
+	    <i class=""></i>首页
 	</a>
+	<div class="ui item accordion " *ngFor="let menuitem of MenuSubmenu" >
+		<div class="title">
+			<i class="dropdown icon"></i>
+			{{menuitem.title}}
+		</div>
+		<div class="content menu">
+			<a class="item" *ngFor="let Submenuitem of menuitem.Submenus" routerLink="{{Submenuitem.url}}">
+			    <i class="{{Submenuitem.iconFont}}"></i>{{Submenuitem.name}}
+			</a>
+		</div>
+	</div> 
+    <!-- <a class="item" *ngFor="let menuitem of menu" routerLink="{{menuitem.url}}">
+	    <i class="{{menuitem.iconFont}}"></i>{{menuitem.name}}
+	</a> -->
 	 <!-- <a class="item" *ngFor="let menuitem of menu" >
 	    <i class="{{menuitem.iconFont}}"></i>{{menuitem.name}}
 	</a> -->
