@@ -4,7 +4,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { UrlService } from '../../../appServiceModule/urlService.component';
-import {Students} from '../../../../../mockData/student';
+
 
 @Component({
   selector: 'student-component',
@@ -12,7 +12,6 @@ import {Students} from '../../../../../mockData/student';
 })
 export class StudentComponent implements AfterViewInit {
   
-  basedata:any = Students.data;
   students:any = {};
   parents:any = {};
   statistics:any = {};

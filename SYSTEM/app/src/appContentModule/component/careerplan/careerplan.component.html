@@ -1,1 +1,46 @@
-生涯规划
+<sm-tabs>
+	<sm-tab title="生涯规划">
+		<screenmenu-container></screenmenu-container>
+		<sm-menu title="Angular2" class="inverted teal" logo="http://semantic-ui.com/images/logo.png">
+            <a sm-item>导出选中</a>
+            <a sm-item>导出全部</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th *ngFor="let item of careerplan.column">{{item.name}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of careerplan.datas">
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                    </td>
+                    <td>{{item.studentSection}}</td>
+                    <td>{{item.studentGrade}}</td>
+                    <td>{{item.studentClass}}</td>
+                    <td>{{item.studentName}}</td>
+                    <td>
+                        <div class="ui buttons vertical">
+                            <button class="ui teal labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
+                                <i class="edit icon"></i>查看信息
+                            </button>
+                            <button class="ui primary labeled icon button" (click)="handleRemove()">
+                                <i class="remove user icon"></i>导出信息
+                            </button>
+                        </div>
+                        
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <pagination-container></pagination-container>
+	</sm-tab>
+	<sm-tab></sm-tab>
+	<sm-tab></sm-tab>
+</sm-tabs>
