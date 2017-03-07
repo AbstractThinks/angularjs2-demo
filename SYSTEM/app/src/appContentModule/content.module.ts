@@ -7,7 +7,8 @@ import { StickyNavModule } from 'ng2-sticky-nav';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import {ContentComponent} from './content.component';
-import { PaginationComponent } from '../appPublicModule/pagination/pagination.component'
+import { PaginationComponent } from '../appPublicModule/pagination/pagination.component';
+import { ScreenMenuComponent } from '../appPublicModule/screenmenu/screenmenu.component';
 
 import { ContentIndexComponent } from './component/index/index.component';
 import { ContentPersonalComponent } from './component/personal/personal.component';
@@ -21,6 +22,10 @@ import { ContentAssetsComponent } from './component/assets/assets.component';
 import { ContentOtherComponent } from './component/other/other.component';
 import { AchievementAnalysisComponent } from './component/achievementanalysis/achievementanalysis.component';
 import {StudentComponent} from './component/student/student.component';
+import {GrowthFileComponent} from './component/growthfile/growthfile.component';
+import {CareerPlanComponent} from './component/careerplan/careerplan.component';
+
+
 
 const APP_CONTENT_COMPONENT = [
 	ContentComponent,
@@ -36,7 +41,11 @@ const APP_CONTENT_COMPONENT = [
 	ContentOtherComponent,
 	AchievementAnalysisComponent,
 	StudentComponent,
-	PaginationComponent,
+	GrowthFileComponent,
+	CareerPlanComponent,
+
+	ScreenMenuComponent,
+	PaginationComponent
 
 ]
 const APP_CONTENT_IMPORT = [
@@ -54,6 +63,6 @@ const APP_CONTENT_IMPORT = [
 	],
     declarations: [
         ...APP_CONTENT_COMPONENT
-    ]
+    ],
 })
 export class appContentModule {}

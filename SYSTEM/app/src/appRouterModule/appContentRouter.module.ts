@@ -15,6 +15,10 @@ import {ContentAssetsComponent} from '../appContentModule/component/assets/asset
 import {ContentOtherComponent} from '../appContentModule/component/other/other.component';
 import {AchievementAnalysisComponent} from '../appContentModule/component/achievementanalysis/achievementanalysis.component';
 import {StudentComponent} from '../appContentModule/component/student/student.component';
+import {GrowthFileComponent} from '../appContentModule/component/growthfile/growthfile.component';
+import {CareerPlanComponent} from '../appContentModule/component/careerplan/careerplan.component';
+
+
 export const appContentRoutes: Routes = [
 
     { 
@@ -33,7 +37,9 @@ export const appContentRoutes: Routes = [
         { path: 'assets', component: ContentAssetsComponent },
         { path: 'other', component: ContentOtherComponent},
         { path: 'achievementanalysis', component: AchievementAnalysisComponent},
-        { path: 'student', component: StudentComponent}
+        { path: 'student', component: StudentComponent},
+        { path: 'growthfile', component: GrowthFileComponent},
+        { path: 'careerplan', component: CareerPlanComponent}
       ]
     }
 ];

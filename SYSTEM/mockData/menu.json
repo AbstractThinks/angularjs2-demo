@@ -5,17 +5,17 @@
 	        "Submenus": [
 	            {
 	                "name": "个人中心",
-	                "iconFont": "usericon",
+	                "iconFont": "user icon",
 	                "url": "personal"
 	            },
 	            {
 	                "name": "人事管理",
-	                "iconFont": "usersicon",
+	                "iconFont": "users icon",
 	                "url": "personnel"
 	            },
 	            {
 	                "name": "他人信息",
-	                "iconFont": "user circle outline",
+	                "iconFont": "user outline",
 	                "url": "other"
 	            }
 	        ]
@@ -24,17 +24,17 @@
 	        "Submenus": [
 	            {
 	                "name": "我的资源",
-	                "iconFont": "filetexticon",
+	                "iconFont": "file text icon",
 	                "url": "myresources"
 	            },
 	            {
 	                "name": "资源审核",
-	                "iconFont": "bullseyeicon",
+	                "iconFont": "bulls eye icon",
 	                "url": "auditing"
 	            },
 	            {
 	                "name": "资源中心",
-	                "iconFont": "gridlayouticon",
+	                "iconFont": "grid layout icon",
 	                "url": "resources"
 	            }
 	        ]
@@ -61,11 +61,11 @@
 	            }, {
 	                "name": "学生成长档案",
 	                "iconFont": "money icon",
-	                "url": "assets"
+	                "url": "growthfile"
 	            }, {
 	                "name": "学生生涯计划",
 	                "iconFont": "money icon",
-	                "url": "assets"
+	                "url": "careerplan"
 	            }
 	        ]
 	    },{
