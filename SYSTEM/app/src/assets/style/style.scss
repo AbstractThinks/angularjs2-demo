@@ -7,13 +7,24 @@
 html.ios, 
 html.ios body,
 html,body,
-my-app{
+my-app,
+content-container {
 	height: 100%!important;
 	width: 100%!important;
 	margin: 0!important;
 	padding: 0!important;
 	display: block!important;
     background-color: white!important;
+}
+html {
+    // overflow:scroll;
+}
+body,
+.pushable>.pusher {
+    overflow: inherit!important;
+}
+.pushable>.pusher.dimmable.dimmed {
+    overflow: hidden!important;
 }
 body>div.pusher {
     height: 100%!important;
@@ -288,6 +299,12 @@ student-component {
      
 }
 @media screen and (max-width: 767px) { 
+    /**
+     * global
+     */
+    .ui.menu {
+        flex-wrap: wrap;
+    }
     /**
      * login
      */

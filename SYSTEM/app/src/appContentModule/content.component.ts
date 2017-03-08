@@ -21,6 +21,9 @@ export class ContentComponent implements AfterViewInit{
         setTimeout(() => {$('.sidebar .ui.accordion').accordion()},0);
       });
     }
+    handleBeforeOut():void {
+      console.log(1);
+    }
     ngAfterViewInit():void {
 	  }
 }

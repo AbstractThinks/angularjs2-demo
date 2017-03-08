@@ -9,7 +9,7 @@ import {appContentRoutes} from './appContentRouter.module';
 
 const appRoutes: Routes = [
 
-    { path: '', redirectTo: 'login',  pathMatch: 'full'},
+    { path: '', redirectTo: 'content',  pathMatch: 'full'},
     { path: 'login', component: Login1Component },
     ...appContentRoutes
     

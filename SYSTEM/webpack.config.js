@@ -19,12 +19,12 @@ var configPlugins = [
 ];
 if (ENV) {
     console.log('production')
-    configPlugins.push(new webpack.NoEmitOnErrorsPlugin());
-    configPlugins.push(new webpack.optimize.UglifyJsPlugin({
-        compress: {
-            warnings: false
-        }
-    }));
+    // configPlugins.push(new webpack.NoEmitOnErrorsPlugin());
+    // configPlugins.push(new webpack.optimize.UglifyJsPlugin({
+    //     compress: {
+    //         warnings: false
+    //     }
+    // }));
 
     configPlugins.push(new webpack.DefinePlugin({
         'process.env': {
