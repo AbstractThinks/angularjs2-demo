@@ -21,11 +21,12 @@ import { ContentPreparinglessonComponent } from './component/preparinglesson/pre
 import { ContentAssetsComponent } from './component/assets/assets.component';
 import { ContentOtherComponent } from './component/other/other.component';
 import { AchievementAnalysisComponent } from './component/achievementanalysis/achievementanalysis.component';
-import {StudentComponent} from './component/student/student.component';
-import {GrowthFileComponent} from './component/growthfile/growthfile.component';
-import {CareerPlanComponent} from './component/careerplan/careerplan.component';
-import {ContentMenusComponent} from './component/menus/menus.component';
-import {ContentScheduleComponent} from './component/schedule/schedule.component';
+import { StudentComponent } from './component/student/student.component';
+import { GrowthFileComponent } from './component/growthfile/growthfile.component';
+import { CareerPlanComponent } from './component/careerplan/careerplan.component';
+import { ContentMenusComponent } from './component/menus/menus.component';
+import { ContentScheduleComponent } from './component/schedule/schedule.component';
+import { ContentFinancialComponent } from './component/financial/financial.component';
 
 
 const APP_CONTENT_COMPONENT = [
@@ -46,6 +47,7 @@ const APP_CONTENT_COMPONENT = [
 	CareerPlanComponent,
 	ContentMenusComponent,
 	ContentScheduleComponent,
+	ContentFinancialComponent,
 	
 	ScreenMenuComponent,
 	PaginationComponent

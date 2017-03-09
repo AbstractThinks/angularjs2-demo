@@ -58,6 +58,10 @@
 	                "name": "我的资产",
 	                "iconFont": "money icon",
 	                "url": "/content/assets"
+	            }, {
+	                "name": "财务管理",
+	                "iconFont": "money icon",
+	                "url": "/content/financial"
 	            }
 	        ]
 	    },{

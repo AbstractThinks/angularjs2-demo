@@ -19,6 +19,7 @@ import {GrowthFileComponent} from '../appContentModule/component/growthfile/grow
 import {CareerPlanComponent} from '../appContentModule/component/careerplan/careerplan.component';
 import {ContentMenusComponent} from '../appContentModule/component/menus/menus.component';
 import {ContentScheduleComponent} from '../appContentModule/component/schedule/schedule.component';
+import {ContentFinancialComponent} from '../appContentModule/component/financial/financial.component';
 
 export const appContentRoutes: Routes = [
 
@@ -42,7 +43,8 @@ export const appContentRoutes: Routes = [
         { path: 'growthfile', component: GrowthFileComponent},
         { path: 'careerplan', component: CareerPlanComponent},
         { path: 'menus', component: ContentMenusComponent},
-        { path: 'schedule', component: ContentScheduleComponent }
+        { path: 'schedule', component: ContentScheduleComponent },
+        { path: 'financial', component: ContentFinancialComponent }
       ]
     }
 ];
