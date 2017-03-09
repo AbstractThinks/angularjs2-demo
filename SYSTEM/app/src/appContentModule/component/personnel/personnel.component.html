@@ -1,26 +1,16 @@
+<sm-menu title="Angular2" class="inverted teal" logo="http://semantic-ui.com/images/logo.png">
+    <a sm-item (click)="addModal.show()"><i class="add user icon"></i>新增教师</a>
+    <a sm-item (click)="addModal.show()"><i class="search icon"></i>查询教师</a>
+</sm-menu>
 <table class="ui teal compact celled definition table">
   <thead class="full-width">
-    <tr>
-      <th></th>
-      <th colspan="6">
-        <button class="ui right floated small teal labeled icon button" (click)="addModal.show()" >
-            <i class="add user icon"></i>新增教师
-        </button>
-        <div class="ui right floated small primary labeled icon button" (click)="addModal.show()">
-            <i class="search icon"></i>查询教师
-        </div> 
-        
-      </th>
-       
-    </tr>
     <tr>
       <th></th>
       <th>Name</th>
       <th>Registration Date</th>
       <th>E-mail address</th>
       <th>Premium Plan</th>
-      <th>修改人员</th>
-      <th>删除人员</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody>
@@ -35,15 +25,14 @@
       <td>jhlilk22@yahoo.com</td>
       <td>No</td>
       <td>
-        <button class="ui right floated small green labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
+        <div class="ui buttons vertical">
+          <button class="ui small teal labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
             <i class="edit icon"></i>修改教师
-        </button>
-      </td>
-      <td>
-        <div class="ui right floated small red labeled icon button" (click)="handleRemove()">
+          </button>
+          <div class="ui small red labeled icon button" (click)="handleRemove()">
             <i class="remove user icon"></i>删除教师
+          </div>
         </div>
-        
       </td>
     </tr>
     <tr>
@@ -57,15 +46,14 @@
       <td>jamieharingonton@yahoo.com</td>
       <td>Yes</td>
       <td>
-        <div class="ui right floated small green labeled icon button">
+        <div class="ui buttons vertical">
+          <button class="ui small teal labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
             <i class="edit icon"></i>修改教师
-        </div>
-      </td>
-      <td>
-        <div class="ui right floated small red labeled icon button">
+          </button>
+          <div class="ui small red labeled icon button" (click)="handleRemove()">
             <i class="remove user icon"></i>删除教师
+          </div>
         </div>
-        
       </td>
     </tr>
     <tr>
@@ -79,32 +67,19 @@
       <td>jilsewris22@yahoo.com</td>
       <td>Yes</td>
       <td>
-        <div class="ui right floated small green labeled icon button">
+        <div class="ui buttons vertical">
+          <button class="ui small teal labeled icon button" (click)="handleRemove({'title1':'1','title2':'2'})">
             <i class="edit icon"></i>修改教师
-        </div>
-      </td>
-      <td>
-        <div class="ui right floated small red labeled icon button">
+          </button>
+          <div class="ui small red labeled icon button" (click)="handleRemove()">
             <i class="remove user icon"></i>删除教师
+          </div>
         </div>
-        
       </td>
     </tr>
   </tbody>
-  <tfoot class="full-width">
-    <tr>
-      <th></th>
-      <th colspan="6">
-        <!-- <div class="ui right floated small primary labeled icon button">
-          <i class="user icon"></i> Add User
-        </div> -->
-        <pagination-container></pagination-container>
-        
-      </th>
-    </tr>
-  </tfoot>
 </table>
-
+<pagination-container></pagination-container>
 
 <sm-modal title="新增员工" class="" icon="add user icon" #addModal>
     <modal-content>

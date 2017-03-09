@@ -24,7 +24,8 @@ import { AchievementAnalysisComponent } from './component/achievementanalysis/ac
 import {StudentComponent} from './component/student/student.component';
 import {GrowthFileComponent} from './component/growthfile/growthfile.component';
 import {CareerPlanComponent} from './component/careerplan/careerplan.component';
-
+import {ContentMenusComponent} from './component/menus/menus.component';
+import {ContentScheduleComponent} from './component/schedule/schedule.component';
 
 
 const APP_CONTENT_COMPONENT = [
@@ -43,7 +44,9 @@ const APP_CONTENT_COMPONENT = [
 	StudentComponent,
 	GrowthFileComponent,
 	CareerPlanComponent,
-
+	ContentMenusComponent,
+	ContentScheduleComponent,
+	
 	ScreenMenuComponent,
 	PaginationComponent
 

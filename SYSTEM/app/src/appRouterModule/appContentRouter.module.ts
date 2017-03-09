@@ -17,7 +17,8 @@ import {AchievementAnalysisComponent} from '../appContentModule/component/achiev
 import {StudentComponent} from '../appContentModule/component/student/student.component';
 import {GrowthFileComponent} from '../appContentModule/component/growthfile/growthfile.component';
 import {CareerPlanComponent} from '../appContentModule/component/careerplan/careerplan.component';
-
+import {ContentMenusComponent} from '../appContentModule/component/menus/menus.component';
+import {ContentScheduleComponent} from '../appContentModule/component/schedule/schedule.component';
 
 export const appContentRoutes: Routes = [
 
@@ -25,7 +26,7 @@ export const appContentRoutes: Routes = [
       path: 'content',
       component: ContentComponent,
       children: [
-    		{ path: '', redirectTo: 'index',  pathMatch: 'full'},
+    		{ path: '', redirectTo: 'menus',  pathMatch: 'full'},
         { path: 'index', component: ContentIndexComponent },
         { path: 'personal', component: ContentPersonalComponent },
         { path: 'personnel', component: ContentPersonnelComponent },
@@ -39,7 +40,9 @@ export const appContentRoutes: Routes = [
         { path: 'achievementanalysis', component: AchievementAnalysisComponent},
         { path: 'student', component: StudentComponent},
         { path: 'growthfile', component: GrowthFileComponent},
-        { path: 'careerplan', component: CareerPlanComponent}
+        { path: 'careerplan', component: CareerPlanComponent},
+        { path: 'menus', component: ContentMenusComponent},
+        { path: 'schedule', component: ContentScheduleComponent }
       ]
     }
 ];

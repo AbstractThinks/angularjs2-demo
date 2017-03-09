@@ -57,15 +57,27 @@ body>.ui.vertical.menu .item>.header:not(.ui) {
     }
 }
 @for $i from 0 to 10 {
-    .mg-tb#{$i*8} {
+    .mg-rl#{$i*8} {
         margin-left: #{$i*8}px!important;
         margin-right: #{$i*8}px!important;
+    }
+}
+@for $i from 0 to 10 {
+    .mg-tb#{$i*8} {
+        margin-top: #{$i*8}px!important;
+        margin-bottom: #{$i*8}px!important;
     }
 }
 @for $i from 0 to 10 {
     .pd-rl#{$i*8} {
         padding-left: #{$i*8}px!important;
         padding-right: #{$i*8}px!important;
+    }
+}
+@for $i from 0 to 10 {
+    .pd-tb#{$i*8} {
+        padding-top: #{$i*8}px!important;
+        padding-bottom: #{$i*8}px!important;
     }
 }
 .primary-color {
@@ -90,6 +102,33 @@ pagination-container {
     width: 300px;
     height: 300px;
 }
+/**
+ * menus
+ */
+menus-component {
+    .cards {
+        .card {
+            &:hover {
+                .header {
+                    i {
+                        // color: rgb(0, 150, 136);
+                    } 
+                }
+            }
+            .header {
+                background:#009688;
+                text-align:center;
+                color: rgb(255, 255, 255); 
+                i {
+                    font-size: 3.5em;
+                    transition: 1s;
+                    color: rgb(255, 255, 255);
+                } 
+            }
+        }
+    }
+}
+
 /**
  * login
  */

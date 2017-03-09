@@ -11,7 +11,7 @@ import { UrlService } from '../appServiceModule/urlService.component';
   // directives: [],
 })
 export class ContentComponent implements AfterViewInit{
-	menu:any = [];
+	  menu:any = [];
     notes:any = [];
     MenuSubmenu:any = [];
     constructor (private urlService: UrlService) {

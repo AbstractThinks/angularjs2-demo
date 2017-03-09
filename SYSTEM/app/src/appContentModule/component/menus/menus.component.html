@@ -1,0 +1,30 @@
+<div *ngFor="let item of menus.Menu">
+    <h4 class="ui horizontal divider header mg-tb24">
+        <i class="{{item.icon}}"></i>
+        {{item.title}}
+    </h4>
+    <div class="ui link cards seven column doubling stackable grid">
+        <a class="card" *ngFor="let Submenuitem of item.Submenus" routerLink="{{Submenuitem.url}}" target="_blank">
+            <div class="header pd-tb16 teal">
+                <i class="{{Submenuitem.iconFont}}"></i>
+                <h5>{{Submenuitem.name}}</h5>
+            </div>
+        </a>
+        <a class="card">
+            <div class="header pd-tb16">
+                <i class="add square icon"></i>
+                <h5>增加模块</h5>
+            </div>
+        </a>
+    </div>
+    <!-- <div class="ui labeled icon menu seven column doubling stackable grid">
+      <a class="item" *ngFor="let Submenuitem of item.Submenus" routerLink="{{Submenuitem.url}}" target="_blank">
+        <i class="{{Submenuitem.iconFont}}"></i>
+        {{Submenuitem.name}}
+      </a>
+    </div> -->
+
+</div>
+
+
+
