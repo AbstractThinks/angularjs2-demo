@@ -49,11 +49,11 @@ export const appContentRoutes: Routes = [
     }
 ];
 
-@NgModule({
-  imports: [ 
-  	// RouterModule.forChild(appContentRoutes) 
-  ],
-  exports: [ RouterModule ]
-})
-export class appContentRoutesModule{ }
+// @NgModule({
+//   imports: [ 
+//   	// RouterModule.forChild(appContentRoutes) 
+//   ],
+//   exports: [ RouterModule ]
+// })
+// export class appContentRoutesModule{ }
 
