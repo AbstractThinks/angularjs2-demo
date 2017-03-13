@@ -1,0 +1,48 @@
+
+
+
+
+
+
+/*****************************
+ *  cms
+ ****************************/
+ cms-container {
+    .ui.container.main {
+        margin-right: 0!important;
+        margin-left: 250px!important;
+        cms-personalmodule-container {
+            display:block;
+            position:relative;
+            &>.ui.dividing.rail {
+                width: 200px;
+                &>.ui>h4.ui.header {
+                    text-align: right;
+                }
+            }
+        }
+    }
+     
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

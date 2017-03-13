@@ -6,12 +6,8 @@ import { NgSemanticModule } from "ng-semantic";
 import { StickyNavModule } from 'ng2-sticky-nav';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {Ng2DragDropModule} from "ng2-drag-drop";
-
-
-
+import { AppPublicModule } from '../appPublicModule/appPublic.module';
 import {ContentComponent} from './content.component';
-import { PaginationComponent } from '../appPublicModule/pagination/pagination.component';
-import { ScreenMenuComponent } from '../appPublicModule/screenmenu/screenmenu.component';
 
 import { ContentIndexComponent } from './component/index/index.component';
 import { ContentPersonalComponent } from './component/personal/personal.component';
@@ -31,6 +27,10 @@ import { ContentMenusComponent } from './component/menus/menus.component';
 import { ContentScheduleComponent } from './component/schedule/schedule.component';
 import { ContentFinancialComponent } from './component/financial/financial.component';
 import { ContentBasicDataComponent } from './component/basicdata/basicdata.component';
+
+
+require('../assets/style/content.style.scss');
+
 
 const APP_CONTENT_COMPONENT = [
 	ContentComponent,
@@ -53,8 +53,8 @@ const APP_CONTENT_COMPONENT = [
 	ContentFinancialComponent,
 	ContentBasicDataComponent,
 	
-	ScreenMenuComponent,
-	PaginationComponent
+	// ScreenMenuComponent,
+	// PaginationComponent
 
 ]
 const APP_CONTENT_IMPORT = [
@@ -64,7 +64,8 @@ const APP_CONTENT_IMPORT = [
 	NgSemanticModule,
 	ChartsModule,
 	StickyNavModule,
-	Ng2DragDropModule
+	Ng2DragDropModule,
+	AppPublicModule,
 ]
 
 @NgModule({
