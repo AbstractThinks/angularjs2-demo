@@ -12,7 +12,7 @@ import { appHYResourceModule } from './resourceModule/resource.module';
 import { appHYReviewedModule } from './reviewedModule/reviewed.module';
 import { appHYPersonalModule } from './personalModule/personal.module';
 import { appHYPersonnelModule } from './personnelModule/personnel.module';
-require('../assets/style/cms.style.scss');
+require('../assets/style/hy.style.scss');
 
 
 
