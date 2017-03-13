@@ -8,6 +8,11 @@
 	                "name": "菜单管理",
 	                "iconFont": "list layout icon",
 	                "url": "/content/menus"
+	            },
+	            {
+	                "name": "基础数据",
+	                "iconFont": "list layout icon",
+	                "url": "/content/basicdata"
 	            }
 	        ]
 	    },{

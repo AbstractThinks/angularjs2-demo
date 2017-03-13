@@ -20,6 +20,8 @@ import {CareerPlanComponent} from '../appContentModule/component/careerplan/care
 import {ContentMenusComponent} from '../appContentModule/component/menus/menus.component';
 import {ContentScheduleComponent} from '../appContentModule/component/schedule/schedule.component';
 import {ContentFinancialComponent} from '../appContentModule/component/financial/financial.component';
+import {ContentBasicDataComponent} from '../appContentModule/component/basicdata/basicdata.component';
+
 
 export const appContentRoutes: Routes = [
 
@@ -44,7 +46,8 @@ export const appContentRoutes: Routes = [
         { path: 'careerplan', component: CareerPlanComponent},
         { path: 'menus', component: ContentMenusComponent},
         { path: 'schedule', component: ContentScheduleComponent },
-        { path: 'financial', component: ContentFinancialComponent }
+        { path: 'financial', component: ContentFinancialComponent },
+        { path: 'basicdata', component: ContentBasicDataComponent }
       ]
     }
 ];

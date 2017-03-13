@@ -1,0 +1,121 @@
+<screenmenu-container></screenmenu-container>
+<sm-menu title="Angular2" class="inverted teal" logo="http://semantic-ui.com/images/logo.png">
+    <a sm-item (click)="addModal.show()">新增</a>
+    <a sm-item>删除</a>
+</sm-menu>
+<table class="ui teal compact celled definition table">
+    <thead class="full-width">
+        <tr>
+            <th></th>
+            <th>名称</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="collapsing">
+                <div class="ui fitted slider checkbox">
+                    <input type="checkbox">
+                    <label></label>
+                </div>
+            </td>
+            <td>校区</td>
+            <td>使用中</td>
+            <td>
+                <div class="ui buttons vertical">
+                    <button class="ui teal labeled icon button" (click)="detailModal.show({'title1':'1','title2':'2'})">
+                        <i class="edit icon"></i>修改信息
+                    </button>
+                    <button class="ui red labeled icon button" (click)="handleRemove()">
+                        <i class="remove user icon"></i>删除信息
+                    </button>
+                    <button class="ui primary labeled icon button" (click)="detailModal.show({'title1':'1','title2':'2'})">
+                        <i class="remove user icon"></i>查看信息
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pagination-container></pagination-container>
+<sm-modal title="Hello from Modal" class="学生基本信息" icon="user circle" #addModal allowMultiple=true
+>
+    <modal-content>
+       <form class="ui form">
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="家长姓名" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="性别" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="成员关系" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="身份证号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="手机号" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="邮件地址" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="学历" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="职业" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="单位" placeholder="Enter address..."></sm-input>
+                </div>
+                <div class="column">
+                    <sm-input class="left labeled" label="监护人" placeholder="Enter address..."></sm-input>
+                </div>
+                
+            </div>
+            <div class="ui horizontal divider">
+            学生信息
+            </div>
+            <div class="ui four column doubling stackable grid">
+                <div class="column">
+                    <sm-input class="left labeled" label="查找学生" placeholder="Enter address..."></sm-input>
+                </div>
+            </div>   
+       </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui large buttons">
+            <div class="ui button teal" (click)="addModal.hide()">保存</div>
+            <div class="or"></div>
+            <div class="ui button red" (click)="addModal.hide()">关闭</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+<sm-modal title="Hello from Modal" class="学生基本信息" icon="user circle" #detailModal allowMultiple=true
+>
+    <modal-content>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th>名称</th>
+                    <th>值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>东校区</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </modal-content>
+    <modal-actions>
+        <div class="ui large buttons">
+            <div class="ui button red" (click)="parentModal.hide()">关闭</div>
+        </div>
+    </modal-actions>
+</sm-modal>
