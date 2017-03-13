@@ -53,8 +53,6 @@ const APP_CONTENT_COMPONENT = [
 	ContentFinancialComponent,
 	ContentBasicDataComponent,
 	
-	// ScreenMenuComponent,
-	// PaginationComponent
 
 ]
 const APP_CONTENT_IMPORT = [

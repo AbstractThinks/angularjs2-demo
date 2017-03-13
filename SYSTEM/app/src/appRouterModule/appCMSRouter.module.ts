@@ -23,6 +23,7 @@ export const appCMSRoutes: Routes = [
 		path: 'cms',
 		component: CMSComponent,
 		children: [
+			{ path: '', redirectTo: 'pernsonal',  pathMatch: 'full' },
 			{
 				path: 'pernsonal',
 				component: CMSPersonalModuleComponent,

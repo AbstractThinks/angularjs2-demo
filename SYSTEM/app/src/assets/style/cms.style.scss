@@ -1,24 +1,51 @@
-
-
-
-
-
-
 /*****************************
  *  cms
  ****************************/
  cms-container {
+    &>.ui.secondary.menu {
+        padding-left:8px;
+        padding-right:8px;
+        @media screen and (min-width: 1025px) {
+            padding-left:10%;
+            padding-right:10%;
+        }
+    }
     .ui.container.main {
+        width:-moz-calc(100% - 250px);
+        width:-we-webkit-calc(100% - 250px);
+        width:calc(100% - 250px);
         margin-right: 0!important;
         margin-left: 250px!important;
+        padding-left:16px;
+        padding-right:16px;
         cms-personalmodule-container {
             display:block;
             position:relative;
+            padding-bottom: 80px;
+            #txtDiv {
+                border: 1px solid rgba(34,36,38,.15);
+            }
             &>.ui.dividing.rail {
                 width: 200px;
                 &>.ui>h4.ui.header {
                     text-align: right;
                 }
+            }
+            cms-personal-homepage-container {
+                &>.ui.grid {
+                    margin-top:0px;
+                }
+            }
+            cms-personal-sendmessage-container {
+                &>form {
+                    &>.ui.grid {
+                        margin-top:0;
+                    }
+                }
+            }
+            @media screen and (min-width: 1025px) {
+                padding-left:10%;
+                padding-right:10%;
             }
         }
     }

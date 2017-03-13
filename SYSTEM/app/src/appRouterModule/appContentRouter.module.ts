@@ -29,7 +29,7 @@ export const appContentRoutes: Routes = [
       path: 'content',
       component: ContentComponent,
       children: [
-    		{ path: '', redirectTo: 'menus',  pathMatch: 'full'},
+    	{ path: '', redirectTo: 'menus',  pathMatch: 'full'},
         { path: 'index', component: ContentIndexComponent },
         { path: 'personal', component: ContentPersonalComponent },
         { path: 'personnel', component: ContentPersonnelComponent },

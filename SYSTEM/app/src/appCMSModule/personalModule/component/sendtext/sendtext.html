@@ -1,1 +1,30 @@
-我的主页
+<form class="ui form">
+     <div class="ui column grid">
+        <div class="column text-768-right">
+            <div class="ui large buttons">
+                <button class="ui button teal label" (click)="handleSendMessage()"><i class="send icon"></i>发送</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="ui column stackable grid">
+        <div class="column">
+            <label for="">收件人</label>
+            <input type="text">
+        </div>
+    </div>
+    <div class="ui column stackable grid">
+        <div class="column">
+            <label for="">抄送</label>
+            <input type="text">
+        </div>
+    </div>
+    <div class="ui column stackable grid">
+        <div class="column">
+            <div id="editor">
+              <p>Hello World!</p>
+            </div>
+        </div>
+    </div>
+   
+</form>

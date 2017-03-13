@@ -110,10 +110,26 @@ pagination-container {
     pagination-container {
         text-align: right;
     }
+
     /**
      * login
      */
     login1-form {
+        display: block;
+        height: 100%;
+        padding: 32px;
+        .ui.grid {
+            height: 100%;
+        }
+        .ui.grid>.row>.column+.divider {
+            left: 50%;
+            height: 50%;
+        }
+        sm-segment {
+            display: block;
+            max-width: 400px;
+            display:inline-block;
+        }
         .ui.grid>.row>.column {
             display: flex;
             flex-direction: column;

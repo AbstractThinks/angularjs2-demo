@@ -1,7 +1,8 @@
 import {
 	Component,
 	ViewChild,
-	AfterViewInit
+	AfterViewInit,
+	OnDestroy
 } from '@angular/core';
 import { UrlService } from '../../../appServiceModule/urlService.component';
 
@@ -21,9 +22,13 @@ export class CareerPlanComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit(): void {
-		var $editor = $('#txtDiv').wangEditor();
-		//$editor.html()	获取输入html内容
-		//$editor.text()   获取输入文本内容
+		// if ($('#txtDiv .btn-container').length > 0) {
+
+		// } else {
+		// 	var $editor = $('#txtDiv').wangEditor();
+		// }
+		
 	}
+
 
 }
