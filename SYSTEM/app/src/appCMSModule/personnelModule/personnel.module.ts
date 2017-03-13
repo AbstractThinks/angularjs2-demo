@@ -6,7 +6,7 @@ import { NgSemanticModule } from "ng-semantic";
 import { StickyNavModule } from 'ng2-sticky-nav';
 import { AppPublicModule } from '../../appPublicModule/appPublic.module';
 
-import { CMSPersonnelModuleComponent } from './personal.component';
+import { CMSPersonnelModuleComponent } from './personnel.component';
 // import { CMSPersonalHomepageComponent } from './component/homepage/homepage.component';
 // import { CMSPersonalMessageComponent } from './component/message/message.component';
 // import { CMSPersonalNewsComponent } from './component/news/news.component';

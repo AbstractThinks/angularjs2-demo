@@ -4,18 +4,21 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NgSemanticModule } from "ng-semantic";
 import { StickyNavModule } from 'ng2-sticky-nav';
-import { AppPublicModule } from '../appPublicModule/appPublic.module';
-import { appCMSPersonalModule } from './personalModule/personal.module';
 
-import { CMSComponent } from './cms.component';
 
+import { HYComponent } from './hy.component';
+import { appHYHomepageModule } from './homepageModule/homepage.module';
+import { appHYResourceModule } from './resourceModule/resource.module';
+import { appHYReviewedModule } from './reviewedModule/reviewed.module';
+import { appHYPersonalModule } from './personalModule/personal.module';
+import { appHYPersonnelModule } from './personnelModule/personnel.module';
 require('../assets/style/cms.style.scss');
 
 
 
 
 const APP_CMS_COMPONENT = [
-	CMSComponent,
+	HYComponent,
 ]
 const APP_CMS_IMPORT = [
 	FormsModule,
@@ -23,8 +26,11 @@ const APP_CMS_IMPORT = [
 	CommonModule,
 	NgSemanticModule,
 	StickyNavModule,
-	AppPublicModule,
-	appCMSPersonalModule
+	appHYHomepageModule,
+	appHYResourceModule,
+	appHYReviewedModule,
+	appHYPersonalModule,
+	appHYPersonnelModule,
 ]
 
 @NgModule({
@@ -35,4 +41,4 @@ const APP_CMS_IMPORT = [
     	...APP_CMS_COMPONENT
     ],
 })
-export class appCMSModule {}
+export class appHYModule {}

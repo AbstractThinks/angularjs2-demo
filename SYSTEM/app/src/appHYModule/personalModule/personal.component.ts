@@ -5,10 +5,10 @@ import {
 import { UrlService } from '../../appServiceModule/urlService.component';
 
 @Component({
-  selector: 'cms-personalmodule-container',
+  selector: 'hy-personal-module-container',
   templateUrl:  `./personal.html`,
 })
-export class CMSPersonalModuleComponent implements AfterViewInit{
+export class HYPersonalModuleComponent implements AfterViewInit{
 	ngAfterViewInit():void {
 		// $('cms-personalmodule-container .ui.accordion').accordion()
 	}

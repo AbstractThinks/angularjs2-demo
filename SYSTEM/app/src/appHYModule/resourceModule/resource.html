@@ -1,55 +1,6 @@
-<div class="ui dividing left rail">
-    <div class="ui">
-        <div class="item">
-        <i class="angle double left icon"></i>
-        </div>
-        <div class="ui divider"></div>
-        <div class="ui vertical following fluid accordion text menu">
-        	<a class="item" routerLink="/cms/pernsonal/homepage">我的主页</a>
-        	<a class="item" routerLink="/cms/pernsonal/message">信息提示中心</a>
-            <div class="item active"><a class="active title"><i class="dropdown icon"></i> <b>新闻公告</b></a>
-                <div class="active content menu">
-                	<a class="item" routerLink="/cms/pernsonal/news">全部新闻</a>
-                </div>
-            </div>
-            <div class="item">
-            	<a class="title active"><i class="dropdown icon"></i><b>即时消息</b></a>
-                <div class="content menu active">
-                	<a class="item" routerLink="/cms/pernsonal/sendmessage">发消息</a>
-                	<a class="item" routerLink="/cms/pernsonal/inbox">收件箱</a>
-                	<a class="item" routerLink="/cms/pernsonal/outbox">发件箱</a>
-                </div>
-            </div>
-            <div class="item">
-            	<a class="title active"><i class="dropdown icon"></i><b>文档管理</b></a>
-                <div class="content menu active">
-                	<a class="item" routerLink="/cms/pernsonal/mydocuments">我的文档</a>
-                	<a class="item" routerLink="/cms/pernsonal/documents">全部文档</a>
-                	<a class="item" routerLink="/cms/pernsonal/documentsmanagement">文档管理</a>
-                </div>
-            </div>
-            <div class="item">
-            	<a class="title active"><i class="dropdown icon"></i><b>通讯录</b></a>
-                <div class="content menu active">
-                	<a class="item" routerLink="/cms/pernsonal/commnuication">内部通讯录</a>
-                </div>
-            </div>
-            <div class="item">
-            	<a class="title active"><i class="dropdown icon"></i><b>短信中心</b></a>
-                <div class="content menu active">
-                	<a class="item" routerLink="/cms/pernsonal/sendtext">发送短信</a>
-                	<a class="item" routerLink="/cms/pernsonal/text">短信记录</a>
-                </div>
-            </div>
-            <div class="item">
-                <a class="title active"><i class="dropdown icon"></i><b>个人设置</b></a>
-                <div class="content menu active">
-                    <a class="item" routerLink="/cms/pernsonal/password">密码设置</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="ui container">
+    <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+
 
 

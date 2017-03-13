@@ -8,13 +8,17 @@ import {appContentModule} from '../appContentModule/content.module';
 import {appContentRoutes} from './appContentRouter.module';
 import {appCMSRoutes} from './appCMSRouter.module';
 import {appCMSModule} from '../appCMSModule/cms.module';
+// 宏源项目
+import {appHYRoutes} from './appHYRouter.module';
+import {appHYModule} from '../appHYModule/hy.module';
 
 const appRoutes: Routes = [
 
     { path: '', redirectTo: 'login',  pathMatch: 'full'},
     { path: 'login', component: Login1Component },
     ...appContentRoutes,
-    ...appCMSRoutes
+    ...appCMSRoutes,
+    ...appHYRoutes,
     
 ];
 
@@ -24,6 +28,7 @@ const appRoutes: Routes = [
     appLoginModule,
     appContentModule, 
     appCMSModule,
+    appHYModule,
   ],
   declarations: [
   ],
