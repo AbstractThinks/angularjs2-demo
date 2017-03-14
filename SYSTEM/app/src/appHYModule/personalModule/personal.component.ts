@@ -3,13 +3,30 @@ import {
 	AfterViewInit
 } from '@angular/core';
 import { UrlService } from '../../appServiceModule/urlService.component';
+import { HYService } from '../../appServiceModule/HYService.component';
+import { HYPersonalIndexComponent } from './component/index/index.component';
+import { HYPersonalUploadComponent } from './component/upload/index.component';
 
 @Component({
   selector: 'hy-personal-module-container',
   templateUrl:  `./personal.html`,
+  providers: [HYService],
 })
 export class HYPersonalModuleComponent implements AfterViewInit{
+	SCHOOLSDICTIONARY:any=[];
+	SUBJECTSDICTIONARY:any=[];
+	GRADESDICTIONARY:any=[];
+	TYPESDICTIONARY:any=[];
+
+
+	constructor( private urlservice: UrlService, private _hyservice: HYService) {
+		
+		let that = this;
+		
+
+	}
 	ngAfterViewInit():void {
-		// $('cms-personalmodule-container .ui.accordion').accordion()
+		let that = this;
+		
 	}
 }

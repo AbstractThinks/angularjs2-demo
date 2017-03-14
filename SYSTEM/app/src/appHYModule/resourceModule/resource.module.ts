@@ -8,9 +8,11 @@ import { AppPublicModule } from '../../appPublicModule/appPublic.module';
 
 import { HYResourceModuleComponent } from './resource.component';
 import { HYResourceIndexComponent } from './component/index/index.component'; 
+import { HYResourceDetailComponent } from './component/detail/index.component';
 const APP_CMS_COMPONENT = [
 	HYResourceModuleComponent,
 	HYResourceIndexComponent,
+	HYResourceDetailComponent,
 ]
 const APP_CMS_IMPORT = [
 	FormsModule,

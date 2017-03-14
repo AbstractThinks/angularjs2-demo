@@ -8,10 +8,16 @@ import { AppPublicModule } from '../../appPublicModule/appPublic.module';
 
 import { HYPersonalModuleComponent } from './personal.component';
 import { HYPersonalIndexComponent } from './component/index/index.component';
+import { HYPersonalCollectionsComponent } from './component/collections/index.component';
+import { HYPersonalUploadComponent } from './component/upload/index.component';
+import { HYPersonalOtherComponent } from './component/other/index.component';
 
 const APP_CMS_COMPONENT = [
 	HYPersonalModuleComponent,
 	HYPersonalIndexComponent,
+	HYPersonalCollectionsComponent,
+	HYPersonalUploadComponent,
+	HYPersonalOtherComponent,
 ]
 const APP_CMS_IMPORT = [
 	FormsModule,

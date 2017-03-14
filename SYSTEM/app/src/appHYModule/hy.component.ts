@@ -2,6 +2,7 @@ import {
 	Component,
 	AfterViewInit
 } from '@angular/core';
+import { HYMENUS } from '../../config/HYCONFIG';
 import { UrlService } from '../appServiceModule/urlService.component';
 
 @Component({
@@ -9,7 +10,11 @@ import { UrlService } from '../appServiceModule/urlService.component';
   templateUrl:  `./hy.html`,
 })
 export class HYComponent implements AfterViewInit{
-	  ngAfterViewInit():void {
-
-    }
+	MENUS:any;
+	constructor() {
+		this.MENUS = HYMENUS;
+	}
+	ngAfterViewInit():void {
+		$('.sidebar .ui.accordion').accordion()
+	}
 }

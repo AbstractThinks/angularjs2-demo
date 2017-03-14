@@ -4,6 +4,7 @@
     "jquery": "registry:dt/jquery#1.10.0+20170123093700",
     "node": "registry:env/node#6.0.0+20161105011511",
     "quill": "registry:dt/quill#1.1.0+20161025144844",
+    "semantic-ui": "registry:dt/semantic-ui#2.2.0+20170223151516",
     "swiper": "registry:dt/swiper#3.4.0+20170120190008"
   }
 }

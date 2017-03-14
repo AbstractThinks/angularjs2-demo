@@ -1,0 +1,51 @@
+<div class="ui three item menu mg-tb16">
+    <a class="item" routerLink="/hy/personal/index">个人信息</a>
+    <a class="item" routerLink="/hy/personal/collections">个人收藏</a>
+    <a class="active item" routerLink="/hy/personal/upload">上传文件</a>
+</div>
+<form class="ui form">
+    <div class="ui four column stackable grid">
+        <div class="column field">
+            <label>学校</label>
+            <select class="ui dropdown SCHOOLSDICTIONARY">
+              <option value="{{item.id}}" *ngFor="let item of SCHOOLSDICTIONARY">{{item.name}}</option>
+            </select>
+        </div>
+        <div class="column field">
+            <label>学科</label>
+            <select class="ui dropdown SUBJECTSDICTIONARY">
+              <option value="{{item.id}}" *ngFor="let item of SUBJECTSDICTIONARY">{{item.name}}</option>
+            </select>
+        </div>
+        <div class="column field">
+            <label>学段</label>
+            <select class="ui dropdown GRADESDICTIONARY">
+              <option value="{{item.id}}" *ngFor="let item of GRADESDICTIONARY.values">{{item.value}}</option>
+            </select>
+        </div>
+        <div class="column field">
+            <label>类型</label>
+            <select class="ui dropdown TYPESDICTIONARY">
+              <option value="{{item.id}}" *ngFor="let item of TYPESDICTIONARY">{{item.typeName}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="ui column doubling stackable grid">
+        <div class="column">
+            <div id="file-upload"></div>
+        </div>
+    </div>
+
+    <div class="ui column grid">
+        <div class="column text-768-right">
+            <div class="ui large buttons">
+                <button class="ui button teal" (click)="myModal.show()">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+                <div class="or"></div>
+                <button class="ui button red" (click)="myModal.show()">重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置</button>
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
+</form>

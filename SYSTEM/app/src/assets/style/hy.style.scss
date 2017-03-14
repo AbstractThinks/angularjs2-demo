@@ -2,6 +2,25 @@
  *  hy
  ****************************/
  
+ hy-container {
+ 	.custom-nav-class {
+        z-index: 1000;
+        width: 100%;
+    }
+    .custom-nav-class {
+        sm-segment>div.ui.segment {
+            border-top-left-radius:0;
+            border-top-right-radius:0;
+        }
+
+        sm-segment>div>p {
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+            align-items: center;
+        }
+    }
+ }
 
 
 

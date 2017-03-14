@@ -6,10 +6,14 @@ import { HYHomepageModuleComponent } from '../appHYModule/homepageModule/homepag
 import { HYHomepageIndexComponent } from '../appHYModule/homepageModule/component/index/index.component';
 import { HYResourceModuleComponent } from '../appHYModule/resourceModule/resource.component';
 import { HYResourceIndexComponent } from '../appHYModule/resourceModule/component/index/index.component';
+import { HYResourceDetailComponent } from '../appHYModule/resourceModule/component/detail/index.component';
 import { HYReviewedModuleComponent } from '../appHYModule/reviewedModule/reviewed.component';
 import { HYReviewedIndexComponent } from '../appHYModule/reviewedModule/component/index/index.component';
 import { HYPersonalModuleComponent } from '../appHYModule/personalModule/personal.component';
 import { HYPersonalIndexComponent } from '../appHYModule/personalModule/component/index/index.component';
+import { HYPersonalCollectionsComponent } from '../appHYModule/personalModule/component/collections/index.component';
+import { HYPersonalUploadComponent } from '../appHYModule/personalModule/component/upload/index.component';
+import { HYPersonalOtherComponent } from '../appHYModule/personalModule/component/other/index.component';
 import { HYPersonnelModuleComponent } from '../appHYModule/personnelModule/personnel.component';
 import { HYPersonnelIndexComponent } from '../appHYModule/personnelModule/component/index/index.component';
 
@@ -33,6 +37,7 @@ export const appHYRoutes: Routes = [
 				children: [
 					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
 					{ path: 'index', component: HYResourceIndexComponent },
+					{ path: 'detail', component: HYResourceDetailComponent },
 				]
 		    },
 		    {
@@ -49,6 +54,9 @@ export const appHYRoutes: Routes = [
 				children: [
 					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
 					{ path: 'index', component: HYPersonalIndexComponent },
+					{ path: 'collections', component: HYPersonalCollectionsComponent },
+					{ path: 'upload', component: HYPersonalUploadComponent },
+					{ path: 'other', component: HYPersonalOtherComponent },
 				]
 		    },
 		    {

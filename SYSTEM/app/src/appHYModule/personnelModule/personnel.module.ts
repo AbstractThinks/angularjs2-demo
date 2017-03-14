@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NgSemanticModule } from "ng-semantic";
-import { StickyNavModule } from 'ng2-sticky-nav';
 import { AppPublicModule } from '../../appPublicModule/appPublic.module';
 
 import { HYPersonnelModuleComponent } from './personnel.component';
@@ -18,7 +17,6 @@ const APP_CMS_IMPORT = [
 	RouterModule,
 	CommonModule,
 	NgSemanticModule,
-	StickyNavModule,
 	AppPublicModule,
 ]
 
