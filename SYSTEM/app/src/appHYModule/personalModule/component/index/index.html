@@ -10,65 +10,44 @@
         </div>
     </div>
     <div class="ui four column doubling stackable grid">
-        <div class="column">
-            <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+        
+        <div class="column field">
+            <label>教师编号</label>
+            <input class="left labeled" label="教师姓名" type="text" placeholder="教师编号" [(ngModel)]="staff.staffNum" name="staffNum" readonly>
         </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+        <div class="column field">
+            <label>学校</label>
+            <input class="left labeled" label="教师姓名" type="text" placeholder="学校" [(ngModel)]="staff.schoolName" name="schoolName" readonly>
         </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+        <div class="column field">
+            <label>教师姓名</label>
+            <input class="left labeled" label="教师姓名" type="text" placeholder="输入教师姓名" [(ngModel)]="staff.name" name="name">
         </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+        <div class="column field">
+            <label>联系电话</label>
+            <input class="left labeled" label="教师姓名" type="text" placeholder="联系电话" [(ngModel)]="staff.phone" name="phone">
         </div>
-    </div>
-    <div class="ui four column doubling stackable grid">
-        <div class="column">
-            <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+        <div class="column field">
+            <label>联系地址</label>
+            <input class="left labeled" label="教师姓名" type="text" placeholder="联系地址" [(ngModel)]="staff.homeAddress" name="homeAddress">
         </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
+        <div class="column field">
+            <label>地址邮编</label>
+            <input class="left labeled" label="教师姓名" type="text" placeholder="地址邮编" [(ngModel)]="staff.homeZipCode" name="homeZipCode">
         </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
-        </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
-        </div>
-    </div>
-    <div class="ui four column doubling stackable grid">
-        <div class="column">
-            <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
-        </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师姓名" placeholder="Enter address..."></sm-input>
-        </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
-        </div>
-        <div class="column">
-            <sm-input class="left labeled" label="教师编号" placeholder="Enter address..."></sm-input>
+        <div class="column field">
+            <label>联系邮箱</label>
+            <input class="left labeled" label="教师姓名" type="text" placeholder="联系邮箱" [(ngModel)]="staff.email" name="email" >
         </div>
     </div>
-    <!-- <div class="ui column stackable grid">
-        <div class="column">
-            <label for="">个人简介</label>
-            <textarea placeholder="Enter address..."></textarea>
-        </div>
-    </div>
-    <div class="ui column stackable grid">
-        <div class="column">
-            <label for="">个人简介</label>
-            <textarea placeholder="Enter address..."></textarea>
-        </div>
-    </div> -->
+    
+
     <div class="ui column grid">
         <div class="column text-768-right">
             <div class="ui large buttons">
-                <button class="ui button teal" (click)="myModal.show()">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+                <button class="ui button teal" (click)="handleSaveData()">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
                 <div class="or"></div>
-                <button class="ui button red" (click)="myModal.show()">重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置</button>
+                <button class="ui button red" (click)="handleResetData()">重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置</button>
             </div>
             <div>
             </div>

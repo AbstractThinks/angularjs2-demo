@@ -1,1 +1,36 @@
-reviewed
+<div class="ui segment mg-tb24">
+    <div class="ui menu">
+        <a class="item">
+            <div class="header">学科分类</div>
+        </a>
+        <a class="item ative">全部</a>
+        <a class="item" *ngFor="let item of SUBJECTSDICTIONARY">{{item.name}}</a>
+    </div>
+    <div class="ui menu">
+        <a class="item">
+            <div class="header">学段分类</div>
+        </a>
+        <a class="item ative">全部</a>
+        <a class="item" *ngFor="let item of GRADESDICTIONARY.values">{{item.value}}</a>
+    </div>
+    <div class="ui menu">
+        <a class="item">
+            <div class="header">资源分类</div>
+        </a>
+        <a class="item ative">全部</a>
+        <a class="item" *ngFor="let item of TYPESDICTIONARY">{{item.typeName}}</a>
+    </div>
+      <div class="ui search">
+        <div class="ui icon input fluid">
+          <input class="prompt" type="text" placeholder="Search countries...">
+          <i class="search icon"></i>
+        </div>
+      </div>
+</div>
+<div class="ui five doubling stackable cards ">
+  <a class="ui card" href="http://www.dog.com">
+    <div class="image">
+      <img src="http://www.semantic-ui.cn/images/avatar/large/elliot.jpg">
+    </div>
+  </a>
+</div>

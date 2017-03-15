@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule}   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NgSemanticModule } from "ng-semantic";
 import { StickyNavModule } from 'ng2-sticky-nav';

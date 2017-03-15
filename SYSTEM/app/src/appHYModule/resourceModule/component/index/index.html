@@ -1,32 +1,36 @@
-<div class="ui three stackable cards">
-  <div class="card">
+<div class="ui segment mg-tb24">
+    <div class="ui menu SUBJECTSDICTIONARY">
+        <a class="item">
+            <div class="header">学科分类</div>
+        </a>
+        <a class="item active 0" (click)="handleChangeCondition(['SUBJECTSDICTIONARY','0'])">全部</a>
+        <a class="item {{item.id}}" *ngFor="let item of SUBJECTSDICTIONARY" (click)="handleChangeCondition(['SUBJECTSDICTIONARY',item.id])">{{item.name}}</a>
+    </div>
+    <div class="ui menu GRADESDICTIONARY">
+        <a class="item">
+            <div class="header">学段分类</div>
+        </a>
+        <a class="item active 0" (click)="handleChangeCondition(['GRADESDICTIONARY','0'])">全部</a>
+        <a class="item {{item.id}}" *ngFor="let item of GRADESDICTIONARY.values" (click)="handleChangeCondition(['GRADESDICTIONARY',item.id])">{{item.value}}</a>
+    </div>
+    <div class="ui menu TYPESDICTIONARY">
+        <a class="item">
+            <div class="header">资源分类</div>
+        </a>
+        <a class="item active 0" (click)="handleChangeCondition(['TYPESDICTIONARY','0'])">全部</a>
+        <a class="item {{item.id}}" *ngFor="let item of TYPESDICTIONARY" (click)="handleChangeCondition(['TYPESDICTIONARY',item.id])">{{item.typeName}}</a>
+    </div>
+      <div class="ui search">
+        <div class="ui icon input fluid">
+          <input class="prompt" type="text" placeholder="Search countries...">
+          <i class="search icon"></i>
+        </div>
+      </div>
+</div>
+<div class="ui five doubling stackable cards ">
+  <a class="ui card" href="http://www.dog.com">
     <div class="image">
       <img src="http://www.semantic-ui.cn/images/avatar/large/elliot.jpg">
     </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="http://www.semantic-ui.cn/images/avatar/large/helen.jpg">
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="http://www.semantic-ui.cn/images/avatar/large/jenny.jpg">
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="http://www.semantic-ui.cn/images/avatar/large/stevie.jpg">
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="http://www.semantic-ui.cn/images/avatar/large/steve.jpg">
-    </div>
-  </div>
+  </a>
 </div>

@@ -3,14 +3,13 @@ import {
 	AfterViewInit
 } from '@angular/core';
 import { UrlService } from '../../appServiceModule/urlService.component';
-import { HYService } from '../../appServiceModule/HYService.component';
 import { HYPersonalIndexComponent } from './component/index/index.component';
 import { HYPersonalUploadComponent } from './component/upload/index.component';
 
 @Component({
   selector: 'hy-personal-module-container',
   templateUrl:  `./personal.html`,
-  providers: [HYService],
+  
 })
 export class HYPersonalModuleComponent implements AfterViewInit{
 	SCHOOLSDICTIONARY:any=[];
@@ -19,7 +18,7 @@ export class HYPersonalModuleComponent implements AfterViewInit{
 	TYPESDICTIONARY:any=[];
 
 
-	constructor( private urlservice: UrlService, private _hyservice: HYService) {
+	constructor( private urlservice: UrlService) {
 		
 		let that = this;
 		

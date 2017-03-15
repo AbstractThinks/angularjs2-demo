@@ -37,7 +37,7 @@ export const appHYRoutes: Routes = [
 				children: [
 					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
 					{ path: 'index', component: HYResourceIndexComponent },
-					{ path: 'detail', component: HYResourceDetailComponent },
+					{ path: 'detail/:id', component: HYResourceDetailComponent },
 				]
 		    },
 		    {
@@ -56,7 +56,7 @@ export const appHYRoutes: Routes = [
 					{ path: 'index', component: HYPersonalIndexComponent },
 					{ path: 'collections', component: HYPersonalCollectionsComponent },
 					{ path: 'upload', component: HYPersonalUploadComponent },
-					{ path: 'other', component: HYPersonalOtherComponent },
+					{ path: 'other/:id', component: HYPersonalOtherComponent },
 				]
 		    },
 		    {

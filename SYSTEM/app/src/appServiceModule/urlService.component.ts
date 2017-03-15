@@ -23,6 +23,10 @@ export class UrlService {
     hy_req_get(url?:string): any {
     	return this.http.get(HYURLDOMAIN+url).toPromise();
     }
+
+    hy_req_delete(url?:string, reqData?:any): any {
+        return this.http.delete(HYURLDOMAIN+url).toPromise();
+    }
 	
     
 }

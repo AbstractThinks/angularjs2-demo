@@ -1,18 +1,31 @@
 import {Component} from '@angular/core';
-import {BaseData} from '../../../../../../mockData/baseData';
+import { UrlService } from '../../../../appServiceModule/urlService.component';
 
 @Component({
   selector: 'hy-reviewed-index-container',
   templateUrl:  `./index.html`,
-  // directives: [],
 })
 
 export class HYReviewedIndexComponent {
-	items:any = [
-		{"title":"学生管理"}
-	]
-	cities:any = [
-
-	]
-	basedata:any = BaseData
+	RESOURCES:any={};
+	SUBJECTSDICTIONARY:any=[];
+	GRADESDICTIONARY:any={};
+	TYPESDICTIONARY:any=[];
+	constructor (private urlservice: UrlService) {
+		let that = this;
+		this.urlservice.hy_req_get("api/resources/queryByCondition?page=1&pageSize=10&resourceTypeId=3").then((response:any) => {
+            that.RESOURCES = response.json();
+        })
+        this.urlservice.hy_req_get("api/subjects?page=1").then((response:any) => {
+            that.SUBJECTSDICTIONARY = response.json();
+        });
+        this.urlservice.hy_req_get("api/dynamicenum/1028").then((response:any) => {
+            that.GRADESDICTIONARY = response.json();
+        });
+        this.urlservice.hy_req_get("api/resources/listAllResourceTypes}").then((response:any) => {
+        	let arr:Array<number> = response.json();
+        	arr.pop();
+            that.TYPESDICTIONARY = arr;
+        });
+	}
 }
