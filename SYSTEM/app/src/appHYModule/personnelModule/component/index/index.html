@@ -1,5 +1,5 @@
     <sm-menu title="Angular2" class="inverted teal mg-tb16" logo="http://semantic-ui.com/images/logo.png">
-        <a sm-item (click)="staffModal.show()"><i class="add user icon"></i>新增教师</a>
+        <a sm-item (click)="handleAddStaff()"><i class="add user icon"></i>新增教师</a>
     </sm-menu>
     <table class="ui teal compact celled definition table">
         <thead class="full-width">
@@ -37,34 +37,42 @@
 
     <sm-modal title="教师基本信息" class="" icon="child icon" #staffModal>
     <modal-content>
-       <form class="ui form">
+       <form class="ui form" #myForm>
             <div class="ui two column doubling stackable grid">
                 <div class="column field">
                    <label>教师姓名</label>
-                    <input class="left labeled" label="教师姓名" type="text" placeholder="输入教师姓名" [(ngModel)]="STAFFMODALDATA.name" name="name">
+                    <input class="form-control left labeled" type="text" [(ngModel)]="STAFFMODALDATA.name" ngModel name="name" #requried="ngModel" required/>
+                    <p class="alert alert-danger" *ngIf="requried?.errors?.required">required error</p>
+                    <!-- <input class="left labeled" label="教师姓名" type="text" placeholder="输入教师姓名" [(ngModel)]="STAFFMODALDATA.name" name="name" required #name="ngModel">
+                    <p *ngIf="STAFFMODALDATA.controls.name.errors?.required">required error</p> -->
                 </div>
                 <div class="column field">
                     <label>教师编号</label>
-                    <input class="left labeled" label="教师姓名" type="text" placeholder="教师编号" [(ngModel)]="STAFFMODALDATA.staffNum" name="staffNum">
+                    <input class="left labeled" label="教师姓名" type="text" placeholder="教师编号" [(ngModel)]="STAFFMODALDATA.staffNum" name="staffNum" #requried="ngModel" required>
+                    <div class="ui negative message" *ngIf="requried?.errors?.required">
+                        <div class="header">不能为空 </div>
+                    </div>
                 </div>
                  <div class="column field">
                     <label>学校</label>
-                    <select class="ui dropdown SCHOOLSDICTIONARY">
+                    <select class="ui dropdown SCHOOLSDICTIONARY" [(ngModel)]="STAFFMODALDATA.schoolId" name="schoolId" #requried="ngModel" required>
                       <option value="{{item.id}}" *ngFor="let item of SCHOOLSDICTIONARY">{{item.name}}</option>
                     </select>
+                    <p class="alert alert-danger" *ngIf="requried?.errors?.required">required error</p>
                 </div>
                 <div class="column field">
                     <label>学科</label>
-                    <select class="ui dropdown SUBJECTSDICTIONARY">
+                    <select class="ui dropdown SUBJECTSDICTIONARY" [(ngModel)]="STAFFMODALDATA.teachingSubject" name="teachingSubject" #requried="ngModel" required>
                       <option value="{{item.id}}" *ngFor="let item of SUBJECTSDICTIONARY">{{item.name}}</option>
                     </select>
+                    <p class="alert alert-danger" *ngIf="requried?.errors?.required">required error</p>
                 </div>
             </div>
        </form>
     </modal-content>
     <modal-actions>
         <div class="ui large buttons">
-            <div class="ui button teal" (click)="staffModal.hide()">保存</div>
+            <button class="ui button teal submit" (click)="handleSaveStaff()">保存</button>
             <div class="or"></div>
             <div class="ui button red" (click)="staffModal.hide()">关闭</div>
         </div>
