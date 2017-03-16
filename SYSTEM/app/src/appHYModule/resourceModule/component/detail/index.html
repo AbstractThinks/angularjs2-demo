@@ -1,1 +1,9 @@
-1
+<div>
+      <label>Page:</label>
+      <input type="number" placeholder="Page" [(ngModel)]="page">
+  </div>
+  <pdf-viewer [src]="pdfSrc" 
+              [page]="page" 
+              [original-size]="true" 
+              style="display: block;"
+  ></pdf-viewer>

@@ -44,6 +44,21 @@ export class HYPersonalUploadComponent implements OnInit, AfterViewInit {
 	ngOnInit(): void {
 	}
 	ngAfterViewInit(): void {
-		
+        let fileUpload = $("#file-upload").semanticFileUploader({
+            defaultText: "上传文件",
+            defaultLabel: "点击选择文件或者将文件拖入此区域",
+            loadingText: "上传文件中...",
+            successText: "上传成功",
+            onDrop: function(file:any){
+                //File object => https://developer.mozilla.org/en-US/docs/Web/API/File
+                console.log(file.name);
+                
+                // Upload your file using the method you prefer (ex: $.ajax) and call 
+                // the method finishUpload() as soon as your upload is finished;
+                setTimeout(function(){
+                    fileUpload.uploadFinished();
+                }, 3000);
+            }
+        });    
 	}
 }

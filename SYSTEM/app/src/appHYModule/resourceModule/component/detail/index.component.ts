@@ -15,6 +15,8 @@ import { UrlService } from '../../../../appServiceModule/urlService.component';
   templateUrl:  `./index.html`,
 })
 export class HYResourceDetailComponent implements OnInit,AfterViewInit{
+    pdfSrc: string = '../../../../../../vendor/js/pdf/compressed.tracemonkey-pldi-09.pdf';
+    page: number = 1;
 	 constructor(
 	 	private urlService: UrlService,
 	 	private router: Router,
@@ -29,6 +31,6 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
         });
     };
     ngAfterViewInit() {
-
+       
     }
 }
