@@ -13,7 +13,8 @@ export class HYReviewedIndexComponent {
 	TYPESDICTIONARY:any=[];
 	constructor (private urlservice: UrlService) {
 		let that = this;
-		this.urlservice.hy_req_get("api/resources/queryByCondition?page=1&pageSize=10&resourceTypeId=3").then((response:any) => {
+		this.urlservice.hy_req_get("api/resources/1/1/10").then((response:any) => {
+            console.log(response.json())
             that.RESOURCES = response.json();
         })
         this.urlservice.hy_req_get("api/subjects?page=1").then((response:any) => {

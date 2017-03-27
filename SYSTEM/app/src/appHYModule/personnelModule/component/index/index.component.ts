@@ -3,9 +3,8 @@ import {
     AfterViewInit,
     ViewChild
 } from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {CustomValidators} from 'ng2-validation';
 import { UrlService } from '../../../../appServiceModule/urlService.component';
+import { HYService } from '../../../../appServiceModule/HYService.component';
 
 @Component({
   selector: 'hy-personnel-index-container',
@@ -13,44 +12,49 @@ import { UrlService } from '../../../../appServiceModule/urlService.component';
 })
 
 export class HYPersonnelIndexComponent implements AfterViewInit{
-    // form: FormGroup;
 	STAFFUS:any={};
 	SCHOOLSDICTIONARY:any=[];
 	SUBJECTSDICTIONARY:any=[];
     STAFFMODALDATA:any = {};
     @ViewChild('staffModal')
     staffModal:any;
-    // @ViewChild('myForm')
-    // myForm:FormGroup;
 
-	constructor (private urlservice: UrlService) {
+	constructor (private urlservice: UrlService, private hyService: HYService) {
 		let that = this;
 		this.urlservice.hy_req_get("api/staffs?page=1").then((response:any) => {
             that.STAFFUS = response.json();
         })
         this.urlservice.hy_req_get("api/schools?page=1").then((response:any) => {
             that.SCHOOLSDICTIONARY = response.json();
-            // setTimeout(() => {$('.ui.dropdown.SCHOOLSDICTIONARY').dropdown()}, 0);
         })
         this.urlservice.hy_req_get("api/subjects?page=1").then((response:any) => {
             that.SUBJECTSDICTIONARY = response.json();
-            // setTimeout(() => {$('.ui.dropdown.SUBJECTSDICTIONARY').dropdown()}, 0);
         });
 
-        // this.myForm = new FormGroup({
-        //     name: new FormControl('1234', Validators.required),
-        //     staffNum: new FormControl('', Validators.required),
-        //     schoolId: new FormControl('', Validators.required),
-        //     teachingSubject: new FormControl('', Validators.required),
-        // });
 	}
-    ngAfterViewInit() :void {
+    
+    handleSaveStaff() {
+        let that = this;
+        if (this.STAFFMODALDATA.id) {
+            let urlParam = this.hyService.urlEncode(this.STAFFMODALDATA).substring(1);
+            let num =  this.STAFFMODALDATA._index;
+            delete this.STAFFMODALDATA._index;
+            this.urlservice.hy_req_post(`api/staff/${that.STAFFMODALDATA.id}?${urlParam}`, that.STAFFMODALDATA).then((response:any) => {
+                that.STAFFUS.entries[num] = response.json();
+                that.staffModal.hide();
+            });
+        } else {
+            this.STAFFMODALDATA.description = "简介";
+            let urlParam = this.hyService.urlEncode(this.STAFFMODALDATA).substring(1);
+            this.urlservice.hy_req_post(`api/staff?${urlParam}`, that.STAFFMODALDATA).then((response:any) => {
+                that.STAFFUS.entries.push(response.json());
+                that.staffModal.hide();
+            });
+        }
         
     }
-    handleSaveStaff() {
-        // console.log(this.myForm);
-    }
-    handleCreateAccount(e:any):void {
+    handleCreateAccount(e:any, i:any):void {
+        let that = this;
         let reqData = new Object();
         reqData = {
             id : e,
@@ -58,49 +62,25 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
             password : "123456"
         }
         this.urlservice.hy_req_post(`api/staff/${e}/account`, reqData).then((response:any) => {
+            that.STAFFUS.entries[i] = response.json()
         })
     }
-    handleModifyInfo(e:any): void {
+    handleModifyAccount(e:any, i:any): void {
         this.STAFFMODALDATA = e;
+        this.STAFFMODALDATA._index = i;
         this.staffModal.show();
-        
     }
     handleAddStaff(): void {
         this.STAFFMODALDATA = new Object()
         this.staffModal.show();
     }
-    handleRemoveAccount(e:any): void {
+    ngAfterViewInit() :void {
+       
+    }
+    handleRemoveAccount(e:any, i:any): void {
+        let that = this;
         this.urlservice.hy_req_delete(`api/staff/${e}`).then((response:any) => {
+            that.STAFFUS.entries.splice(i, 1);
         })
-        // $.ajax({
-        //     url: urlReq,
-        //     type: 'delete',
-        //     data: data,
-        //     dataType: "json",
-        //     cache: false,
-        //     success: function(data) {
-        //         if (data.error) {
-
-        //         } else {
-        //             $.ajax({
-        //                 url: 'http://k12.iyunbei.com/api/staffs?page=1',
-        //                 type: 'get',
-        //                 cache: false,
-        //                 success: function(data) {
-        //                     if (data.error) {
-
-        //                     } else {
-        //                         data.entries = data.entries.reverse();
-        //                         that.staff = data;
-        //                     }
-        //                 },
-        //                 error: function(e) {
-        //                 }
-        //             });
-        //         }
-        //     },
-        //     error: function(e) {
-        //     }
-        // });
     }
 }

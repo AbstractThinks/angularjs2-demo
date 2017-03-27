@@ -23,7 +23,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
 	 	private aRoute: ActivatedRoute,
 	 ) {
     // 相当于window.location.href，界面跳转
-        console.log(router.navigateByUrl('hy/resource/detail/36'));
+        // console.log(router.navigateByUrl('hy/resource/detail/36'));
     }
     ngOnInit() {
         this.aRoute.params.subscribe((params) => {

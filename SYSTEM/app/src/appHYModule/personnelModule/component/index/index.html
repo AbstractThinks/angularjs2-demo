@@ -4,26 +4,32 @@
     <table class="ui teal compact celled definition table">
         <thead class="full-width">
             <tr>
+                <th></th>
+                <th>id</th>
                 <th>教师姓名</th>
                 <th>教师编号</th>
                 <th>教师账号</th>
+                
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of STAFFUS.entries">
+            <tr *ngFor="let item of STAFFUS.entries;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.staffNum}}</td>
-                <td>{{item.userId}}</td>
+                <td>{{item.userId == "0"?"":item.userId}}</td>
+                
                 <td>
                     <div class="ui buttons">
-                        <button class="ui primary labeled icon button" (click)="handleCreateAccount(item.id)">
+                        <button class="ui primary labeled icon button" (click)="handleCreateAccount(item.id, i)" *ngIf="item.userId == '0'">
                             <i class="edit icon"></i>生成账号
                         </button>
-                        <button class="ui teal labeled icon button" (click)="handleModifyInfo(item)">
+                        <button class="ui teal labeled icon button" (click)="handleModifyAccount(item, i)">
                             <i class="edit icon"></i>修改信息
                         </button>
-                        <button class="ui red labeled icon button" (click)="handleRemoveAccount()">
+                        <button class="ui red labeled icon button" (click)="handleRemoveAccount(item.id, i)">
                             <i class="remove user icon"></i>删除账号
                         </button>
                     </div>
@@ -41,31 +47,23 @@
             <div class="ui two column doubling stackable grid">
                 <div class="column field">
                    <label>教师姓名</label>
-                    <input class="form-control left labeled" type="text" [(ngModel)]="STAFFMODALDATA.name" ngModel name="name" #requried="ngModel" required/>
-                    <p class="alert alert-danger" *ngIf="requried?.errors?.required">required error</p>
-                    <!-- <input class="left labeled" label="教师姓名" type="text" placeholder="输入教师姓名" [(ngModel)]="STAFFMODALDATA.name" name="name" required #name="ngModel">
-                    <p *ngIf="STAFFMODALDATA.controls.name.errors?.required">required error</p> -->
+                    <input class="form-control left labeled" type="text" [(ngModel)]="STAFFMODALDATA.name" name="name" required/>
                 </div>
                 <div class="column field">
                     <label>教师编号</label>
-                    <input class="left labeled" label="教师姓名" type="text" placeholder="教师编号" [(ngModel)]="STAFFMODALDATA.staffNum" name="staffNum" #requried="ngModel" required>
-                    <div class="ui negative message" *ngIf="requried?.errors?.required">
-                        <div class="header">不能为空 </div>
-                    </div>
+                    <input class="left labeled" label="教师姓名" type="text" placeholder="教师编号" [(ngModel)]="STAFFMODALDATA.staffNum" name="staffNum" required>
                 </div>
                  <div class="column field">
                     <label>学校</label>
-                    <select class="ui dropdown SCHOOLSDICTIONARY" [(ngModel)]="STAFFMODALDATA.schoolId" name="schoolId" #requried="ngModel" required>
+                    <select class="ui dropdown SCHOOLSDICTIONARY" [(ngModel)]="STAFFMODALDATA.schoolId" name="schoolId" required>
                       <option value="{{item.id}}" *ngFor="let item of SCHOOLSDICTIONARY">{{item.name}}</option>
                     </select>
-                    <p class="alert alert-danger" *ngIf="requried?.errors?.required">required error</p>
                 </div>
                 <div class="column field">
                     <label>学科</label>
-                    <select class="ui dropdown SUBJECTSDICTIONARY" [(ngModel)]="STAFFMODALDATA.teachingSubject" name="teachingSubject" #requried="ngModel" required>
+                    <select class="ui dropdown SUBJECTSDICTIONARY" [(ngModel)]="STAFFMODALDATA.teachingSubject" name="teachingSubject" required>
                       <option value="{{item.id}}" *ngFor="let item of SUBJECTSDICTIONARY">{{item.name}}</option>
                     </select>
-                    <p class="alert alert-danger" *ngIf="requried?.errors?.required">required error</p>
                 </div>
             </div>
        </form>

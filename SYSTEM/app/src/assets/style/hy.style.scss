@@ -20,6 +20,18 @@
             align-items: center;
         }
     }
+    .cards {
+        .card {
+            .content {
+                .header {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }  
+    
  }
 
 

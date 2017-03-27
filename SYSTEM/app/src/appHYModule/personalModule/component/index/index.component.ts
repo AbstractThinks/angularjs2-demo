@@ -4,6 +4,7 @@ import {
 	AfterViewInit
 } from '@angular/core';
 import { UrlService } from '../../../../appServiceModule/urlService.component';
+import { HYService  } from '../../../../appServiceModule/HYService.component';
 
 @Component({
   selector: 'hy-personal-index-container',
@@ -13,7 +14,7 @@ import { UrlService } from '../../../../appServiceModule/urlService.component';
 export class HYPersonalIndexComponent {
 	staff:any = {};
 	storagestaff:any = {};
-	constructor (private urlservice: UrlService) {
+	constructor (private urlservice: UrlService, private hyService: HYService) {
 		let that = this;
 		this.urlservice.hy_req_get('api/staff/50').then((response:any) => {
 			that.staff = response.json();
@@ -25,9 +26,12 @@ export class HYPersonalIndexComponent {
 
 	}
 	handleSaveData():void {
-		this.urlservice.hy_req_post(`api/staff/${this.staff.id}`, this.staff).then((response:any) => {
-			console.log(response.json())
-		})
+		let that = this;
+		let urlParam = this.hyService.urlEncode(this.staff).substring(1);
+        this.urlservice.hy_req_post(`api/staff/${that.staff.id}?${urlParam}`, that.staff).then((response:any) => {
+            that.staff = response.json();
+        });
+
 	}
 	handleResetData():void {
 		let cloneData = {};

@@ -28,9 +28,18 @@
       </div>
 </div>
 <div class="ui five doubling stackable cards ">
-  <a class="ui card" href="http://www.dog.com">
+  <a class="ui card" routerLink="/hy/resource/detail/{{item.id}}" *ngFor="let item of RESOURCES.entries">
     <div class="image">
       <img src="http://www.semantic-ui.cn/images/avatar/large/elliot.jpg">
+    </div>
+    <div class="content">
+      <div class="header">{{item.resourceName}}</div>
+      <div class="meta">
+        <a>学科：{{item.subjectId}}</a>
+      </div>
+      <div class="description">
+        Matthew is an interior designer living in New York.
+      </div>
     </div>
   </a>
 </div>

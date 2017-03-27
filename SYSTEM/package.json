@@ -4,7 +4,7 @@
   "description": "manage system of school",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js --progress --profile --bail -w",
+    "build": "webpack --config webpack.config.js --progress -w",
     "build:pro:mac": "export NODE_ENV=production && webpack --config webpack.config.js",
     "build:pro:win": "SET NODE_ENV=production && webpack --config webpack.config.js",
     "server": "browser-sync start --server --no-notify --files './app/**/*.ts,./app/**/*.scss,,./app/**/*.html,./index.html'&",

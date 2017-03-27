@@ -21,43 +21,63 @@ export class HYPersonalUploadComponent implements OnInit, AfterViewInit {
 		let that = this;
 		this.urlservice.hy_req_get("api/schools?page=1").then((response:any) => {
             that.SCHOOLSDICTIONARY = response.json();
-            // setTimeout(() => {$('.ui.dropdown.SCHOOLSDICTIONARY').dropdown()}, 0);
         })
         this.urlservice.hy_req_get("api/subjects?page=1").then((response:any) => {
             that.SUBJECTSDICTIONARY = response.json();
-            // setTimeout(() => {$('.ui.dropdown.SUBJECTSDICTIONARY').dropdown()}, 0);
         });
         this.urlservice.hy_req_get("api/dynamicenum/1028").then((response:any) => {
             that.GRADESDICTIONARY = response.json();
-            // setTimeout(() => {$('.ui.dropdown.GRADESDICTIONARY').dropdown()}, 0);
         });
         this.urlservice.hy_req_get("api/resources/listAllResourceTypes}").then((response:any) => {
         	let arr:Array<number> = response.json();
         	arr.pop();
             that.TYPESDICTIONARY = arr;
-            // setTimeout(() => {$('.ui.dropdown.TYPESDICTIONARY').dropdown()}, 0);
         });
 	}
     handleSaveData(): void {
-        console.log(this.DATA);
+
+        let that = this;
+        this.DATA.fileId = $("#file-upload").attr('fileId');
+        this.DATA.resourceName = $("#file-upload").attr('fileName');
+        let urlParam = this._hyservice.urlEncode(this.DATA).substring(1);
+        this.urlservice.hy_req_post(`api/resources/resourceUpload?${urlParam}`, this.DATA).then((response:any) => {
+            // that.staff = response.json();
+        });
     }
 	ngOnInit(): void {
 	}
 	ngAfterViewInit(): void {
+        let that = this;
         let fileUpload = $("#file-upload").semanticFileUploader({
             defaultText: "上传文件",
             defaultLabel: "点击选择文件或者将文件拖入此区域",
             loadingText: "上传文件中...",
             successText: "上传成功",
             onDrop: function(file:any){
-                //File object => https://developer.mozilla.org/en-US/docs/Web/API/File
-                console.log(file.name);
-                
-                // Upload your file using the method you prefer (ex: $.ajax) and call 
-                // the method finishUpload() as soon as your upload is finished;
-                setTimeout(function(){
-                    fileUpload.uploadFinished();
-                }, 3000);
+                var formData = new FormData();
+                formData.append("file", file);
+                formData.append("name", file.name);
+                $.ajax({
+                    url: 'http://k12.iyunbei.com/api/resources/fileUpload',
+                    type: 'post',
+                    data: formData,
+                    async: true,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function() {
+                        console.log("正在进行，请稍候");
+                    },
+                    success: function(responseStr) {
+                        console.log(responseStr)
+                        fileUpload.uploadFinished($("#file-upload"));
+                        $("#file-upload").attr('fileId', responseStr);
+                        $("#file-upload").attr('fileName', file.name);
+                    },
+                    error: function(responseStr) {
+                        console.log("error " + responseStr);
+                    }
+                });
             }
         });    
 	}
