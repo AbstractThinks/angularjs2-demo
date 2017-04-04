@@ -1,5 +1,5 @@
 <div class="ui segment mg-tb24">
-    <div class="ui menu">
+    <!-- <div class="ui menu">
         <a class="item">
             <div class="header">学科分类</div>
         </a>
@@ -25,6 +25,15 @@
           <input class="prompt" type="text" placeholder="Search countries...">
           <i class="search icon"></i>
         </div>
+      </div> -->
+      <div class="ui menu">
+        <a class="item">
+            <div class="header">学段分类</div>
+        </a>
+        <a class="item 0 active" name="0" (click)="handleChangeCondition(0)">全部</a>
+        <a class="item 1" name="1" (click)="handleChangeCondition(1)">审核中</a>
+        <a class="item 2" name="2" (click)="handleChangeCondition(2)">审核通过</a>
+        <a class="item 3" name="3" (click)="handleChangeCondition(3)">审核失败</a>
       </div>
 </div>
 <div class="ui five doubling stackable cards ">

@@ -3,22 +3,22 @@
         <a class="item">
             <div class="header">学科分类</div>
         </a>
-        <a class="item active 0" (click)="handleChangeCondition(['SUBJECTSDICTIONARY','0'])">全部</a>
-        <a class="item {{item.id}}" *ngFor="let item of SUBJECTSDICTIONARY" (click)="handleChangeCondition(['SUBJECTSDICTIONARY',item.id])">{{item.name}}</a>
+        <a class="item active 0" name="0" (click)="handleChangeCondition(['SUBJECTSDICTIONARY','0'])">全部</a>
+        <a class="item {{item.id}}"  name="{{item.id}}" *ngFor="let item of SUBJECTSDICTIONARY" (click)="handleChangeCondition(['SUBJECTSDICTIONARY',item.id])">{{item.name}}</a>
     </div>
     <div class="ui menu GRADESDICTIONARY">
         <a class="item">
             <div class="header">学段分类</div>
         </a>
-        <a class="item active 0" (click)="handleChangeCondition(['GRADESDICTIONARY','0'])">全部</a>
-        <a class="item {{item.id}}" *ngFor="let item of GRADESDICTIONARY.values" (click)="handleChangeCondition(['GRADESDICTIONARY',item.id])">{{item.value}}</a>
+        <a class="item active 0" name="0" (click)="handleChangeCondition(['GRADESDICTIONARY','0'])">全部</a>
+        <a class="item {{item.id}}" name="{{item.id}}" *ngFor="let item of GRADESDICTIONARY.values" (click)="handleChangeCondition(['GRADESDICTIONARY',item.id])">{{item.value}}</a>
     </div>
     <div class="ui menu TYPESDICTIONARY">
         <a class="item">
             <div class="header">资源分类</div>
         </a>
-        <a class="item active 0" (click)="handleChangeCondition(['TYPESDICTIONARY','0'])">全部</a>
-        <a class="item {{item.id}}" *ngFor="let item of TYPESDICTIONARY" (click)="handleChangeCondition(['TYPESDICTIONARY',item.id])">{{item.typeName}}</a>
+        <a class="item active 0" name="0" (click)="handleChangeCondition(['TYPESDICTIONARY','0'])">全部</a>
+        <a class="item {{item.id}}" name="{{item.id}}"  *ngFor="let item of TYPESDICTIONARY" (click)="handleChangeCondition(['TYPESDICTIONARY',item.id])">{{item.typeName}}</a>
     </div>
       <div class="ui search">
         <div class="ui icon input fluid">
@@ -35,11 +35,23 @@
     <div class="content">
       <div class="header">{{item.resourceName}}</div>
       <div class="meta">
-        <a>学科：{{item.subjectId}}</a>
+        <a>学科：{{item.subjectName}}</a>
       </div>
       <div class="description">
-        Matthew is an interior designer living in New York.
+        <a>上传人：{{item.staffName}}</a>
+        <a>上传时间:{{item.updatedTime|date:'yyyy.MM.dd'}}</a>
       </div>
     </div>
   </a>
 </div>
+    <div class="ui divider"></div>
+
+    <pagination-container 
+        pageNumber={{RESOURCES.pageNumber}} 
+        hasNext={{RESOURCES.hasNext}} 
+        hasPrevious={{RESOURCES.hasPrevious}} 
+        (onFirst)="onFirstHandler($event)"
+        (onLast)="onLastHandler($event)"
+        (onNext)="onNextHandler($event)"
+        (onPrevious)="onPreviousHandler($event)"
+    ></pagination-container>

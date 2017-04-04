@@ -83,4 +83,28 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
             that.STAFFUS.entries.splice(i, 1);
         })
     }
+    // onFirstHandler(e:any): void {
+    //     let that = this;
+    //     this.urlservice.hy_req_get(`api/staffs?page=1`).then((response:any) => {
+    //         that.collections = response.json();
+    //     });
+    // }
+    // onLastHandler(e:any): void {
+    //     let that = this;
+    //     this.urlservice.hy_req_get('api/resources/favorite/0/1/1').then((response:any) => {
+    //         that.collections = response.json();
+    //     });
+    // }
+    // onNextHandler(e:any): void {
+    //     let that = this;
+    //     this.urlservice.hy_req_get(`api/resources/favorite/0/${that.collections.pageNumber+1}/1`).then((response:any) => {
+    //         that.collections = response.json();
+    //     });
+    // }
+    // onPreviousHandler(e:any): void {
+    //     let that = this;
+    //     this.urlservice.hy_req_get(`api/resources/favorite/0/${that.collections.pageNumber-1}/1`).then((response:any) => {
+    //         that.collections = response.json();
+    //     });
+    // }
 }

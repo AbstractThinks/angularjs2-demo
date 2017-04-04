@@ -4,19 +4,19 @@
     <a class="item" routerLink="/hy/personal/upload">上传文件</a>
 </div>
 <sm-list class="animated divided relaxed">
-	<sm-item *ngFor="let item of collections.entries">
+	<sm-item *ngFor="let item of collections.entries;let i = index">
         <img class="ui middle aligned tiny image floated left" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
         <div>
         	<div class="header">{{item.resourceName}}</div>
         	<br />
         	<a routerLink="/hy/personal/other/{{item.staffId}}">作者：{{item.staffName}}</a> <br />
         	学科：{{item.subjectName}}<br />
-        	上传时间：{{item.createdTime}}<br />
+        	上传时间：{{item.createdTime|date:"yyyy.MM.dd"}}<br />
         	
         </div>
         <div class="ui buttons right floated content">
 	        	<a class="ui teal button" routerLink="/hy/resource/detail/{{item.id}}">文章详情</a>
-				<button class="ui red button">取消搜藏</button>
+				<button class="ui red button" (click)="cancelCollection(item.id, i)">取消搜藏</button>
 	        </div>	
     </sm-item> 
 	   
@@ -24,6 +24,14 @@
     
     <div class="ui divider"></div>
 
-    <pagination-container></pagination-container>
+    <pagination-container 
+        pageNumber={{collections.pageNumber}} 
+        hasNext={{collections.hasNext}} 
+        hasPrevious={{collections.hasPrevious}} 
+        (onFirst)="onFirstHandler($event)"
+        (onLast)="onLastHandler($event)"
+        (onNext)="onNextHandler($event)"
+        (onPrevious)="onPreviousHandler($event)"
+    ></pagination-container>
     
 </sm-list>

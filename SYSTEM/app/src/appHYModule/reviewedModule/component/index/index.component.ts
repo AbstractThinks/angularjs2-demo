@@ -29,4 +29,8 @@ export class HYReviewedIndexComponent {
             that.TYPESDICTIONARY = arr;
         });
 	}
+    handleChangeCondition(e:any) {
+        $(`.menu .item.active`).removeClass('active');
+        $(`.menu .item.${e}`).addClass('active');
+    }
 }

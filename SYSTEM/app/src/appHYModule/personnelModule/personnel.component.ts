@@ -10,6 +10,5 @@ import { UrlService } from '../../appServiceModule/urlService.component';
 })
 export class HYPersonnelModuleComponent implements AfterViewInit{
 	ngAfterViewInit():void {
-		// $('cms-personalmodule-container .ui.accordion').accordion()
 	}
 }
