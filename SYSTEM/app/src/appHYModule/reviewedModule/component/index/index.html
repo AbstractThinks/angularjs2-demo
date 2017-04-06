@@ -1,40 +1,12 @@
 <div class="ui segment mg-tb24">
-    <!-- <div class="ui menu">
-        <a class="item">
-            <div class="header">学科分类</div>
-        </a>
-        <a class="item ative">全部</a>
-        <a class="item" *ngFor="let item of SUBJECTSDICTIONARY">{{item.name}}</a>
-    </div>
-    <div class="ui menu">
-        <a class="item">
-            <div class="header">学段分类</div>
-        </a>
-        <a class="item ative">全部</a>
-        <a class="item" *ngFor="let item of GRADESDICTIONARY.values">{{item.value}}</a>
-    </div>
-    <div class="ui menu">
-        <a class="item">
-            <div class="header">资源分类</div>
-        </a>
-        <a class="item ative">全部</a>
-        <a class="item" *ngFor="let item of TYPESDICTIONARY">{{item.typeName}}</a>
-    </div>
-      <div class="ui search">
-        <div class="ui icon input fluid">
-          <input class="prompt" type="text" placeholder="Search countries...">
-          <i class="search icon"></i>
-        </div>
-      </div> -->
-      <div class="ui menu">
-        <a class="item">
-            <div class="header">学段分类</div>
-        </a>
-        <a class="item 0 active" name="0" (click)="handleChangeCondition(0)">全部</a>
-        <a class="item 1" name="1" (click)="handleChangeCondition(1)">审核中</a>
-        <a class="item 2" name="2" (click)="handleChangeCondition(2)">审核通过</a>
-        <a class="item 3" name="3" (click)="handleChangeCondition(3)">审核失败</a>
-      </div>
+  <div class="ui menu menu-button">
+    <a class="item">
+        <div class="header">状态</div>
+    </a>
+    <a class="item 1 active" name="1" (click)="handleChangeCondition('1')">审核中</a>
+    <a class="item 2" name="2" (click)="handleChangeCondition('2')">审核通过</a>
+    <a class="item 3" name="3" (click)="handleChangeCondition('3')">审核失败</a>
+  </div>
 </div>
 <div class="ui five doubling stackable cards ">
   <a class="ui card" routerLink="/hy/resource/detail/{{item.id}}" *ngFor="let item of RESOURCES.entries">
@@ -44,12 +16,26 @@
     <div class="content">
       <div class="header">{{item.resourceName}}</div>
       <div class="meta">
-        <a>学科：{{item.subjectId}}</a>
+        <a>学科：{{item.subjectName}}</a>
       </div>
       <div class="description">
-        Matthew is an interior designer living in New York.
+        <a>上传人：{{item.staffName}}</a><br/>
+        <a>上传时间:{{item.updatedTime|date:'yyyy.MM.dd'}}</a>
       </div>
     </div>
 
   </a>
 </div>
+
+
+<div class="ui divider"></div>
+
+    <pagination-container 
+        pageNumber={{RESOURCES.pageNumber}} 
+        hasNext={{RESOURCES.hasNext}} 
+        hasPrevious={{RESOURCES.hasPrevious}} 
+        (onFirst)="onFirstHandler($event)"
+        (onLast)="onLastHandler($event)"
+        (onNext)="onNextHandler($event)"
+        (onPrevious)="onPreviousHandler($event)"
+    ></pagination-container>

@@ -59,7 +59,8 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
         id:articleId
       }
       this.urlService.hy_req_post(`api/resources/resource/3/${articleId}`, reqData).then((response:any) => {
-        console.log("审核通过")
+        
+        console.log("审核失败")
       }) 
     }
     passExamine() {
@@ -73,7 +74,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
           id:articleId
         }
        this.urlService.hy_req_post(`api/resources/resource/2/${articleId}`, reqData).then((response:any) => {
-        console.log("审核失败")
+        console.log("审核通过")
       }) 
     }
     collection() {

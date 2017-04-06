@@ -1,29 +1,29 @@
 <div class="ui pagination borderless menu ">
-    <a class="item disabled" *ngIf="!hasPrevious">
+    <a class="item disabled" *ngIf="hasPrevious=='false'">
         <i class="angle double left icon"></i>
     </a>
-    <a class="item disabled" *ngIf="!hasPrevious" >
+    <a class="item disabled" *ngIf="hasPrevious=='false'" >
         <i class="angle left icon"></i>
     </a>
-    <a class="item" *ngIf="hasPrevious" (click)="goFirst()">
+    <a class="item" *ngIf="hasPrevious=='true'" (click)="goFirst()">
         <i class="angle double left icon"></i>
     </a>
-    <a class="item" *ngIf="hasPrevious" (click)="goPrevious()">
+    <a class="item" *ngIf="hasPrevious=='true'" (click)="goPrevious()">
         <i class="angle left icon"></i>
     </a>
     <a class="active item">
     {{pageNumber}}
     </a>
-    <a class="item disabled" *ngIf="!hasNext">
+    <a class="item disabled" *ngIf="hasNext=='false'">
         <i class="angle right icon"></i>
     </a>
-    <a class="item disabled" *ngIf="!hasNext">
+    <a class="item disabled" *ngIf="hasNext=='false'">
         <i class="angle double right icon"></i>
     </a>
-    <a class="item" *ngIf="hasNext" (click)="goNext()">
+    <a class="item" *ngIf="hasNext=='true'" (click)="goNext()">
         <i class="angle right icon"></i>
     </a>
-    <a class="item" *ngIf="hasNext" (click)="goLast()">
+    <a class="item" *ngIf="hasNext=='true'" (click)="goLast()">
         <i class="angle double right icon" ></i>
     </a>
 </div>
