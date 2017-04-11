@@ -59,4 +59,4 @@ export const HYMENUS:any = [
 ];
 
 
-export const HYURLDOMAIN:string = "http://k12.iyunbei.com/";
+export const HYURLDOMAIN:string = "http://www.marchezvousblue.cn/";

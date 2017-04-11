@@ -21,15 +21,12 @@
 	            <form class="ui form" >
 	                <!-- <sm-loader class="inverted" text="Loading..."></sm-loader> -->
 	                <div class="field">
-	                    <sm-input label="账户" placeholder="Enter name..."></sm-input>
+	                    <input class="left labeled" label="账号" type="text" placeholder="账号" [(ngModel)]="username" name="username" >
 	                </div>
 	                <div class="field">
-	                    <sm-input label="密码" placeholder="Enter e-mail..."></sm-input>
+	                    <input class="left labeled" label="密码" type="text" placeholder="密码" [(ngModel)]="password" name="password" >
 	                </div>
-	                <div class="field">
-	                    <sm-checkbox label="I agree to the Terms and Conditions"></sm-checkbox>
-	                </div>
-	                <sm-button class="teal fluid">登陆</sm-button>
+	                <sm-button class="teal fluid" (click)="handleLogin()">登陆</sm-button>
 	            </form>
 	        </sm-segment>
 		</div>

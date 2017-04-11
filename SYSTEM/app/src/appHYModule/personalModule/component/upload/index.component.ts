@@ -58,7 +58,7 @@ export class HYPersonalUploadComponent implements OnInit, AfterViewInit {
                 formData.append("file", file);
                 formData.append("name", file.name);
                 $.ajax({
-                    url: 'http://k12.iyunbei.com/api/resources/fileUpload',
+                    url: 'http://www.marchezvousblue.cn/api/resources/fileUpload',
                     type: 'post',
                     data: formData,
                     async: true,
