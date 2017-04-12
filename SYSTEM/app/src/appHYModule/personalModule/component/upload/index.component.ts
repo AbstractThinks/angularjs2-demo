@@ -55,8 +55,10 @@ export class HYPersonalUploadComponent implements OnInit, AfterViewInit {
             successText: "上传成功",
             onDrop: function(file:any){
                 var formData = new FormData();
+                let suffix = file.name.substring(file.name.lastIndexOf("."), file.name.length);
                 formData.append("file", file);
                 formData.append("name", file.name);
+                formData.append("filename", suffix);
                 $.ajax({
                     url: 'http://www.marchezvousblue.cn/api/resources/fileUpload',
                     type: 'post',
