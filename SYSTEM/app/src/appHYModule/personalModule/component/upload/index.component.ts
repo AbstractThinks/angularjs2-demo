@@ -41,7 +41,7 @@ export class HYPersonalUploadComponent implements OnInit, AfterViewInit {
         this.DATA.resourceName = $("#file-upload").attr('fileName');
         let urlParam = this._hyservice.urlEncode(this.DATA).substring(1);
         this.urlservice.hy_req_post(`api/resources/resourceUpload?${urlParam}`, this.DATA).then((response:any) => {
-            // that.staff = response.json();
+            toastr.success('保存成功');
         });
     }
 	ngOnInit(): void {
@@ -75,6 +75,8 @@ export class HYPersonalUploadComponent implements OnInit, AfterViewInit {
                         fileUpload.uploadFinished($("#file-upload"));
                         $("#file-upload").attr('fileId', responseStr);
                         $("#file-upload").attr('fileName', file.name);
+                        toastr.success('上传成功');
+                  
                     },
                     error: function(responseStr) {
                         console.log("error " + responseStr);

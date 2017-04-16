@@ -4,12 +4,21 @@
             <div class="row">
                 <pdf-viewer [src]="pdfSrc" 
                             [page]="page" 
-                            [original-size]="true" 
+                            [original-size]="false" 
                             style="display: block;text-align: center;">
                 </pdf-viewer>
-                <div>
-                    <label>Page:</label>
-                    <input type="number" placeholder="Page" [(ngModel)]="page">
+                <div class="page-detail">                    
+                    <button class="ui button large" (click)="previewPage()">
+                      上一页
+                    </button>                    
+                    <div class="ui tiny statistic">
+                      <div class="value">
+                        {{page}}
+                      </div>
+                    </div>
+                    <button class="ui button large" (click)="nextPage()">
+                      下一页
+                    </button>
                 </div>
             </div>
             <div class="ui comments">

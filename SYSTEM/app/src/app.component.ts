@@ -14,7 +14,9 @@ import {UrlService} from './appServiceModule/urlService.component';
 
 export class AppComponent implements OnInit, AfterViewInit { 
 	constructor() {
-		$('.pusher').dimmer('show')
+		$('.pusher').dimmer('show');
+		toastr.options.positionClass = "toast-top-full-width";
+		toastr.options.timeOut = 10;
 	}
 
 	ngOnInit():void {

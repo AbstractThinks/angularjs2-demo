@@ -91,6 +91,13 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
     download() {
 
     }
+    previewPage() {
+      this.page = this.page - 1;
+    }
+   nextPage() {
+     console.log(this.page)
+      this.page = this.page + 1;
+    }
     ngAfterViewInit() {
        let that = this;
        let articleId = "";

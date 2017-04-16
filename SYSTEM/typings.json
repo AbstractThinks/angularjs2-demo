@@ -5,6 +5,7 @@
     "node": "registry:env/node#6.0.0+20161105011511",
     "quill": "registry:dt/quill#1.1.0+20161025144844",
     "semantic-ui": "registry:dt/semantic-ui#2.2.0+20170223151516",
-    "swiper": "registry:dt/swiper#3.4.0+20170120190008"
+    "swiper": "registry:dt/swiper#3.4.0+20170120190008",
+    "toastr": "registry:dt/toastr#2.1.3+20170305192644"
   }
 }
