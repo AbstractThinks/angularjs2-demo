@@ -17,27 +17,56 @@ import { UrlService } from '../../../../appServiceModule/urlService.component';
 })
 
 export class HYPersonalOtherComponent {
-	students:any = {};
-	parents:any = {};
-	statistics:any = {};
+	staffId:string
+	userId:string
+	staff:any = {}
+	resources:any = {}
 	constructor (
-		private urlService: UrlService,
+		private urlservice: UrlService,
 		public router: Router,
 	 	private aRoute: ActivatedRoute
 	) {
-		let that = this;
-		this.urlService.req_get('student.json').then((response:any) => {
-			that.students = response.json().data;
-			that.parents = response.json().data;
-			that.statistics = response.json().data;
-		});
+		this.aRoute.params.subscribe((params) => {
+	        this.staffId = params.id;
+
+			this.urlservice.hy_req_get(`api/staff/${this.staffId}`).then((response:any) => {
+				this.staff = response.json();
+				this.userId = response.json().userId;
+				this.urlservice.hy_req_get(`api/resources/user/${response.json().userId}/1/10`).then((responselist:any) => {
+					this.resources = responselist.json();
+					console.log(response.json())
+				});
+			});
+
+
+	        
+	    });
+		
 	}
 	ngOnInit() {
-        this.aRoute.params.subscribe((params) => {
-            console.log(params)
-        });
-    };
+
+    }
 	ngAfterViewInit(): void {
 
 	}
+	onFirstHandler(e:any): void {
+        this.urlservice.hy_req_get(`/api/resources/user/${this.userId}/1/10`).then((responselist:any) => {
+			this.resources = responselist.json();
+		});
+    }
+    onLastHandler(e:any): void {
+        this.urlservice.hy_req_get(`/api/resources/user/${this.userId}/${this.resources.totalPage}/10`).then((responselist:any) => {
+			this.resources = responselist.json();
+		});
+    }
+    onNextHandler(e:any): void {
+        this.urlservice.hy_req_get(`/api/resources/user/${this.userId}/${this.resources.pageNumber+1}/10`).then((responselist:any) => {
+			this.resources = responselist.json();
+		});
+    }
+    onPreviousHandler(e:any): void {
+        this.urlservice.hy_req_get(`/api/resources/user/${this.userId}/${this.resources.pageNumber-1}/10`).then((responselist:any) => {
+			this.resources = responselist.json();
+		});
+    }
 }

@@ -49,7 +49,7 @@
         <div class="four wide column ">
             <div class="ui card" style="margin-top:24px;">
                 <div class="content">
-                    <i class="right floated star icon"></i>
+                    <!-- <i class="right floated star icon"></i> -->
                     <div class="header">文件标题&nbsp;{{article.resourceName}}</div>
                     <div class="description">
                         <p>学科：&nbsp;{{article.subjectName}}</p>
@@ -59,22 +59,21 @@
                     </div>
                 </div>
             </div>
-            <div class="ui buttons">
-              <button class="positive ui button large" (click)="passExamine()">
+            <!-- <div class="ui buttons vertical "> -->
+              <button class="positive ui button large fluid " (click)="passExamine()">
                 <i class="icon download"></i> 审核通过
               </button>
-              <button class="negative ui button large" (click)="failedExamine()">
+              <button class="negative ui button large fluid " (click)="failedExamine()">
                   <i class="icon download"></i> 审核失败
               </button>
-            </div>
-            <div class="ui buttons">
-              <button class="positive ui button large" (click)="collection()">
+
+              <button class="ui button large fluid " (click)="collection()">
                 <i class="icon download"></i> 收藏
               </button>
-              <button class="negative ui button large" (click)="download()">
+              <button class="ui button large fluid " (click)="download()">
                   <i class="icon download"></i> 下载
               </button>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
 </div>  

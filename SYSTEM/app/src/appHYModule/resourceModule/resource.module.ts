@@ -9,6 +9,7 @@ import { AppPublicModule } from '../../appPublicModule/appPublic.module';
 import { HYResourceModuleComponent } from './resource.component';
 import { HYResourceIndexComponent } from './component/index/index.component'; 
 import { HYResourceDetailComponent } from './component/detail/index.component';
+import { HYResourceMyresourceComponent } from './component/myresource/index.component';
 import { PdfViewerComponent } from 'ng2-pdf-viewer';
 
 
@@ -16,6 +17,7 @@ const APP_CMS_COMPONENT = [
 	HYResourceModuleComponent,
 	HYResourceIndexComponent,
 	HYResourceDetailComponent,
+	HYResourceMyresourceComponent,
 	PdfViewerComponent,
 ]
 const APP_CMS_IMPORT = [

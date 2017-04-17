@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 	constructor() {
 		$('.pusher').dimmer('show');
 		toastr.options.positionClass = "toast-top-full-width";
-		toastr.options.timeOut = 10;
+		toastr.options.timeOut = 15;
 	}
 
 	ngOnInit():void {

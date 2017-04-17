@@ -44,6 +44,10 @@ export const HYMENUS:any = [
                 "name": "资源中心",
                 "iconFont": "filetext icon",
                 "url": "/hy/resource/index"
+            },{
+                "name": "我的资源",
+                "iconFont": "filetext icon",
+                "url": "/hy/resource/myresource"
             }
         ]
     },{

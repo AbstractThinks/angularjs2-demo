@@ -17,6 +17,7 @@ export class HYPersonalCollectionsComponent {
 		let that = this;
 		this.urlservice.hy_req_get('api/resources/favorite/0/1/1').then((response:any) => {
 			that.collections = response.json();
+			console.log(response.json())
 		});
 	}
 	ngAfterViewInit(): void {

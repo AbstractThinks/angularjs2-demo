@@ -5,9 +5,43 @@
 </div>
 <form class="ui form">
     <div class="ui column centered grid mg-tb8">
-        <div>
-            <img class="ui small avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
-        </div>
+       <!--  <div>
+            <form id="uploadHeaderForm" enctype="multipart/form-data">
+                <div class="ui dimmer">
+                    <div class="content">
+                        <div class="center changeHeaderImg" >
+                            点击更换头像
+                        </div>
+                    </div>
+                </div>
+                <div class="mouseover-section"></div>
+                <div id="preview">
+                <img class="ui small avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+                <img id="imghead" class="ui small image imghead" border="0"   >
+                </div>         
+                <input type="file"  style="display: none;" id="previewImg">
+            </form>
+            
+        </div> -->
+        <!-- <div class="ui special cards"> -->
+            <div class="special card">
+            <div class="blurring dimmable image">
+              <div class="ui dimmer">
+                <div class="content">
+                  <div class="center">
+                    <div class="ui inverted button" (click)="changeHeader()">切换头像</div>
+                  </div>
+                </div>
+              </div>
+                <div id="preview">
+                    <img id="imghead" class="ui small image avatar imghead" border="0"   >
+                </div>         
+                <input type="file"  style="display: none;" id="previewImg">
+              <!-- <img id="headerImage" class="ui small avatar image"> -->
+            </div>
+            </div>
+
+        <!-- </div> -->
     </div>
     <div class="ui four column doubling stackable grid">
         

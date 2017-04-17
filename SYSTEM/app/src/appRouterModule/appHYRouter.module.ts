@@ -7,6 +7,7 @@ import { HYHomepageIndexComponent } from '../appHYModule/homepageModule/componen
 import { HYResourceModuleComponent } from '../appHYModule/resourceModule/resource.component';
 import { HYResourceIndexComponent } from '../appHYModule/resourceModule/component/index/index.component';
 import { HYResourceDetailComponent } from '../appHYModule/resourceModule/component/detail/index.component';
+import { HYResourceMyresourceComponent } from '../appHYModule/resourceModule/component/myresource/index.component';
 import { HYReviewedModuleComponent } from '../appHYModule/reviewedModule/reviewed.component';
 import { HYReviewedIndexComponent } from '../appHYModule/reviewedModule/component/index/index.component';
 import { HYPersonalModuleComponent } from '../appHYModule/personalModule/personal.component';
@@ -38,6 +39,7 @@ export const appHYRoutes: Routes = [
 					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
 					{ path: 'index', component: HYResourceIndexComponent },
 					{ path: 'detail/:id', component: HYResourceDetailComponent },
+					{ path: 'myresource', component: HYResourceMyresourceComponent },
 				]
 		    },
 		    {

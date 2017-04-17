@@ -15,7 +15,9 @@ import { UrlService } from '../../../../appServiceModule/urlService.component';
   templateUrl:  `./index.html`,
 })
 export class HYResourceDetailComponent implements OnInit,AfterViewInit{
-    pdfSrc: string = '../../../../../../vendor/js/pdf/compressed.tracemonkey-pldi-09.pdf';
+
+    
+    pdfSrc: string = "";
     page: number = 1;
     article: any = {};
     comments: any = [];
@@ -31,6 +33,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
     ngOnInit() {
         
     }
+
     addComment() {
       let that = this;
       let articleId = "";
@@ -46,6 +49,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
       this.urlService.hy_req_post(`api/comment/add?content=${that.commentText}&parentCommentId=${articleId}&rootId=${articleId}&rootType=1`, that.commentText).then((response:any) => {
         that.comments.push(response.json());
         that.commentText = "";
+        
       })
     }
     failedExamine() {
@@ -59,8 +63,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
         id:articleId
       }
       this.urlService.hy_req_post(`api/resources/resource/3/${articleId}`, reqData).then((response:any) => {
-        
-        console.log("审核失败")
+        toastr.success('审核不通过');
       }) 
     }
     passExamine() {
@@ -74,7 +77,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
           id:articleId
         }
        this.urlService.hy_req_post(`api/resources/resource/2/${articleId}`, reqData).then((response:any) => {
-        console.log("审核通过")
+        toastr.success('审核通过');
       }) 
     }
     collection() {
@@ -84,12 +87,20 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
         articleId = params.id;
       }); 
       this.urlService.hy_req_post(`api/resources/favorite/${articleId}`, {resourceId:articleId}).then((response:any) => {
-        console.log("搜藏成功")
+        toastr.success('搜藏成功');
       })       
       
     }
     download() {
-
+      let that = this;
+     let articleId = "";
+     this.aRoute.params.subscribe((params) => {
+         articleId = params.id;
+      });
+      this.urlService.hy_req_get(`api/resources/download/${articleId}`).then((response:any) => {
+          // that.comments= response.json();
+          // console.log(response.json())
+      })
     }
     previewPage() {
       this.page = this.page - 1;
@@ -106,11 +117,13 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
         });
        this.urlService.hy_req_get(`api/resources/${articleId}`).then((response:any) => {
             that.article= response.json();
-            console.log(response.json())
+            console.log(response.json());
+            that.pdfSrc = `http://www.marchezvousblue.cn/k12/pdf/${response.json().resourcePhysicalId}.pdf`
         })
        this.urlService.hy_req_get(`api/comment/list}?rootId=${articleId}&rootType=1`).then((response:any) => {
             that.comments= response.json();
             console.log(response.json())
         })
+       
     }
 }

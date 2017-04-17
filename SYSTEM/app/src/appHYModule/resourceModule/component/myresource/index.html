@@ -1,0 +1,33 @@
+<div class="ui segment mg-tb24">
+    我的资源
+</div>
+
+<sm-list class="animated divided relaxed">
+    <sm-item *ngFor="let item of RESOURCES.entries;let i = index">
+        <img class="ui middle aligned tiny image" src="http://www.marchezvousblue.cn/k12/img/preview/{{item.resourcePhysicalId}}.png">
+        <span>{{item.resourceName}}</span>
+        <div class="right floated content">
+          <div class="ui buttons">
+            <div class="ui button teal" (click)="articleDetail(item.id)">阅读</div>
+            <div class="ui button red" (click)="deleteDetail(item.id, i)">删除</div>
+          </div>
+        </div>
+    </sm-item>
+    
+    
+    <div class="ui divider"></div>
+
+    <pagination-container 
+        pageNumber={{RESOURCES.pageNumber}} 
+        hasNext={{RESOURCES.hasNext}} 
+        hasPrevious={{RESOURCES.hasPrevious}} 
+        (onFirst)="onFirstHandler($event)"
+        (onLast)="onLastHandler($event)"
+        (onNext)="onNextHandler($event)"
+        (onPrevious)="onPreviousHandler($event)"
+    ></pagination-container>
+    
+</sm-list>
+    
+
+    

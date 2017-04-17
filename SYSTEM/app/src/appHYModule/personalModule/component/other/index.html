@@ -1,13 +1,13 @@
         
 <sm-list class="animated divided relaxed mg-tb16">
     <sm-item>
-        <img class="ui middle aligned small image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+        <img class="ui middle aligned small image" src="http://www.marchezvousblue.cn/k12/img/preview/head/{{staff.userId}}/{{staff.userId}}.png">
         <span>
-            <a class="header">Daniel Louise</a>
+            <a class="header">{{staff.name}}</a>
                 <div class="description">
-                    Last seen watching
-                    <a><b>Arrested Development</b></a> just now.
-                    <div class="ui accordion fluid detail">
+                    <!-- Last seen watching
+                    <a><b>Arrested Development</b></a> just now. -->
+                    <!-- <div class="ui accordion fluid detail">
                       <div class="title">
                         <i class="dropdown icon"></i>
                         查看详细资料
@@ -15,7 +15,7 @@
                       <div class="content">
                         <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
                       </div>
-                    </div>
+                    </div> -->
                 </div>
         </span>
     </sm-item>
@@ -23,45 +23,23 @@
 <div class="ui divider"></div>
 
 <sm-list class="animated divided relaxed">
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
+    <sm-item *ngFor="let item of resources.entries;let i = index">
+        <img class="ui middle aligned tiny image" src="http://www.marchezvousblue.cn/k12/img/preview/{{item.resourcePhysicalId}}.png">
+        <span>{{item.resourceName}}</span>
     </sm-item>
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
-    </sm-item>
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
-    </sm-item>
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
-    </sm-item>
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
-    </sm-item>
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
-    </sm-item>
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
-    </sm-item>
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
-    </sm-item>
-    <sm-item>
-        <img class="ui middle aligned tiny image" src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-        <span>1</span>
-    </sm-item>
+    
     
     <div class="ui divider"></div>
 
-    <pagination-container></pagination-container>
+    <pagination-container
+        pageNumber={{resources.pageNumber}} 
+        hasNext={{resources.hasNext}} 
+        hasPrevious={{resources.hasPrevious}} 
+        (onFirst)="onFirstHandler($event)"
+        (onLast)="onLastHandler($event)"
+        (onNext)="onNextHandler($event)"
+        (onPrevious)="onPreviousHandler($event)"
+    
+    ></pagination-container>
     
 </sm-list>
