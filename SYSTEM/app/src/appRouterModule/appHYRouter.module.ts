@@ -23,7 +23,7 @@ export const appHYRoutes: Routes = [
 		path: 'hy',
 		component: HYComponent,
 		children: [
-			{ path: '', redirectTo: 'homepage',  pathMatch: 'full' },
+			{ path: '', redirectTo: 'personal',  pathMatch: 'full' },
 			{
 				path: 'homepage',
 				component: HYHomepageModuleComponent,

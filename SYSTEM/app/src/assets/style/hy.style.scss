@@ -3,14 +3,19 @@
  ****************************/
  
  hy-container {
+    display: block;
+    padding-top: 80px;
  	.custom-nav-class {
         z-index: 1000;
         width: 100%;
     }
     .custom-nav-class {
+        position: fixed;
+        top: 0;
         sm-segment>div.ui.segment {
             border-top-left-radius:0;
             border-top-right-radius:0;
+            padding-right: 40px;
         }
 
         sm-segment>div>p {

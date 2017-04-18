@@ -42,6 +42,8 @@ export class HYPersonalUploadComponent implements OnInit, AfterViewInit {
         let urlParam = this._hyservice.urlEncode(this.DATA).substring(1);
         this.urlservice.hy_req_post(`api/resources/resourceUpload?${urlParam}`, this.DATA).then((response:any) => {
             toastr.success('保存成功');
+        },() => {
+            toastr.error('保存失败');
         });
     }
 	ngOnInit(): void {
@@ -79,7 +81,7 @@ export class HYPersonalUploadComponent implements OnInit, AfterViewInit {
                   
                     },
                     error: function(responseStr) {
-                        console.log("error " + responseStr);
+                        toastr.error('上传失败');
                     }
                 });
             }
