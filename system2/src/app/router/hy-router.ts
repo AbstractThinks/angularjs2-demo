@@ -28,11 +28,7 @@ export const HyRouter: Routes = [
 		    },
 		    {
 				path: 'resource',
-				component: HyResourceComponent,
-				children: [
-					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
-					{ path: 'index', component: HyResourceIndexComponent },
-				]
+				loadChildren: '../hy/hy-resource/hy-resource-router.module#HyResourceRouterModule'
 		    }
 
 		]
