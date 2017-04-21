@@ -4,9 +4,6 @@ import { HyComponent } from '../hy/hy.component';
 
 
 import { HyPersonComponent } from '../hy/hy-person/hy-person.component';
-import { HyPersonIndexComponent } from '../hy/hy-person/hy-person-index/hy-person-index.component';
-import { HyPersonDetailComponent } from '../hy/hy-person/hy-person-detail/hy-person-detail.component';
-
 import { HyResourceComponent } from '../hy/hy-resource/hy-resource.component';
 
 
@@ -19,16 +16,12 @@ export const HyRouter: Routes = [
 		    {
 				path: 'personal',
 				component: HyPersonComponent,
-				children: [
-					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
-					{ path: 'index', component: HyPersonIndexComponent },
-					{ path: 'detail/:id', component: HyPersonDetailComponent },
-				]
+				loadChildren: '../hy/hy-person/hy-person.module#HyPersonModule',
 		    },
 		    {
 				path: 'resource',
 				component: HyResourceComponent,
-				loadChildren: '../hy/hy-resource/hy-resource.module#HyResourceModule'
+				loadChildren: '../hy/hy-resource/hy-resource.module#HyResourceModule',
 		    }
 
 		]

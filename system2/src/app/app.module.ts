@@ -4,9 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { StoreModule } from '@ngrx/store';
+
 import { AppRouterModule } from './router/router.module';
 import { AppComponent } from './app.component';
+
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './store/hy/counter/counter.reducer';
 
 
 
@@ -21,7 +24,10 @@ import { AppComponent } from './app.component';
     HttpModule,
     RouterModule,
     AppRouterModule,
-
+    StoreModule.provideStore({ 
+      counterReducer
+    })
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

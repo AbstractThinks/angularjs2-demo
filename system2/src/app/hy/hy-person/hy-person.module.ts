@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HyPersonRouterModule } from './hy-person-router/hy-person-router.module';
+
+// import { StoreModule } from '@ngrx/store';
+// import { counterReducer } from '../../store/hy/counter/counter.reducer';
 
 import { HyPersonComponent } from './hy-person.component';
 import { HyPersonIndexComponent } from './hy-person-index/hy-person-index.component';
@@ -17,6 +21,11 @@ const declarationsComponent = [
   imports: [
     CommonModule,
     RouterModule,
+    HyPersonRouterModule,
+    // StoreModule.provideStore({ 
+    //   counterReducer
+    // })
+
   ],
   declarations: declarationsComponent
 })

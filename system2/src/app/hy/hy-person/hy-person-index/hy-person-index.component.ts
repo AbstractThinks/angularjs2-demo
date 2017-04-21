@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hy-person-index.component.css']
 })
 export class HyPersonIndexComponent implements OnInit {
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  request() {
+
+  }
 }
