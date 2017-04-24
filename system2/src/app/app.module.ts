@@ -9,7 +9,8 @@ import { AppRouterModule } from './router/router.module';
 import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './store/hy/counter/counter.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducer } from '../store/reducer/index';
 
 
 
@@ -24,10 +25,8 @@ import { counterReducer } from './store/hy/counter/counter.reducer';
     HttpModule,
     RouterModule,
     AppRouterModule,
-    StoreModule.provideStore({ 
-      counterReducer
-    })
-  
+    StoreModule.provideStore(reducer),
+    StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [],
   bootstrap: [AppComponent]

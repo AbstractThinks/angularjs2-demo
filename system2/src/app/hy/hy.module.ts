@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-// import { StoreModule } from '@ngrx/store';
-// import { counterReducer } from '../store/hy/counter/counter.reducer';
-
 import { HyComponent } from './hy.component';
 
 import { HyPersonModule } from './hy-person/hy-person.module';
@@ -15,9 +12,6 @@ const importsModule = [
     RouterModule,
 	HyPersonModule,
     HyResourceModule,
-    // StoreModule.provideStore({ 
-    //   counterReducer
-    // })
 ];
 
 @NgModule({
