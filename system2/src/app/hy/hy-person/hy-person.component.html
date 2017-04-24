@@ -1,5 +1,8 @@
 <p>
   hy-person works!
 </p>
-<!-- {{items| async }} -->
 <router-outlet></router-outlet>
+<button (click)="increment()">Increment</button>
+<div>Current Count: {{ counter | async }}</div>
+<button (click)="decrement()">Decrement</button>
+
