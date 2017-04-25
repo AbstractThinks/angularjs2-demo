@@ -3,13 +3,17 @@ import { compose } from '@ngrx/core/compose';
 import { combineReducers } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
-import { counterReducer } from './counter/counterReducer';
 
+
+import { counterReducer } from './counter/counterReducer';
+import { hyStaffsReducer, hyStaffsState } from './hy/staffs';
 const reducers = {
-	counter: counterReducer
+	counter: counterReducer,
+	hyStaffs: hyStaffsReducer
 }
 export interface State {
-  counter: number
+  counter: number,
+  hyStaffs: hyStaffsState
 };
 
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
