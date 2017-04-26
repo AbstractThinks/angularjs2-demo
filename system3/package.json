@@ -1,11 +1,11 @@
 {
-  "name": "system2",
+  "name": "system3",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot --watch -sm --prod --liveReload --proxy-config proxy.conf.json",
-    "build": "ng build --aot --prod",
+    "start": "ng serve --aot --watch -sm --prod --liveReload",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -17,9 +17,10 @@
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
     "@angular/http": "^4.0.0",
+    "@angular/material": "^2.0.0-beta.3",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
-    "@angular/router": "^4.0.2",
+    "@angular/router": "^4.0.0",
     "@ngrx/core": "^1.2.0",
     "@ngrx/effects": "^2.0.3",
     "@ngrx/store": "^2.2.2",
@@ -39,14 +40,14 @@
     "karma": "~1.4.1",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ngrx-store-freeze": "^0.1.9",
-    "ngrx-store-logger": "^0.1.7",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "typescript": "~2.2.0",
+    "ngrx-store-freeze": "^0.1.9",
+    "ngrx-store-logger": "^0.1.7"
   }
 }

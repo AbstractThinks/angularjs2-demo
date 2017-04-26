@@ -19,16 +19,19 @@ export class HyPersonComponent implements OnInit {
     private store: Store<State>
   )  { 
   	this.hyStaffs = store.select('hyStaffs');
-    this.http
-        .get('http://k12.iyunbei.com/api/staffs?page=1')
-        .toPromise()
-        .then((response:any) => {
-          // console.log(response.json());
-          this.store.dispatch({ type: actionTypes.HY_STAFFS_SUCCESS, payload: response.json()});
-        }, (error:any) => {
-          console.log("error ")
-          console.log(error)
-        });
+    
+    this.store.dispatch({ type: actionTypes.HY_STAFFS_REQUEST});
+    
+    // this.http
+    //     .get('http://k12.iyunbei.com/api/staffs?page=1')
+    //     .toPromise()
+    //     .then((response:any) => {
+    //       // console.log(response.json());
+    //       this.store.dispatch({ type: actionTypes.HY_STAFFS_SUCCESS, payload: response.json()});
+    //     }, (error:any) => {
+    //       console.log("error ")
+    //       console.log(error)
+    //     });
   }
 
   ngOnInit() {
