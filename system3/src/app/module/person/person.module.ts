@@ -5,11 +5,17 @@ import { PersonRouterModule } from './person-router/person-router.module';
 import { PersonComponent } from './person.component';
 import { PersonIndexComponent } from './person-index/person-index.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    PersonRouterModule
+    PersonRouterModule,
+
+    FlexLayoutModule,
+    
   ],
   declarations: [PersonComponent, PersonIndexComponent]
 })
