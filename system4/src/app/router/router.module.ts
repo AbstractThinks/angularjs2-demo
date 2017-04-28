@@ -6,6 +6,7 @@ import {
 } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { PersonComponent } from '../module/person/person.component';
+import { ResourceComponent } from '../module/resource/resource.component';
 
 const router: Routes = [
     {
@@ -16,7 +17,13 @@ const router: Routes = [
 				path: 'person',
 				component: PersonComponent,
 				loadChildren: '../module/person/person.module#PersonModule',
+		    },
+		    {
+				path: 'resource',
+				component: ResourceComponent,
+				loadChildren: '../module/resource/resource.module#ResourceModule',
 		    }
+
 
 		]
     }

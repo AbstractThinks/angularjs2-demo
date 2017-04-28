@@ -8,13 +8,23 @@ import { AppRouterModule } from './router/router.module';
 import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdToolbarModule} from '@angular/material';
-import {MdSidenavModule} from '@angular/material';
-import {MdIconModule} from '@angular/material';
+import {
+  MdToolbarModule,
+  MdButtonModule,
+  MdSidenavModule,
+  MdIconModule,
+  MdListModule,
+} from '@angular/material';
+// import { MyNewDirectiveDirective } from './directives/my-new-directive.directive';
+// import { MyNewPipePipe } from './pipes/my-new-pipe.pipe';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // MyNewDirectiveDirective,
+    // MyNewPipePipe,
   ],
   imports: [
     RouterModule,
@@ -27,6 +37,8 @@ import {MdIconModule} from '@angular/material';
     MdToolbarModule,
     MdSidenavModule,
     MdIconModule,
+    MdButtonModule,
+    MdListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

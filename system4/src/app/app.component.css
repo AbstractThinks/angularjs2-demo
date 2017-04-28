@@ -1,0 +1,16 @@
+md-sidenav {
+	width: 240px;
+	padding-bottom: 160px;
+}
+
+.main-content {
+	padding: 24px 24px 200px 24px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:focus {
+	outline: none;
+}

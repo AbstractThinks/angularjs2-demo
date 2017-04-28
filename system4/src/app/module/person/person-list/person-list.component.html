@@ -1,0 +1,12 @@
+
+<md-toolbar color="primary">
+  <button md-raised-button color="primary" (click)="openDialog()">新增</button>
+  <button md-raised-button color="primary">修改</button>
+  <button md-raised-button color="primary">导入</button>
+  <button md-raised-button color="primary">导出</button>
+</md-toolbar>
+<div class="blank20"></div>
+<ngx-datatable
+[rows]="rows"
+[columns]="columns">
+</ngx-datatable>
