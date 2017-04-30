@@ -7,20 +7,32 @@ import {
 import { AppComponent } from '../app.component';
 import { PersonComponent } from '../module/person/person.component';
 import { ResourceComponent } from '../module/resource/resource.component';
+import { LoginComponent } from '../module/login/login.component';
+
+import { AuthGuard } from '../guards/auth.guard';
 
 const router: Routes = [
     {
 		path: 'app',
+		canActivate: [AuthGuard],
 		children: [
-			{ path: '', redirectTo: 'person',  pathMatch: 'full' },
+			{ path: '', redirectTo: 'login',  pathMatch: 'full' },
+			{
+				path: 'login',
+				canActivateChild: [AuthGuard],
+				component: LoginComponent,
+				loadChildren: '../module/login/login.module#LoginModule',
+		    },
 		    {
 				path: 'person',
+				canActivateChild: [AuthGuard],
 				component: PersonComponent,
 				loadChildren: '../module/person/person.module#PersonModule',
 		    },
 		    {
 				path: 'resource',
 				component: ResourceComponent,
+				canActivateChild: [AuthGuard],
 				loadChildren: '../module/resource/resource.module#ResourceModule',
 		    }
 

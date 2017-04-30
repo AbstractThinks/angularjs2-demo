@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+	<form class="login-form" #LoginForm="ngForm">
+		<md-input-container class="full-width">
+			<input id="username" type="text" mdInput placeholder="用户名" name="username" [(ngModel)]="username" required #usernameinput>
+			<div *ngIf="usernameinput.validity.valid">
+				{{usernameinput.validity.validationMessage}}
+			</div>
+	    </md-input-container>
+
+	    <md-input-container class="full-width">
+	      <input type="password" mdInput placeholder="密码" name="password" [(ngModel)]="password" required #passwordinput>
+	      	<div *ngIf="usernameinput.validity.valid">
+				{{usernameinput.validity.validationMessage}}
+			</div>
+	    </md-input-container>
+	    <div fxLayout="row" fxLayoutAlign="end start">
+			<button
+		    md-raised-button
+		    color="primary"
+		    class="full-width"
+		    (click)="submitLogin()"
+		    [disabled]="!LoginForm.form.valid"
+		    >登陆</button>
+		</div>
+	</form>
+</div>
+
+

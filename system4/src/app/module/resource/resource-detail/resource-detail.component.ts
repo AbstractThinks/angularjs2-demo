@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resource-detail.component.css']
 })
 export class ResourceDetailComponent implements OnInit {
-	pdfSrc: string = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
+	pdfSrc: string = 'https://emobossemo.github.io/data/demo/pdf-test.pdf';
   	page: number = 1;
   constructor() { }
 

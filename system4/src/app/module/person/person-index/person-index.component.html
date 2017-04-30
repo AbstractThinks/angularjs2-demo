@@ -1,5 +1,13 @@
 {{ 2 |  myNewPipe:20 }}
 
+<p appMyNewAttribute highlightColor="yellow">
+  appMyNewAttribute This paragraph is displayed because the condition is false.
+</p>
+
+<!-- <p [appMyNewAttribute]="test">
+  appMyNewAttribute This paragraph is displayed because the condition is false.
+</p> -->
+
 <p *appMyNewDirective="true" class="unless a">
   *appMyNewDirective="true" This paragraph is displayed because the condition is false.
 </p>

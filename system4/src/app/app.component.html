@@ -1,92 +1,16 @@
-<md-toolbar color="primary">
+<md-toolbar id="toolbar" color="primary">
     <button md-fab (click)="sidenav.open()" color="primary">
         <md-icon>menu</md-icon>
     </button>
 </md-toolbar>
 <md-sidenav-container>
     <md-sidenav #sidenav>
-        <md-list>
-          <h3 md-subheader>人事模块</h3>
-          <a md-list-item routerLink="app/person/index">
-            <md-icon md-list-icon>folder</md-icon>
-            <h4 md-line>首页</h4>
+        <md-list *ngFor="let item of menulist;let i = index">
+          <h3 md-subheader>{{item.name}}</h3>
+          <a md-list-item routerLinkActive="active" routerLink="{{childItem.url}}" *ngFor="let childItem of item.children;let o = index">
+            <md-icon md-list-icon>{{childItem.icon}}</md-icon>
+            <h4 md-line>{{childItem.name}}</h4>
           </a>
-          <a md-list-item routerLink="app/person/list">
-            <md-icon md-list-icon>folder</md-icon>
-            <h4 md-line>列表</h4>
-          </a>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>资源模块</h3>
-          <a md-list-item routerLink="app/resource/index">
-            <md-icon md-list-icon>folder</md-icon>
-            <h4 md-line>资源首页</h4>
-          </a>
-          <a md-list-item routerLink="app/resource/detail">
-            <md-icon md-list-icon>folder</md-icon>
-            <h4 md-line>资源详情</h4>
-          </a>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Folders</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Notes</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Folders</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Notes</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Folders</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Notes</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Folders</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Notes</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Folders</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Notes</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Folders</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
-          <md-divider></md-divider>
-          <h3 md-subheader>Notes</h3>
-          <md-list-item>Item 1</md-list-item>
-          <md-list-item>Item 2</md-list-item>
-          <md-list-item>Item 3</md-list-item>
           <md-divider></md-divider>
         </md-list>
     </md-sidenav>

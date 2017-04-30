@@ -19,7 +19,8 @@ export class MyNewDirectiveDirective {
   set appMyNewDirective(condition: boolean) {
   	console.log(condition)
     if (!condition) {
-    	// console.log(this.templateRef)
+    	console.log(this.templateRef)
+      console.log(this.viewContainer)
       this.viewContainer.createEmbeddedView(this.templateRef);
     } else {
       this.viewContainer.clear();

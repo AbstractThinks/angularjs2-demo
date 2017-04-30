@@ -1,0 +1,82 @@
+<form #userForm="ngForm">
+	<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px" class="">
+		<div fxLayout="column" fxLayoutAlign="start center">
+			<img src="https://emobossemo.github.io/data/demo/headerjpg.jpg" alt="">
+		</div>
+		<div fxLayout="column" fxLayoutAlign="start center" class="container" fxLayoutGap="16px">
+
+			<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px" class="full-width">
+				<md-input-container class="full-width">
+					<input mdInput placeholder="姓名" name="name" [(ngModel)]="user.name" required>
+		        </md-input-container>
+		        <md-input-container class="full-width">
+					<input mdInput placeholder="编号" name="code" [(ngModel)]="user.code">
+		        </md-input-container>
+		        <md-input-container class="full-width" >
+					<input mdInput placeholder="电话" name="phone" [(ngModel)]="user.phone">
+		        </md-input-container>
+		        <md-input-container class="full-width">
+					<input mdInput placeholder="邮箱" name="email" [(ngModel)]="user.email">
+		        </md-input-container>
+			</div>
+			
+			<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px" class="full-width">
+				<md-input-container class="full-width">
+					<input mdInput placeholder="性别" name="sex" [(ngModel)]="user.sex">
+		        </md-input-container>
+		        <md-input-container class="full-width">
+					<input mdInput placeholder="婚否" name="married" [(ngModel)]="user.married">
+		        </md-input-container>
+		        <md-input-container class="full-width">
+					<input mdInput placeholder="学历" name="education" [(ngModel)]="user.education">
+		        </md-input-container>
+		        <md-input-container class="full-width">
+					<input mdInput placeholder="政治面貌" name="politics" [(ngModel)]="user.politics">
+		        </md-input-container>
+			</div>
+
+			<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px" class="full-width">
+				<md-input-container class="full-width">
+					<input mdInput placeholder="民族" name="native" [(ngModel)]="user.native">
+		        </md-input-container>
+		        <md-input-container class="full-width">
+					<input mdInput placeholder="出生日期" name="birthday" [(ngModel)]="user.birthday">
+		        </md-input-container>
+		        <md-input-container class="full-width">
+					<input mdInput placeholder="任教学科" name="subject" [(ngModel)]="user.subject">
+		        </md-input-container>
+			</div>
+			
+			<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px" class="full-width">
+				<md-input-container class="full-width">
+					<textarea mdInput placeholder="个人简介" name="description" [(ngModel)]="user.description"></textarea>
+				</md-input-container>
+			</div>
+
+			<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px" class="full-width">
+				<md-input-container class="full-width">
+					<textarea mdInput placeholder="教育经历" name="educationExperience" [(ngModel)]="user.educationExperience"></textarea>
+				</md-input-container>
+			</div>
+
+			<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px" class="full-width">
+				<md-input-container class="full-width">
+					<textarea mdInput placeholder="培训经历" name="trainExperience" [(ngModel)]="user.trainExperience"></textarea>
+				</md-input-container>
+			</div>
+
+			<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px" class="full-width">
+				<md-input-container class="full-width">
+					<textarea mdInput placeholder="业绩成功" name="achievement" [(ngModel)]="user.achievement"></textarea>
+				</md-input-container>
+			</div>
+			
+
+		</div>
+		<div fxLayout="row" fxLayoutAlign="end end" class="container" fxLayoutGap="16px">
+			<button md-raised-button color="primary" [disabled]="!userForm.form.valid">保存</button>
+			<button md-raised-button color="primary">重置</button>
+		</div>
+	</div>
+</form>
+

@@ -10,12 +10,15 @@ export class PersonListComponent implements OnInit {
 	rows = [
     { name: 'Austin', gender: 'Male', company: 'Swimlane' },
     { name: 'Dany', gender: 'Male', company: 'KFC' },
-    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King',company1: 'Burger King',company2: 'Burger King',company3: 'Burger King' },
   ];
   columns = [
     { prop: 'name' },
     { name: 'Gender' },
-    { name: 'Company' }
+    { name: 'Company' },
+    { name: 'Company1' },
+    { name: 'Company2' },
+    { name: 'Company3' }
   ];
   constructor(public dialog: MdDialog) { }
 

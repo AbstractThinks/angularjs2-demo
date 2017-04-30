@@ -1,0 +1,61 @@
+Searching 226 files for "teal" (whole word)
+
+/Users/Jesse/Desktop/semantic/semantic/src/themes/default/elements/label.variables:
+  179  @oliveRibbonShadow: darken(@olive, 10);
+  180  @greenRibbonShadow: darken(@green, 10);
+  181: @tealRibbonShadow: darken(@teal, 10);
+  182  @blueRibbonShadow: darken(@blue, 10);
+  183  @violetRibbonShadow: darken(@violet, 10);
+
+/Users/Jesse/Desktop/semantic/semantic/src/themes/default/globals/site.variables:
+  197  @olive            : #B5CC18;
+  198  @green            : #21BA45;
+  199: @teal             : #00B5AD;
+  200  @blue             : #2185D0;
+  201  @violet           : #6435C9;
+  ...
+  260  @oliveTextColor  : #8ABC1E; // Olive is difficult to read
+  261  @greenTextColor  : #1EBC30; // Green is difficult to read
+  262: @tealTextColor   : #10A3A3; // Teal text is difficult to read
+  263  @blueTextColor   : @blue;
+  264  @violetTextColor : @violet;
+  ...
+  715  @oliveHover           : saturate(darken(@olive, 5), 10, relative);
+  716  @greenHover           : saturate(darken(@green, 5), 10, relative);
+  717: @tealHover            : saturate(darken(@teal, 5), 10, relative);
+  718  @blueHover            : saturate(darken(@blue, 5), 10, relative);
+  719  @violetHover          : saturate(darken(@violet, 5), 10, relative);
+  ...
+  773  @oliveFocus           : saturate(darken(@olive, 8), 20, relative);
+  774  @greenFocus           : saturate(darken(@green, 8), 20, relative);
+  775: @tealFocus            : saturate(darken(@teal, 8), 20, relative);
+  776  @blueFocus            : saturate(darken(@blue, 8), 20, relative);
+  777  @violetFocus          : saturate(darken(@violet, 8), 20, relative);
+  ...
+  832  @oliveDown           : darken(@olive, 10);
+  833  @greenDown           : darken(@green, 10);
+  834: @tealDown            : darken(@teal, 10);
+  835  @blueDown            : darken(@blue, 10);
+  836  @violetDown          : darken(@violet, 10);
+  ...
+  891  @oliveActive           : saturate(darken(@olive, 5), 15, relative);
+  892  @greenActive           : saturate(darken(@green, 5), 15, relative);
+  893: @tealActive            : saturate(darken(@teal, 5), 15, relative);
+  894  @blueActive            : saturate(darken(@blue, 5), 15, relative);
+  895  @violetActive          : saturate(darken(@violet, 5), 15, relative);
+
+/Users/Jesse/Desktop/semantic/semantic/src/themes/flat/globals/site.variables:
+   29  @purple           : #A24096;
+   30  @red              : #FF4136;
+   31: @teal             : #39CCCC;
+   32  @yellow           : #FFCB08;
+   33  
+
+/Users/Jesse/Desktop/semantic/semantic/src/themes/material/globals/site.variables:
+   66  @purple           : #9C27B0;
+   67  @red              : #F44336;
+   68: @teal             : #39CCCC;
+   69  @yellow           : #FFEB3B;
+   70  
+
+9 matches across 4 files

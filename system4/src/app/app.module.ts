@@ -15,6 +15,9 @@ import {
   MdIconModule,
   MdListModule,
 } from '@angular/material';
+
+import { AuthGuard } from './guards/auth.guard';
+// import { MyNewAttributeDirective } from './directives/my-new-attribute.directive';
 // import { MyNewDirectiveDirective } from './directives/my-new-directive.directive';
 // import { MyNewPipePipe } from './pipes/my-new-pipe.pipe';
 
@@ -23,6 +26,7 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
+    // MyNewAttributeDirective,
     // MyNewDirectiveDirective,
     // MyNewPipePipe,
   ],
@@ -40,7 +44,7 @@ import {
     MdButtonModule,
     MdListModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
