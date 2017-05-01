@@ -13,8 +13,7 @@ export class PersonListComponent implements OnInit {
     { name: 'Molly', gender: 'Female', company: 'Burger King',company1: 'Burger King',company2: 'Burger King',company3: 'Burger King' },
   ];
   columns = [
-    { prop: 'name' },
-    { name: 'Gender' },
+    { name: '教师姓名' },
     { name: 'Company' },
     { name: 'Company1' },
     { name: 'Company2' },
