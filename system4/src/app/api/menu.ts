@@ -5,11 +5,11 @@ export const Menu = [{
 	"children":[{
 		"name": "个人详情",
 		"url": "app/person/detail",
-		"icon": "folder",
+		"icon": "info",
 	},{
 		"name": "人员列表",
 		"url": "app/person/list",
-		"icon": "",
+		"icon": "people",
 	}]
 },{
 	"name": "资源模块",
@@ -18,11 +18,19 @@ export const Menu = [{
 	"children":[{
 		"name": "资源列表",
 		"url": "app/resource/list",
-		"icon": "",
+		"icon": "list",
 	},{
 		"name": "资源详情",
 		"url": "app/resource/detail",
-		"icon": "",
+		"icon": "details",
+	},{
+		"name": "我的资源",
+		"url": "app/resource/mine",
+		"icon": "folder_shared",
+	},{
+		"name": "资源上传",
+		"url": "app/resource/upload",
+		"icon": "file_upload",
 	}]
 },{
 	"name": "排课模块",

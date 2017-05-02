@@ -5,7 +5,7 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PersonRouterModule } from './person-router/person-router.module';
 
-import { MyNewServiceService } from '../../services/my-new-service.service';
+import { RequestServiceService } from '../../services/request-service.service';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -53,7 +53,7 @@ import { PersonDetailComponent } from './person-detail/person-detail.component';
     PersonListModalComponent
   ],
   providers:[
-    MyNewServiceService
+    RequestServiceService
   ]
 })
 export class PersonModule { }

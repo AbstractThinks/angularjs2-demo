@@ -1,44 +1,39 @@
 
-<h2 md-dialog-title>Neptune</h2>
+<h2 md-dialog-title>新增员工</h2>
 <md-dialog-content>
 
-  <form>
+  <form #addForm="ngForm">
     <div fxLayout="row" fxLayoutAlign="space-around center" > 
         <md-input-container class="full-width">
-          <input mdInput placeholder="State">
+          <input mdInput placeholder="姓名" name="name" [(ngModel)]="user.name" required>
+        </md-input-container>
+        <md-input-container class="full-width" >
+          <input mdInput placeholder="编号" [(ngModel)]="user.name" required>
         </md-input-container>
         <md-input-container class="full-width">
-          <input mdInput placeholder="State">
+          <input mdInput placeholder="电话" [(ngModel)]="user.name" required>
         </md-input-container>
         <md-input-container class="full-width">
-          <input mdInput placeholder="State">
-        </md-input-container>
-        <md-input-container class="full-width">
-          <input mdInput placeholder="State">
+          <input mdInput placeholder="邮箱" [(ngModel)]="user.name" required>
         </md-input-container>
     </div>
      <div fxLayout="row" fxLayoutAlign="space-around center" > 
         <md-input-container class="full-width">
-          <input mdInput placeholder="State">
+          <input mdInput placeholder="任教科目" [(ngModel)]="user.name" required>
         </md-input-container>
         <md-input-container class="full-width">
-          <input mdInput placeholder="State">
+          <input mdInput placeholder="学校" [(ngModel)]="user.name" required>
         </md-input-container>
         <md-input-container class="full-width">
-          <input mdInput placeholder="State">
+          <input mdInput placeholder="性别" [(ngModel)]="user.name" required>
         </md-input-container>
         <md-input-container class="full-width">
-          <input mdInput placeholder="State">
+          <input mdInput placeholder="婚否" [(ngModel)]="user.name" required>
         </md-input-container>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-around center" > 
       <md-input-container class="full-width">
-        <textarea mdInput placeholder="Address 2" ></textarea>
-      </md-input-container>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="space-around center" > 
-      <md-input-container class="full-width">
-        <textarea mdInput placeholder="Address 2" ></textarea>
+        <textarea mdInput placeholder="简介" [(ngModel)]="user.name" required></textarea>
       </md-input-container>
     </div>
   </form>
@@ -52,5 +47,6 @@
   <button
     md-button
     color="primary"
+    [disabled]="!addForm.form.valid"
     md-dialog-close>保存</button>
 </md-dialog-actions>

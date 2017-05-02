@@ -1,1 +1,1 @@
-export const domain:string = "";
+export const domain:string = "http://k12.iyunbei.com/";

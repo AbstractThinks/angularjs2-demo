@@ -7,6 +7,16 @@
 </md-toolbar>
 <div class="blank20"></div>
 <ngx-datatable
-[rows]="rows"
-[columns]="columns">
+	class="flex-header dark material striped"
+	[headerHeight]="40"
+	[footerHeight]="40"
+	[rowHeight]="40"
+	[rows]="rows"
+	[columns]="columns"
+	[limit]="page.size"
+	[externalPaging]="true"
+	[count]="page.totalElements"
+	[offset]="page.pageNumber"
+	(page)='setPage($event)'
+>
 </ngx-datatable>

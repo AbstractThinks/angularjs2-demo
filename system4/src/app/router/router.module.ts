@@ -12,6 +12,7 @@ import { LoginComponent } from '../module/login/login.component';
 import { AuthGuard } from '../guards/auth.guard';
 
 const router: Routes = [
+	{ path: '', redirectTo: 'app',  pathMatch: 'full' },
     {
 		path: 'app',
 		canActivate: [AuthGuard],
