@@ -8,7 +8,6 @@ export class MyNewServiceService {
 
   constructor(private http: Http) { }
   getHttp(url?:string) {
-  	// console.log("getData")
   	return this.http.get(url).toPromise();
   }
   postData(url?:string, postData?:any) {

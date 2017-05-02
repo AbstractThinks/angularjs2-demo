@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-resource-upload',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resource-upload.component.css']
 })
 export class ResourceUploadComponent implements OnInit {
-
+  dragOver: boolean = true;
   constructor() { }
 
   ngOnInit() {
   }
+  ngAfterViewInit() {
+ 
 
+  }
 }

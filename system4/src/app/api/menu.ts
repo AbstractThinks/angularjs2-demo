@@ -17,7 +17,7 @@ export const Menu = [{
 	"icon": "",
 	"children":[{
 		"name": "资源列表",
-		"url": "app/resource/list",
+		"url": "app/resource/index",
 		"icon": "list",
 	},{
 		"name": "资源详情",
