@@ -8,7 +8,8 @@ import { AppComponent } from '../app.component';
 import { PersonComponent } from '../module/person/person.component';
 import { ResourceComponent } from '../module/resource/resource.component';
 import { LoginComponent } from '../module/login/login.component';
-
+import { ChartComponent } from '../module/chart/chart.component';
+import { ScheduleComponent } from '../module/schedule/schedule.component';
 import { AuthGuard } from '../guards/auth.guard';
 
 const router: Routes = [
@@ -35,6 +36,18 @@ const router: Routes = [
 				component: ResourceComponent,
 				canActivateChild: [AuthGuard],
 				loadChildren: '../module/resource/resource.module#ResourceModule',
+		    },
+		    {
+				path: 'chart',
+				component: ChartComponent,
+				canActivateChild: [AuthGuard],
+				loadChildren: '../module/chart/chart.module#ChartModule',
+		    },
+		    {
+		    	path: 'schedule',
+				component: ScheduleComponent,
+				canActivateChild: [AuthGuard],
+				loadChildren: '../module/schedule/schedule.module#ScheduleModule',
 		    }
 
 

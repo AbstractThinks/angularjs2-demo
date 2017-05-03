@@ -37,9 +37,9 @@ export const Menu = [{
 	"url": "",
 	"icon": "",
 	"children":[{
-		"name": "资源列表",
-		"url": "app/resource/list",
-		"icon": "",
+		"name": "排课首页",
+		"url": "app/schedule/index",
+		"icon": "schedule",
 	},{
 		"name": "资源详情",
 		"url": "app/resource/detail",
@@ -85,13 +85,13 @@ export const Menu = [{
 		"icon": "",
 	}]
 },{
-	"name": "数据模块",
+	"name": "图表模块",
 	"url": "",
 	"icon": "",
 	"children":[{
-		"name": "资源列表",
-		"url": "app/resource/list",
-		"icon": "",
+		"name": "成绩分析",
+		"url": "app/chart/report",
+		"icon": "insert_chart",
 	},{
 		"name": "资源详情",
 		"url": "app/resource/detail",

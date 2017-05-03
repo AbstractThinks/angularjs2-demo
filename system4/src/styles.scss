@@ -197,3 +197,48 @@ md-sidenav-container{
 	  height: #{$i*10}px;
 	}
 }
+
+
+
+
+//上传
+app-resource-upload{
+	#uploader {
+		position: relative;
+		text-align: center;
+	    padding: 45px 15px 15px;
+	    margin: 15px 0;
+	    outline: 4px dashed #c2185b;
+	    color: white;
+	    #picker {
+	    	position: relative;
+		    &>.webuploader-pick {
+				position: relative;
+			    display: inline-block;
+			    cursor: pointer;
+			    background: #c2185b;
+			    width: 80%;
+			    padding: 10px 15px;
+			    color: #fff;
+			    text-align: center;
+			    border-radius: 3px;
+			    overflow: hidden;
+			}
+			&>.webuploader-pick.webuploader-pick-hover {
+			    background: #9f1a4f;
+
+			}
+			.webuploader-element-invisible {
+				opacity: 0;
+				width: 100%;
+			}
+
+		}
+		.mat-raised-button {
+			width: 80%;
+			margin-top: 24px;
+			margin-bottom: 24px;
+		}
+	}
+
+}
