@@ -20,11 +20,11 @@
         <a class="item active 0" name="0" (click)="handleChangeCondition(['TYPESDICTIONARY','0'])">全部</a>
         <a class="item {{item.id}}" name="{{item.id}}"  *ngFor="let item of TYPESDICTIONARY" (click)="handleChangeCondition(['TYPESDICTIONARY',item.id])">{{item.typeName}}</a>
     </div>
-      <div class="ui search">
-        <div class="ui icon input fluid">
-          <input class="prompt" type="text" placeholder="Search countries...">
-          <i class="search icon"></i>
+      <div id="globalInputContainer" class="ui search" style="">
+        <div class="ui icon input fluid" style="">
+          <input id="gloablInput" class="prompt" type="text" placeholder="Search countries...">
         </div>
+        <i id="globalInputBtn" class="search icon" (click)="globalSearch()" style="z-index:100;cursor:pointer"></i>
       </div>
 </div>
 <div class="ui five doubling stackable cards ">

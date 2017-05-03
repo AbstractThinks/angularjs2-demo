@@ -42,6 +42,19 @@
     .ui.cards>.card>.image>img {
         height: 200px;
     }
+    #globalInputContainer{
+        #globalInputBtn{
+            z-index: 100;
+            cursor: pointer;
+            position: absolute;
+            right: 0px;
+            top: 0;
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+        }
+        
+    }   
  }
 
 
