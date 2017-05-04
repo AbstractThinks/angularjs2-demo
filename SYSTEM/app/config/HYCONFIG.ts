@@ -19,12 +19,12 @@ export const HYMENUS:any = [
             },
             {
                 "name": "我的搜藏",
-                "iconFont": "users icon",
+                "iconFont": "folder icon",
                 "url": "/hy/personal/collections"
             },
             {
                 "name": "上传文件",
-                "iconFont": "user circle outline",
+                "iconFont": "cloud upload icon",
                 "url": "/hy/personal/upload"
             }
         ]
@@ -33,7 +33,7 @@ export const HYMENUS:any = [
         "Submenus": [
             {
                 "name": "人事管理",
-                "iconFont": "money icon",
+                "iconFont": "users icon",
                 "url": "/hy/personnel/index"
             }
         ]
@@ -42,11 +42,11 @@ export const HYMENUS:any = [
         "Submenus": [
             {
                 "name": "资源中心",
-                "iconFont": "filetext icon",
+                "iconFont": "folder open icon",
                 "url": "/hy/resource/index"
             },{
                 "name": "我的资源",
-                "iconFont": "filetext icon",
+                "iconFont": "folder open outline icon",
                 "url": "/hy/resource/myresource"
             }
         ]
@@ -55,8 +55,26 @@ export const HYMENUS:any = [
         "Submenus": [
             {
                 "name": "资源审核",
-                "iconFont": "money icon",
+                "iconFont": "bullseye icon",
                 "url": "/hy/reviewed/index"
+            }
+        ]
+    },{
+        "title": "资产管理",
+        "Submenus": [
+            {
+                "name": "资产首页",
+                "iconFont": "money icon",
+                "url": "/hy/assets/index"
+            }
+        ]
+    },{
+        "title": "排课模块",
+        "Submenus": [
+            {
+                "name": "排课首页",
+                "iconFont": "calendar icon",
+                "url": "/hy/shedule/index"
             }
         ]
     }

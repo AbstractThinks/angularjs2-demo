@@ -19,6 +19,8 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
     
     pdfSrc: string = "";
     page: number = 1;
+    maxPage: number;
+    minPage: number = 1;
     article: any = {};
     comments: any = [];
     commentText: any = "";
@@ -92,20 +94,14 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
       
     }
     download() {
-      let that = this;
-     let articleId = "";
-     this.aRoute.params.subscribe((params) => {
-         articleId = params.id;
-      });
-      this.urlService.hy_req_get(`api/resources/download/${articleId}`).then((response:any) => {
-          // that.comments= response.json();
-          // console.log(response.json())
-      })
+
+     location.href = `http://www.marchezvousblue.cn:8888/api/resources/download/${this.article.id}`
+     
     }
     previewPage() {
       this.page = this.page - 1;
     }
-   nextPage() {
+    nextPage() {
      console.log(this.page)
       this.page = this.page + 1;
     }
@@ -125,5 +121,8 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
             console.log(response.json())
         })
        
+    }
+    callBackFn(e:any) {
+      this.maxPage = e.pdfInfo.numPages;
     }
 }
