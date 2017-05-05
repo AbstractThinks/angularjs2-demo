@@ -66,6 +66,11 @@ export const HYMENUS:any = [
                 "name": "资产首页",
                 "iconFont": "money icon",
                 "url": "/hy/assets/index"
+            },
+            {
+                "name": "供应商管理",
+                "iconFont": "archive icon",
+                "url": "/hy/assets/supplier"
             }
         ]
     },{
@@ -75,6 +80,11 @@ export const HYMENUS:any = [
                 "name": "排课首页",
                 "iconFont": "calendar icon",
                 "url": "/hy/shedule/index"
+            },
+            {
+                "name": "排课基础数据",
+                "iconFont": "calendar icon",
+                "url": "/hy/shedule/basedata"
             }
         ]
     }

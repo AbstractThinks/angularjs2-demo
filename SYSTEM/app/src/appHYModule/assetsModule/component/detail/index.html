@@ -1,0 +1,126 @@
+<div class="ui container row">
+    <div class="ui top attached menu">
+        <a class="item" routerLink="/hy/assets/index">
+            <i class="reply icon"></i>
+            返回资产列表
+        </a>
+    </div>
+    <div class="ui attached segment">
+        <table class="ui striped table">
+            <thead>
+                <tr>
+                    <th>设备编号</th>
+                    <th>设备名称</th>
+                    <th>单价</th>
+                    <th>借出时间</th>
+                    <th>供货商</th>
+                    <th>联系电话</th>
+                    <th>设备状态</th>
+                    <th>历史记录</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let infoData of infoDatas.entries" class="">
+                    <td>{{infoData.barCode}}</td>
+                    <td>{{infoData.id}}</td>
+                    <td>{{infoData.equipmentGeneralId}}</td>
+                    <td>{{infoData.comment}}</td>
+                    <td>{{infoData.staffId}}</td>
+                    <td>{{infoData.seriesNumber}}</td>
+                    <td *ngIf="infoData.status == '尚未出借'" (click)="borrowHandle(infoData)"><button class="ui blue basic button">{{infoData.status}}</button></td>
+                    <td *ngIf="infoData.status == '未归还'" ><button class="ui red basic button disabled ">{{infoData.status}}</button></td>
+                    <td><button class="ui brown basic button" (click)="libraryHistoryHandle(infoData.id)">历史记录</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <pagination-container 
+            pageNumber={{infoDatas.pageNumber}} 
+            hasNext={{infoDatas.hasNext}} 
+            hasPrevious={{infoDatas.hasPrevious}} 
+            (onFirst)="onFirstHandler($event)"
+            (onLast)="onLastHandler($event)"
+            (onNext)="onNextHandler($event)"
+            (onPrevious)="onPreviousHandler($event)"
+        ></pagination-container>
+    </div>
+    
+</div>
+<sm-modal title="设备详情" class="" icon="details" #libraryModal>
+    <modal-content>
+        <form class="ui form">
+            <div class="three fields">
+                <div class="field">
+                  <label>流水号</label>
+                  <input type="text" name="first-name" placeholder="First Name" [(ngModel)]="borrowData.seriesNumber" readonly="readonly">
+                </div>
+                <div class="field">
+                  <label>barCode</label>
+                  <input type="text" name="last-name" placeholder="Last Name" [(ngModel)]="borrowData.barCode" readonly="readonly">
+                </div>
+                <div class="field">
+                  <label>equipmentGeneralId</label>
+                  <input type="text" name="last-name" placeholder="Last Name" [(ngModel)]="borrowData.equipmentGeneralId" readonly="readonly">
+                </div>
+            </div>
+            <div class="three fields">
+                <div class="field">
+                  <label>staffId</label>
+                  <input type="text" name="first-name" placeholder="First Name" [(ngModel)]="borrowData.staffId">
+                </div>
+                <div class="field">
+                  <label>comment</label>
+                  <input type="text" name="first-name" placeholder="First Name" [(ngModel)]="borrowData.comment">
+                </div>
+                <div class="field">
+                  <label>dueDate</label>
+                  <input type="date" name="last-name" placeholder="Last Name" [(ngModel)]="borrowData.dueDate">
+                </div>
+            </div>
+            <!-- <div class="one fields"> -->
+             <div class="field fluid">
+                    <sm-select [(model)]="borrowData.status" label="status" >
+                      <option value="尚未出借">尚未出借</option>
+                      <option value="未归还">未归还</option>
+                    </sm-select>
+                </div>
+            <!-- </div> -->
+
+
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleLibrarySave()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="libraryModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+<sm-modal title="设备历史纪录" class="" icon="history" #libraryHistoryModal>
+    <modal-content>
+        <table class="ui striped table">
+            <thead>
+                <tr>
+                    <th>设备编号</th>
+                    <th>设备名称</th>
+                    <th>设备状态</th>
+                    <th>历史记录</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let infoData of historys.entries" class="transition hidden">
+                    <td>{{infoData.equipmentSpecificId}}</td>
+                    <td>{{infoData.id}}</td>
+                    <td>{{infoData.staffId}}</td>
+                    <td>{{infoData.status}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button red" (click)="libraryHistoryModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>

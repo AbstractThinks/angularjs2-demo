@@ -19,8 +19,12 @@ import { HYPersonnelModuleComponent } from '../appHYModule/personnelModule/perso
 import { HYPersonnelIndexComponent } from '../appHYModule/personnelModule/component/index/index.component';
 import { HYAssetsModuleComponent } from '../appHYModule/assetsModule/assets.component';
 import { HYAssetsIndexComponent } from '../appHYModule/assetsModule/component/index/index.component';
+import { HYAssetsDetailComponent } from '../appHYModule/assetsModule/component/detail/index.component';
+import { HYAssetsSupplierComponent } from '../appHYModule/assetsModule/component/supplier/index.component';
 import { HYSheduleModuleComponent } from '../appHYModule/sheduleModule/shedule.component';
 import { HYSheduleIndexComponent } from '../appHYModule/sheduleModule/component/index/index.component';
+import { HYSheduleBasedataComponent } from '../appHYModule/sheduleModule/component/basedata/index.component';
+
 export const appHYRoutes: Routes = [
     {
 		path: 'hy',
@@ -78,6 +82,7 @@ export const appHYRoutes: Routes = [
 				children: [
 					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
 					{ path: 'index', component: HYSheduleIndexComponent },
+					{ path: 'basedata', component: HYSheduleBasedataComponent},
 				]
 		    },
 		    {
@@ -86,6 +91,9 @@ export const appHYRoutes: Routes = [
 				children: [
 					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
 					{ path: 'index', component: HYAssetsIndexComponent },
+					{ path: 'supplier', component: HYAssetsSupplierComponent },
+					
+					{ path: 'detail/:id', component: HYAssetsDetailComponent },
 				]
 		    }
 

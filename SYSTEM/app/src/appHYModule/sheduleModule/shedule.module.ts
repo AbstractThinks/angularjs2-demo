@@ -8,10 +8,12 @@ import { AppPublicModule } from '../../appPublicModule/appPublic.module';
 
 import { HYSheduleModuleComponent } from './shedule.component';
 import { HYSheduleIndexComponent } from './component/index/index.component';
+import { HYSheduleBasedataComponent } from './component/basedata/index.component';
 
 const APP_CMS_COMPONENT = [
 	HYSheduleModuleComponent,
 	HYSheduleIndexComponent,
+	HYSheduleBasedataComponent
 ]
 const APP_CMS_IMPORT = [
 	FormsModule,

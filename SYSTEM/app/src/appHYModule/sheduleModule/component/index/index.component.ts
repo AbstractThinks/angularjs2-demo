@@ -4,7 +4,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { UrlService } from '../../../../appServiceModule/urlService.component';
-
+declare var dragula:any;
 @Component({
   selector: 'hy-shedule-index-container',
   templateUrl:  `./index.html`,
@@ -16,14 +16,16 @@ export class HYSheduleIndexComponent {
 	parents:any = {};
 	statistics:any = {};
 	constructor (private urlService: UrlService) {
-		// let that = this;
-		// this.urlService.req_get('student.json').then((response:any) => {
-		// 	that.students = response.json().data;
-		// 	that.parents = response.json().data;
-		// 	that.statistics = response.json().data;
-		// });
+
 	}
 	ngAfterViewInit(): void {
-
+		dragula([
+			$('#monday').get(0), 
+			$('#tuesday').get(0),
+			$('#wednesday').get(0),
+			$('#thursday').get(0),
+			$('#friday').get(0),
+			$('#saturday').get(0),
+			$('#sunday').get(0)]);
 	}
 }

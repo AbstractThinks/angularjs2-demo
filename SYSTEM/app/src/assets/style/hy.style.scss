@@ -54,7 +54,71 @@
             line-height: 38px;
         }
         
-    }   
+    } 
+
+    hy-shedule-index-container {
+        .gh-fork {
+          position: fixed;
+          top: 0;
+          right: 0;
+          border: 0;
+        }
+
+        /* dragula-specific example page styles */
+        .wrapper {
+            display: flex;
+            width: 100%;
+        }
+        .container {
+          display: table-cell;
+          background-color: rgba(255, 255, 255, 0.2);
+          width: 100%;
+        }
+        .container:nth-child(odd) {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        /*
+         * note that styling gu-mirror directly is a bad practice because it's too generic.
+         * you're better off giving the draggable elements a unique class and styling that directly!
+         */
+        .container > div,
+        .gu-mirror {
+          margin: 10px;
+          padding: 10px;
+          background-color: rgba(0, 0, 0, 0.2);
+          transition: opacity 0.4s ease-in-out;
+        }
+        .container > div {
+          cursor: move;
+          cursor: grab;
+          cursor: -moz-grab;
+          cursor: -webkit-grab;
+        }
+        .gu-mirror {
+          cursor: grabbing;
+          cursor: -moz-grabbing;
+          cursor: -webkit-grabbing;
+        }
+        .container .ex-moved {
+          background-color: #e74c3c;
+        }
+        .container.ex-over {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+        #left-lovehandles > div,
+        #right-lovehandles > div {
+          cursor: initial;
+        }
+
+        #side-top {
+            display: flex;
+            width:100%;
+            &>div{
+                width:100%;
+            }
+        }
+        
+    }  
  }
 
 

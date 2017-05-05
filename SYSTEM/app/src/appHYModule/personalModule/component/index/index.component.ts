@@ -19,7 +19,6 @@ export class HYPersonalIndexComponent {
 		this.urlservice.hy_req_get('api/staff/50').then((response:any) => {
 			that.staff = response.json();
 			that.storagestaff = response.json();
-			console.log(response.json());
 			$("#imghead").attr("src", `http://www.marchezvousblue.cn/k12/img/preview/head/${response.json().userId}/${response.json().userId}.png`)
 			
 		});
@@ -30,7 +29,7 @@ export class HYPersonalIndexComponent {
 			on: 'hover'
 		});
 		$("#imghead").on('error', function () {
-			$("#imghead").attr("src", "https://semantic-ui.com/images/avatar2/small/rachel.png")
+			$("#imghead").attr("src", "http://www.marchezvousblue.cn/k12/build/assets/header.png")
 		});
 		$("#previewImg").on('change', function (e: any) {
 			var MAXWIDTH  = 90; 

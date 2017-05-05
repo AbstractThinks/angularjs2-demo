@@ -8,10 +8,14 @@ import { AppPublicModule } from '../../appPublicModule/appPublic.module';
 
 import { HYAssetsModuleComponent } from './assets.component';
 import { HYAssetsIndexComponent } from './component/index/index.component';
+import { HYAssetsDetailComponent } from './component/detail/index.component';
+import { HYAssetsSupplierComponent } from './component/supplier/index.component';
 
 const APP_CMS_COMPONENT = [
 	HYAssetsModuleComponent,
 	HYAssetsIndexComponent,
+	HYAssetsDetailComponent,
+	HYAssetsSupplierComponent,
 ]
 const APP_CMS_IMPORT = [
 	FormsModule,
