@@ -1,1 +1,72 @@
-供应商管理
+
+<div class="ui container row">
+    <div class="ui top attached menu">
+        <a class="item" (click)="infoModal.show({inverted: true})">
+            <i class="content icon"></i>
+            供应商管理
+        </a>
+    </div>
+    <div class="ui attached segment table-frame">
+        <table class="ui striped table">
+            <thead>
+            <tr>
+                <th>供应商编码</th>
+                <th>供应商编码</th>
+                <th>供应商名称</th>
+                <th>供应商邮箱</th>
+                <th>供应商电话</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let infoData of infoDatas.entries" class="">
+                <td>{{infoData.id}}</td>
+                <td>{{infoData.schoolId}}</td>
+                <td>{{infoData.supplierName}}</td>
+                <td>{{infoData.supplierEmail}}</td>
+                <td>{{infoData.supplierPhone}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <pagination-container
+                pageNumber={{infoDatas.pageNumber}}
+                hasNext={{infoDatas.hasNext}}
+                hasPrevious={{infoDatas.hasPrevious}}
+                (onFirst)="onFirstHandler($event)"
+                (onLast)="onLastHandler($event)"
+                (onNext)="onNextHandler($event)"
+                (onPrevious)="onPreviousHandler($event)"
+        ></pagination-container>
+    </div>
+
+</div>
+<sm-modal title="新增供应商" class="" icon="dashboard icon" #infoModal>
+    <modal-content>
+        <form class="ui form">
+            <div class="three fields">
+                <div class="field">
+                    <label>供应商名称</label>
+                    <input type="text" name="first-name"  [(ngModel)]="equipment.supplierName">
+                </div>
+                <div class="field">
+                    <label>供应商电话</label>
+                    <input type="text" name="last-name"  [(ngModel)]="equipment.supplierPhone">
+                </div>
+                <div class="field">
+                    <label>供应商邮箱</label>
+                    <input type="text" name="first-name"  [(ngModel)]="equipment.supplierEmail">
+                </div>
+            </div>
+            <!--<div class="field fluid">
+                <select [(model)]="equipment.schoolId" label="学校" >
+                    <option *ngFor="let infoData of shcools" value="{{infoData.id}}">{{infoData.name}}</option>
+                </select>
+            </div>-->
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleSave()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="infoModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
