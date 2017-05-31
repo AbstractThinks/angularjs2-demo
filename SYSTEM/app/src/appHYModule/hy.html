@@ -12,14 +12,14 @@
 <div class="ui container main">
 	<router-outlet></router-outlet>
 </div>
-<sm-sidebar class="left inverted sidebar vertical menu" #invertedSidebar>  
+<sm-sidebar class="left inverted sidebar vertical menu" #invertedSidebar>
    <a class="item">
       <div class="header"><i class="cloud icon"></i>&nbsp;&nbsp;红原县教育</div>
     </a>
   <!-- <div class="item">
     <div class="ui input"><input type="text" placeholder="Search..."></div>
   </div>  -->
-  <a class="item" routerLink="/hy/homepage/index">
+  <a class="item" routerLink="/hy/personal/index">
       <i class=""></i>首页
   </a>
   <div class="ui item accordion " *ngFor="let menuitem of MENUS" >
@@ -32,9 +32,5 @@
           <i class="{{Submenuitem.iconFont}}"></i>{{Submenuitem.name}}
       </a>
     </div>
-  </div> 
+  </div>
 </sm-sidebar>
-
-
-
-

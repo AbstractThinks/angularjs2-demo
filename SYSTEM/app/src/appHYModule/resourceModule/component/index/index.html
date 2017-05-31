@@ -22,7 +22,7 @@
     </div>
       <div id="globalInputContainer" class="ui search" style="">
         <div class="ui icon input fluid" style="">
-          <input id="gloablInput" class="prompt" type="text" placeholder="Search countries...">
+          <input id="gloablInput" class="prompt" type="text" placeholder="搜索">
         </div>
         <i id="globalInputBtn" class="search icon" (click)="globalSearch()" style="z-index:100;cursor:pointer"></i>
       </div>
@@ -46,10 +46,10 @@
 </div>
     <div class="ui divider"></div>
 
-    <pagination-container 
-        pageNumber={{RESOURCES.pageNumber}} 
-        hasNext={{RESOURCES.hasNext}} 
-        hasPrevious={{RESOURCES.hasPrevious}} 
+    <pagination-container
+        pageNumber={{RESOURCES.pageNumber}}
+        hasNext={{RESOURCES.hasNext}}
+        hasPrevious={{RESOURCES.hasPrevious}}
         (onFirst)="onFirstHandler($event)"
         (onLast)="onLastHandler($event)"
         (onNext)="onNextHandler($event)"

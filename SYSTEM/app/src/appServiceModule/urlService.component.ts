@@ -27,6 +27,12 @@ export class UrlService {
     hy_req_delete(url?:string, reqData?:any): any {
         return this.http.delete(HYURLDOMAIN+url).toPromise();
     }
-	
-    
+	isEmail(str:string): boolean{ 
+        var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
+        return reg.test(str); 
+    } 
+    isPhone(str:string): boolean{ 
+        var reg = /^1\d{10}$/; 
+        return reg.test(str); 
+    }
 }
