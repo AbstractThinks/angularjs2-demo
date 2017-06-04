@@ -17,7 +17,6 @@ export class HYAssetsIndexComponent {
   infoModal:any;
   infoDatas:any = {};
   equipment:any = {};
-  shcools:any = [];
   userProfile:any = {};
 	constructor (private urlService: UrlService,private hyService: HYService) {
 
@@ -36,8 +35,14 @@ export class HYAssetsIndexComponent {
         let that = this;
 
         this.urlService.hy_req_post(`api/equipment?${data}`, this.equipment).then((response:any) => {
-                that.infoModal.hide();
-            });
+            that.infoModal.hide();
+        });
+    }
+    handleMake ():void {
+
+    }
+    handlePrint (e:any):void {
+
     }
     onFirstHandler(e:any):void{
       let that = this;

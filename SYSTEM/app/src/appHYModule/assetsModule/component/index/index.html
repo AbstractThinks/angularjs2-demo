@@ -5,11 +5,22 @@
             <i class="content icon"></i>
             新增设备
         </a>
+
+        <a class="item" (click)="handleMake()">
+            <i class="content icon"></i>
+            生成选中二维码
+        </a>
+
+        <a class="item" (click)="handleMake()">
+            <i class="content icon"></i>
+            生成所有二维码
+        </a>
     </div>
     <div class="ui attached segment table-frame">
         <table class="ui striped table">
             <thead>
                 <tr>
+                    <th>二维码</th>
                     <th>设备编码</th>
                     <th>设备名称</th>
                     <th>设备数量</th>
@@ -24,6 +35,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let infoData of infoDatas.entries" class="">
+                    <td><div class="ui checkbox"><input type="checkbox" name="{{infoData.id}}"></div></td>
                     <td><a routerLink="/hy/assets/detail/{{infoData.id}}">{{infoData.id}}</a></td>
                     <td>{{infoData.brand}}</td>
                     <td>{{infoData.inventoryQuantity}}</td>
@@ -94,17 +106,34 @@
                   <input type="number" name="first-name"  [(ngModel)]="equipment.totalQuantity">
                 </div>
             </div>
-            <div class="field fluid">
-                <sm-select [(model)]="equipment.schoolId" label="学校" >
-                  <option *ngFor="let infoData of shcools" value="{{infoData.id}}">{{infoData.name}}</option>
-                </sm-select>
-            </div>
         </form>
     </modal-content>
     <modal-actions>
         <div class="ui buttons">
             <div class="ui button green" (click)="handleSave()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
             <div class="ui button red" (click)="infoModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+<sm-modal title="二维码" class="" icon="dashboard icon" #quickMarkModal>
+    <modal-content>
+        <div class="image content">
+            <div class="description">
+                <label>设备编码</label>
+            </div>
+            <div class="description">
+                <label>设备名称</label>
+            </div>
+            <div class="ui medium image">
+                <img src="">
+            </div>
+        </div>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handlePrint()">&nbsp;&nbsp;&nbsp;打印&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="quickMarkModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
         </div>
     </modal-actions>
 </sm-modal>
