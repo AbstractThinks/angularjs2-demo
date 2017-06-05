@@ -28,9 +28,12 @@
       {{menuitem.title}}
     </div>
     <div class="content menu">
-      <a class="item" *ngFor="let Submenuitem of menuitem.Submenus" routerLink="{{Submenuitem.url}}" (click)="invertedSidebar.hide()">
-          <i class="{{Submenuitem.iconFont}}"></i>{{Submenuitem.name}}
-      </a>
+      <div *ngFor="let Submenuitem of menuitem.Submenus" >
+          <a class="item"  routerLink="{{Submenuitem.url}}" (click)="invertedSidebar.hide()">
+            <i class="{{Submenuitem.iconFont}}"></i>{{Submenuitem.name}}
+        </a>
+      </div>
+      
     </div>
   </div> 
 </sm-sidebar>

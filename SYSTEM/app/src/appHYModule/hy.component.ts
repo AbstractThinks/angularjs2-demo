@@ -12,11 +12,17 @@ import { HYService } from '../appServiceModule/HYService.component';
   providers: [HYService],
 })
 export class HYComponent implements AfterViewInit{
-	MENUS:any;
-	constructor() {
-		this.MENUS = HYMENUS;
+	MENUS:any = [];
+	USER:any = {};
+	constructor(private urlService: UrlService) {
+		let that = this;
+		this.urlService.hy_req_get('api/profile').then((response:any) => {
+			that.USER = response.json();
+			that.MENUS = HYMENUS[that.USER.roleId-1]
+			setTimeout(() => {$('.sidebar .ui.accordion').accordion()}, 0)
+		});
 	}
 	ngAfterViewInit():void {
-		$('.sidebar .ui.accordion').accordion()
+		
 	}
 }

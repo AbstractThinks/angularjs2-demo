@@ -24,7 +24,11 @@ import { HYAssetsSupplierComponent } from '../appHYModule/assetsModule/component
 import { HYSheduleModuleComponent } from '../appHYModule/sheduleModule/shedule.component';
 import { HYSheduleIndexComponent } from '../appHYModule/sheduleModule/component/index/index.component';
 import { HYSheduleBasedataComponent } from '../appHYModule/sheduleModule/component/basedata/index.component';
-
+import { HYSchoolModuleComponent } from '../appHYModule/schoolModule/school.component';
+import { HYSchoolIndexComponent } from '../appHYModule/schoolModule/component/index/index.component';
+import { HYSchoolGradeComponent } from '../appHYModule/schoolModule/component/grade/grade.component';
+import { HYSchoolClassComponent } from '../appHYModule/schoolModule/component/class/class.component';
+import { HYSchoolSubjectComponent } from '../appHYModule/schoolModule/component/subject/index.component';
 export const appHYRoutes: Routes = [
     {
 		path: 'hy',
@@ -94,6 +98,18 @@ export const appHYRoutes: Routes = [
 					{ path: 'supplier', component: HYAssetsSupplierComponent },
 					
 					{ path: 'detail/:id', component: HYAssetsDetailComponent },
+				]
+		    },
+		    {
+		    	path: 'school',
+				component: HYSchoolModuleComponent,
+				children: [
+					{ path: '', redirectTo: 'index',  pathMatch: 'full'},
+					{ path: 'index', component: HYSchoolIndexComponent },
+					{ path: 'grade', component: HYSchoolGradeComponent },
+					{ path: 'class', component: HYSchoolClassComponent },
+					{ path: 'subject', component: HYSchoolSubjectComponent },
+					
 				]
 		    }
 
