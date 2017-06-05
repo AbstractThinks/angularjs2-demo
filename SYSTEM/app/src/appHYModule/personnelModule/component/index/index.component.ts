@@ -32,7 +32,7 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
         });
 
 	}
-    
+
     handleSaveStaff() {
         let that = this;
         if (this.STAFFMODALDATA.id) {
@@ -51,7 +51,7 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
                 that.staffModal.hide();
             });
         }
-        
+
     }
     handleCreateAccount(e:any, i:any):void {
         let that = this;
@@ -61,7 +61,31 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
             account : e,
             password : "123456"
         }
-        this.urlservice.hy_req_post(`api/staff/${e}/account`, reqData).then((response:any) => {
+        this.urlservice.hy_req_post(`api/staff/${e}/3/account`, reqData).then((response:any) => {
+            that.STAFFUS.entries[i] = response.json()
+        })
+    }
+    handleCreateAdminAccount(e:any, i:any):void {
+        let that = this;
+        let reqData = new Object();
+        reqData = {
+            id : e,
+            account : e,
+            password : "123456"
+        }
+        this.urlservice.hy_req_post(`api/staff/${e}/2/account`, reqData).then((response:any) => {
+            that.STAFFUS.entries[i] = response.json()
+        })
+    }
+    handleCreateSuperAdminAccount(e:any, i:any):void {
+        let that = this;
+        let reqData = new Object();
+        reqData = {
+            id : e,
+            account : e,
+            password : "123456"
+        }
+        this.urlservice.hy_req_post(`api/staff/${e}/1/account`, reqData).then((response:any) => {
             that.STAFFUS.entries[i] = response.json()
         })
     }
@@ -75,7 +99,7 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
         this.staffModal.show();
     }
     ngAfterViewInit() :void {
-       
+
     }
     handleRemoveAccount(e:any, i:any): void {
         let that = this;

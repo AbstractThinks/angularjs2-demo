@@ -20,7 +20,7 @@ export class HYPersonalIndexComponent {
 			that.staff = response.json();
 			that.storagestaff = response.json();
 			$("#imghead").attr("src", `http://www.marchezvousblue.cn/k12/img/preview/head/${response.json().userId}/${response.json().userId}.png`)
-			
+
 		});
 	}
 	ngAfterViewInit(): void {
@@ -32,7 +32,7 @@ export class HYPersonalIndexComponent {
 			$("#imghead").attr("src", "http://www.marchezvousblue.cn/k12/build/assets/header.png")
 		});
 		$("#previewImg").on('change', function (e: any) {
-			var MAXWIDTH  = 90; 
+			var MAXWIDTH  = 90;
 	        var MAXHEIGHT = 90;
 	        var div = document.getElementById('preview');
 	        var file = e.target;
@@ -49,7 +49,7 @@ export class HYPersonalIndexComponent {
 	            }
 	            reader.readAsDataURL(file.files[0]);
 
-	        } else { //兼容IE 
+	        } else { //兼容IE
 
 	            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
 	            file.select();
@@ -65,7 +65,7 @@ export class HYPersonalIndexComponent {
 	        }
 
 	    	var formData = new FormData();
-            var name = $("#previewImg").val(); 
+            var name = $("#previewImg").val();
             let previewImgDom:any = $("#previewImg").get(0);
             formData.append("file", previewImgDom.files[0]);
             formData.append("name", name);
@@ -99,16 +99,27 @@ export class HYPersonalIndexComponent {
                         }
                     });
                 }
-            });   
+            });
 
 		});
 	}
 	handleSaveData():void {
 		let that = this;
-		let urlParam = this.hyService.urlEncode(this.staff).substring(1);
-        this.urlservice.hy_req_post(`api/staff/${that.staff.id}?${urlParam}`, that.staff).then((response:any) => {
-            that.staff = response.json();
-        });
+		if (!this.urlservice.isEmail(this.staff.email)) {
+			this.staff.email = "";
+			toastr.error('邮箱地址错误');
+		} else if (!this.urlservice.isPhone(this.staff.phone)) {
+			this.staff.phone = "";
+			toastr.error('电话错误');
+		} else {
+			let urlParam = this.hyService.urlEncode(this.staff).substring(1);
+			this.urlservice.hy_req_post(`api/staff/${that.staff.id}?${urlParam}`, that.staff).then((response:any) => {
+			    that.staff = response.json();
+				toastr.success('保存成功');
+			},() => {
+			    toastr.error('保存失败');
+			});
+		}		
 
 	}
 	handleResetData():void {
@@ -121,7 +132,7 @@ export class HYPersonalIndexComponent {
         if( width>maxWidth || height>maxHeight ){
             let rateWidth = width / maxWidth;
             let rateHeight = height / maxHeight;
-            
+
             if( rateWidth > rateHeight ){
                 param.width =  maxWidth;
                 param.height = Math.round(height / rateWidth);
@@ -134,9 +145,12 @@ export class HYPersonalIndexComponent {
         param.top = Math.round((maxHeight - param.height) / 2);
         return param;
     }
+		emailChange(e: any): void {
+			console.log(e)
+		}
     changeHeader():void{
     	$("#previewImg").click();
 
-    	
+
     }
 }

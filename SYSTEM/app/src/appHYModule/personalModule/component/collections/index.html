@@ -13,26 +13,26 @@
         	<a routerLink="/hy/personal/other/{{item.staffId}}">作者：{{item.staffName}}</a> <br />
         	学科：{{item.subjectName}}<br />
         	上传时间：{{item.createdTime|date:"yyyy.MM.dd"}}<br />
-        	
+
         </div>
         <div class="ui buttons right floated content">
-	        	<a class="ui teal button" routerLink="/hy/resource/detail/{{item.id}}">文章详情</a>
+	        	<a class="ui teal button" routerLink="/hy/resource/detail/{{item.resourceId}}">文章详情</a>
 				<button class="ui red button" (click)="cancelCollection(item.id, i)">取消搜藏</button>
-	        </div>	
-    </sm-item> 
-	   
-    
-    
+	        </div>
+    </sm-item>
+
+
+
     <div class="ui divider"></div>
 
-    <pagination-container 
-        pageNumber={{collections.pageNumber}} 
-        hasNext={{collections.hasNext}} 
-        hasPrevious={{collections.hasPrevious}} 
+    <pagination-container
+        pageNumber={{collections.pageNumber}}
+        hasNext={{collections.hasNext}}
+        hasPrevious={{collections.hasPrevious}}
         (onFirst)="onFirstHandler($event)"
         (onLast)="onLastHandler($event)"
         (onNext)="onNextHandler($event)"
         (onPrevious)="onPreviousHandler($event)"
     ></pagination-container>
-    
+
 </sm-list>

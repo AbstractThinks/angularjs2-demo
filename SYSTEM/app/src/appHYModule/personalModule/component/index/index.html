@@ -18,10 +18,10 @@
                 <div id="preview">
                 <img class="ui small avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
                 <img id="imghead" class="ui small image imghead" border="0"   >
-                </div>         
+                </div>
                 <input type="file"  style="display: none;" id="previewImg">
             </form>
-            
+
         </div> -->
         <!-- <div class="ui special cards"> -->
             <div class="special card">
@@ -35,7 +35,7 @@
               </div>
                 <div id="preview">
                     <img id="imghead" class="ui small image avatar imghead" border="0"   >
-                </div>         
+                </div>
                 <input type="file"  style="display: none;" id="previewImg">
               <!-- <img id="headerImage" class="ui small avatar image"> -->
             </div>
@@ -44,7 +44,7 @@
         <!-- </div> -->
     </div>
     <div class="ui four column doubling stackable grid">
-        
+
         <div class="column field">
             <label>教师编号</label>
             <input class="left labeled" label="教师姓名" type="text" placeholder="教师编号" [(ngModel)]="staff.staffNum" name="staffNum" readonly>
@@ -59,7 +59,7 @@
         </div>
         <div class="column field">
             <label>联系电话</label>
-            <input class="left labeled" label="教师姓名" type="text" placeholder="联系电话" [(ngModel)]="staff.phone" name="phone">
+            <input class="left labeled" label="教师姓名" type="tel" placeholder="联系电话" [(ngModel)]="staff.phone" name="phone">
         </div>
         <div class="column field">
             <label>联系地址</label>
@@ -67,14 +67,14 @@
         </div>
         <div class="column field">
             <label>地址邮编</label>
-            <input class="left labeled" label="教师姓名" type="text" placeholder="地址邮编" [(ngModel)]="staff.homeZipCode" name="homeZipCode">
+            <input class="left labeled" label="教师姓名" type="text" placeholder="地址邮编" [(ngModel)]="staff.homeZipCode" name="homeZipCode" (change)="emailChange()">
         </div>
         <div class="column field">
             <label>联系邮箱</label>
             <input class="left labeled" label="教师姓名" type="text" placeholder="联系邮箱" [(ngModel)]="staff.email" name="email" >
         </div>
     </div>
-    
+
 
     <div class="ui column grid">
         <div class="column text-768-right">
