@@ -31,6 +31,12 @@ export const HYMENUS:any = [
                 "admin": "0",
                 "iconFont": "cloud upload icon",
                 "url": "/hy/personal/upload"
+            },
+            {
+                "name": "密码管理",
+                "admin": "0",
+                "iconFont": "cloud upload icon",
+                "url": "/hy/personal/psd"
             }
         ]
     },{
@@ -73,6 +79,12 @@ export const HYMENUS:any = [
                 "admin": "0",
                 "iconFont": "cloud upload icon",
                 "url": "/hy/personal/upload"
+            },
+            {
+                "name": "密码管理",
+                "admin": "0",
+                "iconFont": "cloud upload icon",
+                "url": "/hy/personal/psd"
             }
         ]
     },{
@@ -184,6 +196,12 @@ export const HYMENUS:any = [
                 "admin": "0",
                 "iconFont": "cloud upload icon",
                 "url": "/hy/personal/upload"
+            },
+            {
+                "name": "密码管理",
+                "admin": "0",
+                "iconFont": "cloud upload icon",
+                "url": "/hy/personal/psd"
             }
         ]
     },{

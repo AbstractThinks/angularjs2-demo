@@ -11,13 +11,14 @@ import { HYPersonalIndexComponent } from './component/index/index.component';
 import { HYPersonalCollectionsComponent } from './component/collections/index.component';
 import { HYPersonalUploadComponent } from './component/upload/index.component';
 import { HYPersonalOtherComponent } from './component/other/index.component';
-
+import { HYPersonalPsdComponent } from './component/psd/index.component';
 const APP_CMS_COMPONENT = [
 	HYPersonalModuleComponent,
 	HYPersonalIndexComponent,
 	HYPersonalCollectionsComponent,
 	HYPersonalUploadComponent,
 	HYPersonalOtherComponent,
+	HYPersonalPsdComponent,
 ]
 const APP_CMS_IMPORT = [
 	FormsModule,

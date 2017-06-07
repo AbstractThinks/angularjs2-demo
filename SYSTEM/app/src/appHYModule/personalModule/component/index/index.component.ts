@@ -12,16 +12,21 @@ import { HYService  } from '../../../../appServiceModule/HYService.component';
 })
 
 export class HYPersonalIndexComponent {
+	USER:any = {};
 	staff:any = {};
 	storagestaff:any = {};
 	constructor (private urlservice: UrlService, private hyService: HYService) {
 		let that = this;
-		this.urlservice.hy_req_get('api/staff/50').then((response:any) => {
-			that.staff = response.json();
-			that.storagestaff = response.json();
-			$("#imghead").attr("src", `http://www.marchezvousblue.cn/k12/img/preview/head/${response.json().userId}/${response.json().userId}.png`)
+		this.urlservice.hy_req_get('api/profile').then((response:any) => {
+            that.USER = response.json();
+            this.urlservice.hy_req_get(`api/staff/${that.USER.id}`).then((response:any) => {
+				that.staff = response.json();
+				that.storagestaff = response.json();
+				$("#imghead").attr("src", `http://www.marchezvousblue.cn/k12/img/preview/head/${response.json().userId}/${response.json().userId}.png`)
 
-		});
+			});
+        });
+		
 	}
 	ngAfterViewInit(): void {
 		let that = this;

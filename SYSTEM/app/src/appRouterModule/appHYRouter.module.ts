@@ -15,6 +15,7 @@ import { HYPersonalIndexComponent } from '../appHYModule/personalModule/componen
 import { HYPersonalCollectionsComponent } from '../appHYModule/personalModule/component/collections/index.component';
 import { HYPersonalUploadComponent } from '../appHYModule/personalModule/component/upload/index.component';
 import { HYPersonalOtherComponent } from '../appHYModule/personalModule/component/other/index.component';
+import { HYPersonalPsdComponent } from '../appHYModule/personalModule/component/psd/index.component';
 import { HYPersonnelModuleComponent } from '../appHYModule/personnelModule/personnel.component';
 import { HYPersonnelIndexComponent } from '../appHYModule/personnelModule/component/index/index.component';
 import { HYAssetsModuleComponent } from '../appHYModule/assetsModule/assets.component';
@@ -29,6 +30,9 @@ import { HYSchoolIndexComponent } from '../appHYModule/schoolModule/component/in
 import { HYSchoolGradeComponent } from '../appHYModule/schoolModule/component/grade/grade.component';
 import { HYSchoolClassComponent } from '../appHYModule/schoolModule/component/class/class.component';
 import { HYSchoolSubjectComponent } from '../appHYModule/schoolModule/component/subject/index.component';
+
+
+
 export const appHYRoutes: Routes = [
     {
 		path: 'hy',
@@ -69,6 +73,7 @@ export const appHYRoutes: Routes = [
 					{ path: 'index', component: HYPersonalIndexComponent },
 					{ path: 'collections', component: HYPersonalCollectionsComponent },
 					{ path: 'upload', component: HYPersonalUploadComponent },
+					{ path: 'psd', component: HYPersonalPsdComponent},
 					{ path: 'other/:id', component: HYPersonalOtherComponent },
 				]
 		    },

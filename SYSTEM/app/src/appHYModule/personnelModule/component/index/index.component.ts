@@ -12,6 +12,7 @@ import { HYService } from '../../../../appServiceModule/HYService.component';
 })
 
 export class HYPersonnelIndexComponent implements AfterViewInit{
+    USER:any = {};
 	STAFFUS:any={};
 	SCHOOLSDICTIONARY:any=[];
 	SUBJECTSDICTIONARY:any=[];
@@ -21,6 +22,9 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
 
 	constructor (private urlservice: UrlService, private hyService: HYService) {
 		let that = this;
+        this.urlservice.hy_req_get('api/profile').then((response:any) => {
+            that.USER = response.json();
+        });
 		this.urlservice.hy_req_get("api/staffs?page=1").then((response:any) => {
             that.STAFFUS = response.json();
         })
@@ -97,6 +101,12 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
     handleAddStaff(): void {
         this.STAFFMODALDATA = new Object()
         this.staffModal.show();
+    }
+    handleResetAccount(e:any, i:any): void {
+        let that = this;
+        this.urlservice.hy_req_get(`api/staff/resetAccount/{e}`).then((response:any) => {
+            toastr.success('重置成功');
+        })
     }
     ngAfterViewInit() :void {
 

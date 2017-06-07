@@ -18,6 +18,7 @@ export class HYComponent implements AfterViewInit{
 		let that = this;
 		this.urlService.hy_req_get('api/profile').then((response:any) => {
 			that.USER = response.json();
+			console.log(that.USER)
 			that.MENUS = HYMENUS[that.USER.roleId-1]
 			setTimeout(() => {$('.sidebar .ui.accordion').accordion()}, 0)
 		});

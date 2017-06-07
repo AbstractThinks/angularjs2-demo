@@ -16,7 +16,7 @@ export class HYResourceIndexComponent {
     }
 	constructor (private urlservice: UrlService) {
 		let that = this;
-		this.urlservice.hy_req_get("api/resources/queryByCondition?page=1&pageSize=10&resourceTypeId=0").then((response:any) => {
+		this.urlservice.hy_req_get("api/resources/queryByCondition?page=1&pageSize=10&resourceTypeId=0&subjectId=0&gradeId=0").then((response:any) => {
             that.RESOURCES = response.json();
             console.log(response.json())
         })

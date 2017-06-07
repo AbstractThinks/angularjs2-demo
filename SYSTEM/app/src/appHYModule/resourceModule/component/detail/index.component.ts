@@ -46,11 +46,14 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
         content: that.commentText,
         parentCommentId: articleId,
         rootId: articleId,
-        rootType: 1
+        rootType: 1,
+        score:$('.rating.comment .active').length
       }
-      this.urlService.hy_req_post(`api/comment/add?content=${that.commentText}&parentCommentId=${articleId}&rootId=${articleId}&rootType=1`, that.commentText).then((response:any) => {
+      this.urlService.hy_req_post(`api/comment/add?content=${that.commentText}&parentCommentId=${articleId}&rootId=${articleId}&rootType=1&score=${$('.rating.comment .active').length}`, reqObj).then((response:any) => {
         that.comments.push(response.json());
         that.commentText = "";
+        $('.rating.comment .active').removeClass('active');
+        toastr.success('评论成功');
         
       })
     }
@@ -120,6 +123,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
             that.comments= response.json();
             console.log(response.json())
         })
+       $('.comment.rating').rating();
        
     }
     callBackFn(e:any) {
