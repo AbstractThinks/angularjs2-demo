@@ -35,7 +35,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let infoData of infoDatas.entries" class="">
-                    <td><div class="ui checkbox"><input type="checkbox" name="{{infoData.id}}"></div></td>
+                    <td ><div class="ui checkbox"><input type="checkbox" id={{infoData.id}} name="{{infoData.name}}"></div></td>
                     <td><a routerLink="/hy/assets/detail/{{infoData.id}}">{{infoData.id}}</a></td>
                     <td>{{infoData.brand}}</td>
                     <td>{{infoData.inventoryQuantity}}</td>
@@ -49,17 +49,17 @@
                 </tr>
             </tbody>
         </table>
-        <pagination-container 
-            pageNumber={{infoDatas.pageNumber}} 
-            hasNext={{infoDatas.hasNext}} 
-            hasPrevious={{infoDatas.hasPrevious}} 
+        <pagination-container
+            pageNumber={{infoDatas.pageNumber}}
+            hasNext={{infoDatas.hasNext}}
+            hasPrevious={{infoDatas.hasPrevious}}
             (onFirst)="onFirstHandler($event)"
             (onLast)="onLastHandler($event)"
             (onNext)="onNextHandler($event)"
             (onPrevious)="onPreviousHandler($event)"
         ></pagination-container>
     </div>
-     
+
 </div>
 <sm-modal title="新增设备" class="" icon="dashboard icon" #infoModal>
     <modal-content>
@@ -118,7 +118,7 @@
 
 <sm-modal title="二维码" class="" icon="dashboard icon" #quickMarkModal>
     <modal-content>
-        <div class="image content">
+        <div class="image content" *ngFor="let infoData of quickMarkModal">
             <div class="description">
                 <label>设备编码</label>
             </div>
@@ -126,7 +126,7 @@
                 <label>设备名称</label>
             </div>
             <div class="ui medium image">
-                <img src="">
+                <div class="quickMark"></div>
             </div>
         </div>
     </modal-content>
