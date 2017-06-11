@@ -118,12 +118,14 @@
 
 <sm-modal title="二维码" class="" icon="dashboard icon" #quickMarkModal>
     <modal-content>
-        <div class="image content" *ngFor="let infoData of quickMarkModal">
+        <div class="image content" *ngFor="let quickMarkData of quickMarkDatas">
             <div class="description">
                 <label>设备编码</label>
+                {{quickMarkData.id}}
             </div>
             <div class="description">
                 <label>设备名称</label>
+                {{quickMarkData.name}}
             </div>
             <div class="ui medium image">
                 <div class="quickMark"></div>

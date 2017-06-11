@@ -43,23 +43,23 @@ export class HYAssetsIndexComponent {
         });
     }
     handleMake ():void {
-        // let that = this;
-        // that.quickMarkModal.show({inverted: true});
-        //
-        // for (var i = 0; i < $('.checkbox.checked').length-1; i++) {
-        // $('.checkbox.checked input').attr('id')
-        // $('.checkbox.checked input').attr('name')
-        //     that.quickMarkDatas.push({"id":$('.checkbox.checked input').attr('id'),"name":$('.checkbox.checked input').attr('name')})
-        // }
-        //
-        // new QRCode('.quickMark', {
-        //     text: 'helloworld',
-        //     width: 256,
-        //     height: 256,
-        //     colorDark : '#000000',
-        //     colorLight : '#ffffff',
-        //     correctLevel : QRCode.CorrectLevel.H
-        // });
+        let that = this;
+        that.quickMarkModal.show({inverted: true});
+
+        for (var i = 0; i < $('.checkbox.checked').length; i++) {
+            let id = $('.checkbox.checked input').attr('id');
+            let name = $('.checkbox.checked input').attr('name');
+            that.quickMarkDatas.push({"id":id,"name":name});
+
+            new QRcode('.quickMark', {
+                text: id,
+                width: 256,
+                height: 256,
+                colorDark : '#000000',
+                colorLight : '#ffffff',
+                correctLevel : QRcode.CorrectLevel.H
+            });
+        }
 
     }
     handlePrint (e:any):void {
