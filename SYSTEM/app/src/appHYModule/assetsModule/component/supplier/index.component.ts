@@ -30,7 +30,7 @@ export class HYAssetsSupplierComponent {
 		});
 		this.urlService.hy_req_get('api/profile').then((response:any) => {
 			that.userProfile = response.json();
-			this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/1/3`).then((response:any) => {
+			this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/1/10`).then((response:any) => {
 				that.infoDatas = response.json();
 			})
 			this.equipment.schoolId = that.userProfile.schoolId;
@@ -42,29 +42,30 @@ export class HYAssetsSupplierComponent {
 
 		this.urlService.hy_req_post(`api/equipment-supplier?${data}`, this.equipment).then((response:any) => {
 			that.infoModal.hide();
+			that.infoDatas.entries.push(response.json());
 		});
 	}
 	onFirstHandler(e:any):void{
 		let that = this;
-		this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/1/2`).then((response:any) => {
+		this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/1/10`).then((response:any) => {
 			that.infoDatas = response.json();
 		})
 	}
 	onLastHandler(e:any):void{
 		let that = this;
-		this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/${that.infoDatas.totalPage}/2`).then((response:any) => {
+		this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/${that.infoDatas.totalPage}/10`).then((response:any) => {
 			that.infoDatas = response.json();
 		})
 	}
 	onNextHandler(e:any):void{
 		let that = this;
-		this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/${that.infoDatas.pageNumber+1}/2`).then((response:any) => {
+		this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/${that.infoDatas.pageNumber+1}/10`).then((response:any) => {
 			that.infoDatas = response.json();
 		})
 	}
 	onPreviousHandler(e:any):void{
 		let that = this;
-		this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/${that.infoDatas.pageNumber-1}/2`).then((response:any) => {
+		this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/${that.infoDatas.pageNumber-1}/10`).then((response:any) => {
 			that.infoDatas = response.json();
 		})
 	}
