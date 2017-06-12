@@ -51,8 +51,13 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
             this.STAFFMODALDATA.description = "简介";
             let urlParam = this.hyService.urlEncode(this.STAFFMODALDATA).substring(1);
             this.urlservice.hy_req_post(`api/staff?${urlParam}`, that.STAFFMODALDATA).then((response:any) => {
-                that.STAFFUS.entries.push(response.json());
-                that.staffModal.hide();
+                if (response.json().status == 'fail') {
+                    toastr.error(response.json().message);
+                } else {
+                    that.STAFFUS.entries.push(response.json().data);
+                    that.staffModal.hide();
+                }
+
             });
         }
 

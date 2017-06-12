@@ -26,7 +26,7 @@ export class HYPersonalIndexComponent {
 
 			});
         });
-		
+
 	}
 	ngAfterViewInit(): void {
 		let that = this;
@@ -65,7 +65,7 @@ export class HYPersonalIndexComponent {
 	            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
 	            var rect = that.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
 	            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
-	            div.innerHTML = "<div id=divhead class='ui small image avatar imghead' style=width: 100%;height: 200px;"+sFilter+src+"\"'></div>";
+	            div.innerHTML = "<div id=divhead class='ui small image avatar imghead' style=width: 200px;height: 200px;"+sFilter+src+"\"'></div>";
 
 	        }
 
@@ -124,7 +124,7 @@ export class HYPersonalIndexComponent {
 			},() => {
 			    toastr.error('保存失败');
 			});
-		}		
+		}
 
 	}
 	handleResetData():void {

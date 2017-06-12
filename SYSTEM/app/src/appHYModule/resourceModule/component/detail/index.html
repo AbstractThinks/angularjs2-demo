@@ -2,19 +2,19 @@
     <div class="row">
         <div class="twelve wide column">
             <div class="row">
-                <pdf-viewer [src]="pdfSrc" 
-                            [page]="page" 
-                            [original-size]="false" 
+                <pdf-viewer [src]="pdfSrc"
+                            [page]="page"
+                            [original-size]="false"
                             (after-load-complete)="callBackFn($event)"
                             style="display: block;text-align: center;">
                 </pdf-viewer>
-                <div class="page-detail"> 
+                <div class="page-detail">
                     <button class="ui button large disabled" *ngIf="page===minPage">
                       上一页
-                    </button>                    
+                    </button>
                     <button class="ui button large" (click)="previewPage()" *ngIf="page!==minPage">
                       上一页
-                    </button>                    
+                    </button>
                     <div class="ui tiny statistic mg-rl24">
                       <div class="value">
                         {{page}}
@@ -70,15 +70,15 @@
                 </div>
             </div>
             <div class="ui buttons vertical full-width">
-              <button class="ui button large fluid " (click)="passExamine()">
+              <button class="ui button large fluid " (click)="passExamine()" *ngIf="USER.roleId == 3">
                 <i class="smile icon"></i> 审核通过
               </button>
               <br/>
-              <button class="ui button large fluid " (click)="failedExamine()">
+              <button class="ui button large fluid " (click)="failedExamine()" *ngIf="USER.roleId == 3">
                   <i class="meh icon"></i> 审核失败
               </button>
               <br/>
-              <button class="ui button large fluid " (click)="collection()">
+              <button class="ui button large fluid " (click)="collection()" *ngIf="!article.collection">
                 <i class="thumbs up icon"></i> 收藏
               </button>
               <br/>
@@ -88,13 +88,4 @@
             </div>
         </div>
     </div>
-</div>  
-
-
-
-
-
-
-
-
-  
+</div>

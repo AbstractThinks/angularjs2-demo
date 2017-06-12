@@ -16,7 +16,7 @@ import { UrlService } from '../../../../appServiceModule/urlService.component';
 })
 export class HYResourceDetailComponent implements OnInit,AfterViewInit{
 
-    
+
     pdfSrc: string = "";
     page: number = 1;
     maxPage: number;
@@ -24,16 +24,21 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
     article: any = {};
     comments: any = [];
     commentText: any = "";
+	USER:any = {};
     constructor(
         private urlService: UrlService,
         private router: Router,
         private aRoute: ActivatedRoute,
     ) {
+		let that = this;
+        this.urlService.hy_req_get('api/profile').then((response:any) => {
+            that.USER = response.json();
+        });
         // 相当于window.location.href，界面跳转
         // console.log(router.navigateByUrl('hy/resource/detail/36'));
     }
     ngOnInit() {
-        
+
     }
 
     addComment() {
@@ -54,7 +59,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
         that.commentText = "";
         $('.rating.comment .active').removeClass('active');
         toastr.success('评论成功');
-        
+
       })
     }
     failedExamine() {
@@ -69,7 +74,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
       }
       this.urlService.hy_req_post(`api/resources/resource/3/${articleId}`, reqData).then((response:any) => {
         toastr.success('审核不通过');
-      }) 
+      })
     }
     passExamine() {
        let that = this;
@@ -83,23 +88,25 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
         }
        this.urlService.hy_req_post(`api/resources/resource/2/${articleId}`, reqData).then((response:any) => {
         toastr.success('审核通过');
-      }) 
+      })
     }
     collection() {
       let that = this;
       let articleId = "";
         this.aRoute.params.subscribe((params) => {
         articleId = params.id;
-      }); 
+      });
       this.urlService.hy_req_post(`api/resources/favorite/${articleId}`, {resourceId:articleId}).then((response:any) => {
         toastr.success('搜藏成功');
-      })       
-      
+		that.article.collection = true;
+      })
+
     }
+	
     download() {
 
      location.href = `http://www.marchezvousblue.cn:8888/api/resources/download/${this.article.id}`
-     
+
     }
     previewPage() {
       this.page = this.page - 1;
@@ -124,7 +131,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
             console.log(response.json())
         })
        $('.comment.rating').rating();
-       
+
     }
     callBackFn(e:any) {
       this.maxPage = e.pdfInfo.numPages;
