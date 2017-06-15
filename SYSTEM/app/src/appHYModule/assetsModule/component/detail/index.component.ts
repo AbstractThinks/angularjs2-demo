@@ -38,7 +38,7 @@ export class HYAssetsDetailComponent {
 
 	}
 	ngAfterViewInit(): void {
-		
+		setTimeout(() => {$('.checkbox').checkbox()}, 0);
 	}
 	handleChange():void {
 
