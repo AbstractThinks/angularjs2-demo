@@ -14,6 +14,7 @@ import { appHYPersonalModule } from './personalModule/personal.module';
 import { appHYPersonnelModule } from './personnelModule/personnel.module';
 import { appHYSheduleModule } from './sheduleModule/shedule.module';
 import { appHYAssetsModule } from './assetsModule/assets.module';
+import { appHYSchoolModule } from './schoolModule/school.module';
 require('../assets/style/hy.style.scss');
 
 
@@ -34,7 +35,8 @@ const APP_CMS_IMPORT = [
 	appHYPersonalModule,
 	appHYPersonnelModule,
 	appHYSheduleModule,
-	appHYAssetsModule
+	appHYAssetsModule,
+	appHYSchoolModule
 ]
 
 @NgModule({

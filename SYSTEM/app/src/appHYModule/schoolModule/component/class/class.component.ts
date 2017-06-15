@@ -7,12 +7,11 @@ import { UrlService } from '../../../../appServiceModule/urlService.component';
 import { HYService } from '../../../../appServiceModule/HYService.component';
 
 @Component({
-  selector: 'hy-personnel-index-container',
-  templateUrl:  `./index.html`,
+  selector: 'hy-school-class-container',
+  templateUrl:  `./class.html`,
 })
 
-export class HYPersonnelIndexComponent implements AfterViewInit{
-    USER:any = {};
+export class HYSchoolClassComponent implements AfterViewInit{
 	STAFFUS:any={};
 	SCHOOLSDICTIONARY:any=[];
 	SUBJECTSDICTIONARY:any=[];
@@ -22,9 +21,6 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
 
 	constructor (private urlservice: UrlService, private hyService: HYService) {
 		let that = this;
-        this.urlservice.hy_req_get('api/profile').then((response:any) => {
-            that.USER = response.json();
-        });
 		this.urlservice.hy_req_get("api/staffs?page=1").then((response:any) => {
             that.STAFFUS = response.json();
         })
@@ -36,7 +32,7 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
         });
 
 	}
-
+    
     handleSaveStaff() {
         let that = this;
         if (this.STAFFMODALDATA.id) {
@@ -51,16 +47,11 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
             this.STAFFMODALDATA.description = "简介";
             let urlParam = this.hyService.urlEncode(this.STAFFMODALDATA).substring(1);
             this.urlservice.hy_req_post(`api/staff?${urlParam}`, that.STAFFMODALDATA).then((response:any) => {
-                if (response.json().status == 'fail') {
-                    toastr.error(response.json().message);
-                } else {
-                    that.STAFFUS.entries.push(response.json().data);
-                    that.staffModal.hide();
-                }
-
+                that.STAFFUS.entries.push(response.json());
+                that.staffModal.hide();
             });
         }
-
+        
     }
     handleCreateAccount(e:any, i:any):void {
         let that = this;
@@ -70,31 +61,7 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
             account : e,
             password : "123456"
         }
-        this.urlservice.hy_req_post(`api/staff/${e}/3/account`, reqData).then((response:any) => {
-            that.STAFFUS.entries[i] = response.json()
-        })
-    }
-    handleCreateAdminAccount(e:any, i:any):void {
-        let that = this;
-        let reqData = new Object();
-        reqData = {
-            id : e,
-            account : e,
-            password : "123456"
-        }
-        this.urlservice.hy_req_post(`api/staff/${e}/2/account`, reqData).then((response:any) => {
-            that.STAFFUS.entries[i] = response.json()
-        })
-    }
-    handleCreateSuperAdminAccount(e:any, i:any):void {
-        let that = this;
-        let reqData = new Object();
-        reqData = {
-            id : e,
-            account : e,
-            password : "123456"
-        }
-        this.urlservice.hy_req_post(`api/staff/${e}/1/account`, reqData).then((response:any) => {
+        this.urlservice.hy_req_post(`api/staff/${e}/account`, reqData).then((response:any) => {
             that.STAFFUS.entries[i] = response.json()
         })
     }
@@ -107,14 +74,8 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
         this.STAFFMODALDATA = new Object()
         this.staffModal.show();
     }
-    handleResetAccount(e:any, i:any): void {
-        let that = this;
-        this.urlservice.hy_req_get(`api/staff/resetAccount/{e}`).then((response:any) => {
-            toastr.success('重置成功');
-        })
-    }
     ngAfterViewInit() :void {
-
+       
     }
     handleRemoveAccount(e:any, i:any): void {
         let that = this;

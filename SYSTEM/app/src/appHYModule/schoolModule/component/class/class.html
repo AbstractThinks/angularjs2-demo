@@ -1,4 +1,4 @@
-    <sm-menu  class="inverted teal mg-tb16" >
+    <sm-menu title="Angular2" class="inverted teal mg-tb16" logo="http://semantic-ui.com/images/logo.png">
         <a sm-item (click)="handleAddStaff()"><i class="add user icon"></i>新增教师</a>
     </sm-menu>
     <table class="ui teal compact celled definition table">
@@ -8,8 +8,7 @@
                 <th>id</th>
                 <th>教师姓名</th>
                 <th>教师编号</th>
-                <th>教师账号</th>
-
+                <th>教师账号</th>      
                 <th></th>
             </tr>
         </thead>
@@ -20,17 +19,11 @@
                 <td>{{item.name}}</td>
                 <td>{{item.staffNum}}</td>
                 <td>{{item.userId == "0"?"":item.userId}}</td>
-
+                
                 <td>
                     <div class="ui buttons">
                         <button class="ui primary labeled icon button" (click)="handleCreateAccount(item.id, i)" *ngIf="item.userId == '0'">
                             <i class="edit icon"></i>生成账号
-                        </button>
-                        <button class="ui primary labeled icon button" (click)="handleCreateAdminAccount(item.id, i)" *ngIf="item.userId == '0'">
-                            <i class="edit icon"></i>生成管理员账号
-                        </button>
-                        <button class="ui primary labeled icon button" (click)="handleCreateSuperAdminAccount(item.id, i)" *ngIf="item.userId == '0' && USER.roleId == 3">
-                            <i class="edit icon"></i>生成超级管理员账号
                         </button>
                         <button class="ui teal labeled icon button" (click)="handleModifyAccount(item, i)">
                             <i class="edit icon"></i>修改信息
@@ -38,20 +31,17 @@
                         <button class="ui red labeled icon button" (click)="handleRemoveAccount(item.id, i)">
                             <i class="remove user icon"></i>删除账号
                         </button>
-                        <button class="ui teal labeled icon button" (click)="handleResetAccount(item.i, i)" *ngIf="USER.roleId == 3">
-                            <i class="edit icon"></i>重置密码
-                        </button>
                     </div>
-
+                    
                 </td>
             </tr>
-
+            
         </tbody>
     </table>
     <!-- <pagination-container
-        pageNum={{STAFFUS.pageNumber}}
-        hasNext={{STAFFUS.hasNext}}
-        hasPrevious={{STAFFUS.hasPrevious}}
+        pageNum={{STAFFUS.pageNumber}} 
+        hasNext={{STAFFUS.hasNext}} 
+        hasPrevious={{STAFFUS.hasPrevious}} 
         (onFirst)="onFirstHandler($event)"
         (onLast)="onLastHandler($event)"
         (onNext)="onNextHandler($event)"

@@ -1,0 +1,67 @@
+    <sm-menu title="Angular2" class="inverted teal mg-tb16" logo="http://semantic-ui.com/images/logo.png">
+        <a sm-item (click)="handleAddSchool()"><i class="add user icon"></i>新增学校</a>
+    </sm-menu>
+    <table class="ui teal compact celled definition table">
+        <thead class="full-width">
+            <tr>
+                <th></th>
+                <th>学校名称</th>
+                <th>本部</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of SCHOOLS;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.staffNum}}</td>                
+                <td>
+                    <div class="ui buttons">
+                        <button class="ui teal labeled icon button" (click)="handleModifyAccount(item, i)">
+                            <i class="edit icon"></i>修改信息
+                        </button>
+                        <button class="ui red labeled icon button" (click)="handleRemoveAccount(item.id, i)">
+                            <i class="remove user icon"></i>删除账号
+                        </button>
+                    </div>
+                    
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <!-- <pagination-container
+        pageNum={{STAFFUS.pageNumber}} 
+        hasNext={{STAFFUS.hasNext}} 
+        hasPrevious={{STAFFUS.hasPrevious}} 
+        (onFirst)="onFirstHandler($event)"
+        (onLast)="onLastHandler($event)"
+        (onNext)="onNextHandler($event)"
+        (onPrevious)="onPreviousHandler($event)"
+    ></pagination-container> -->
+
+    <sm-modal title="学校基本信息" class="" icon="child icon" #schoolModal>
+    <modal-content>
+       <form class="ui form" #myForm>
+            <div class="ui one column doubling stackable grid">
+                <div class="column field">
+                   <label>学校名称</label>
+                    <input class="form-control left labeled" type="text" [(ngModel)]="SCHOOLMODALDATA.name" name="name" required/>
+                </div>
+                 <div class="column field">
+                    <label>母校</label>
+                    <select class="ui dropdown SCHOOLSDICTIONARY" [(ngModel)]="SCHOOLMODALDATA.parentSchoolId" name="schoolId" required>
+                      <option value="{{item.id}}" *ngFor="let item of SCHOOLS">{{item.name}}</option>
+                    </select>
+                </div>
+            </div>
+       </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui large buttons">
+            <button class="ui button teal submit" (click)="handleSaveSchool()">保存</button>
+            <div class="or"></div>
+            <div class="ui button red" (click)="schoolModal.hide()">关闭</div>
+        </div>
+    </modal-actions>
+</sm-modal>

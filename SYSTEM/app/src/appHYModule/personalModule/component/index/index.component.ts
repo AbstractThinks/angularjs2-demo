@@ -12,16 +12,21 @@ import { HYService  } from '../../../../appServiceModule/HYService.component';
 })
 
 export class HYPersonalIndexComponent {
+	USER:any = {};
 	staff:any = {};
 	storagestaff:any = {};
 	constructor (private urlservice: UrlService, private hyService: HYService) {
 		let that = this;
-		this.urlservice.hy_req_get('api/staff/50').then((response:any) => {
-			that.staff = response.json();
-			that.storagestaff = response.json();
-			$("#imghead").attr("src", `http://www.marchezvousblue.cn/k12/img/preview/head/${response.json().userId}/${response.json().userId}.png`)
+		this.urlservice.hy_req_get('api/profile').then((response:any) => {
+            that.USER = response.json();
+            this.urlservice.hy_req_get(`api/staff/${that.USER.id}`).then((response:any) => {
+				that.staff = response.json();
+				that.storagestaff = response.json();
+				$("#imghead").attr("src", `http://www.marchezvousblue.cn/k12/img/preview/head/${response.json().userId}/${response.json().userId}.png`)
 
-		});
+			});
+        });
+
 	}
 	ngAfterViewInit(): void {
 		let that = this;
@@ -60,7 +65,7 @@ export class HYPersonalIndexComponent {
 	            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
 	            var rect = that.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
 	            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
-	            div.innerHTML = "<div id=divhead class='ui small image avatar imghead' style=width: 100%;height: 200px;"+sFilter+src+"\"'></div>";
+	            div.innerHTML = "<div id=divhead class='ui small image avatar imghead' style=width: 200px;height: 200px;"+sFilter+src+"\"'></div>";
 
 	        }
 
@@ -119,7 +124,7 @@ export class HYPersonalIndexComponent {
 			},() => {
 			    toastr.error('保存失败');
 			});
-		}		
+		}
 
 	}
 	handleResetData():void {
