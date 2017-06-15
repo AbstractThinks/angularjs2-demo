@@ -3,34 +3,46 @@
     <div class="ui top attached menu">
         <a class="item" (click)="infoModal.show({inverted: true})">
             <i class="content icon"></i>
-            新增设备
+            新增资产
         </a>
 
         <a class="item" (click)="handleMake()">
             <i class="content icon"></i>
-            生成选中二维码
+            二维码查询资产
         </a>
 
         <a class="item" (click)="handleMake()">
             <i class="content icon"></i>
-            生成所有二维码
+            资产类别设置
+        </a>
+
+        <a class="item" (click)="handleMake()">
+            <i class="content icon"></i>
+            供应商管理
+        </a>
+
+        <a class="item" (click)="handleMake()">
+            <i class="content icon"></i>
+            资产编号规则设置
         </a>
     </div>
     <div class="ui attached segment table-frame">
         <table class="ui striped table">
             <thead>
                 <tr>
-                    <th>二维码</th>
-                    <th>设备编码</th>
-                    <th>设备名称</th>
+                    <th>资产名称</th>
+                    <th>类别</th>
+                    <th>品牌</th>
                     <th>设备数量</th>
-                    <th>库存号</th>
-                    <th>使用状态</th>
-                    <th>设备数量</th>
-                    <th>库存号</th>
-                    <th>使用状态</th>
-                    <th>设备数量</th>
-                    <th>库存号</th>
+                    <th>规格型号</th>
+                    <th>供应商</th>
+                    <th>总数量</th>
+                    <th>使用数</th>
+                    <th>库存数</th>
+                    <th>单价(元)</th>
+                    <th>总价(元)</th>
+                    <th>购买时间</th>
+                    <th>操作</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,49 +73,43 @@
     </div>
 
 </div>
-<sm-modal title="新增设备" class="" icon="dashboard icon" #infoModal>
+<sm-modal title="新增资产" class="" icon="dashboard icon" #infoModal>
     <modal-content>
         <form class="ui form">
-            <div class="three fields">
+            <div class="four fields">
                 <div class="field">
-                  <label>设备名称</label>
+                  <label>资产名称</label>
                   <input type="text" name="first-name"  [(ngModel)]="equipment.name">
                 </div>
                 <div class="field">
-                  <label>设备品牌</label>
-                  <input type="text" name="last-name"  [(ngModel)]="equipment.brand">
-                </div>
-                <div class="field">
-                  <label>设备型号</label>
-                  <input type="text" name="first-name"  [(ngModel)]="equipment.model">
-                </div>
-            </div>
-            <div class="three fields">
-                <div class="field">
-                  <label>设备类型</label>
+                  <label>类别</label>
                   <input type="text" name="last-name"  [(ngModel)]="equipment.type">
                 </div>
                 <div class="field">
-                  <label>设备价格</label>
-                  <input type="number" name="first-name"  [(ngModel)]="equipment.price">
+                  <label>品牌</label>
+                  <input type="text" name="first-name"  [(ngModel)]="equipment.brand">
                 </div>
                 <div class="field">
-                  <label>供应商</label>
-                  <input type="text" name="last-name"  [(ngModel)]="equipment.supplier">
+                    <label>规格型号</label>
+                    <input type="text" name="last-name"  [(ngModel)]="equipment.model">
                 </div>
             </div>
-            <div class="three fields">
+            <div class="four fields">
                 <div class="field">
-                  <label>购买时间</label>
-                  <input type="date" name="last-name"  [(ngModel)]="equipment.purchaseDate">
+                  <label>供应商</label>
+                  <input type="text" name="first-name"  [(ngModel)]="equipment.supplier">
                 </div>
                 <div class="field">
-                  <label>生产日期</label>
-                  <input type="date" name="first-name"  [(ngModel)]="equipment.productionDate">
+                  <label>单价(元)</label>
+                  <input type="number" name="last-name"  [(ngModel)]="equipment.price">
                 </div>
                 <div class="field">
-                  <label>数量</label>
-                  <input type="number" name="first-name"  [(ngModel)]="equipment.totalQuantity">
+                    <label>数量</label>
+                    <input type="number" name="last-name"  [(ngModel)]="equipment.totalQuantity">
+                </div>
+                <div class="field">
+                    <label>购买时间</label>
+                    <input type="date" name="first-name"  [(ngModel)]="equipment.purchaseDate">
                 </div>
             </div>
         </form>

@@ -28,7 +28,7 @@ export class HYAssetsIndexComponent {
 	    let that = this;
 		this.urlService.hy_req_get('api/profile').then((response:any) => {
 			that.userProfile = response.json();
-			this.urlService.hy_req_get(`api/equipment/${that.userProfile.schoolId}/1/2`).then((response:any) => {
+			this.urlService.hy_req_get(`api/equipment/1/1/10`).then((response:any) => {
 				that.infoDatas = response.json();
                 setTimeout(() => {$('.checkbox').checkbox()}, 0);
 			})
