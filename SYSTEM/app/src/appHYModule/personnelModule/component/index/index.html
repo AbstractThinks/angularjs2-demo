@@ -23,13 +23,13 @@
 
                 <td>
                     <div class="ui buttons">
-                        <button class="ui primary labeled icon button" (click)="handleCreateAccount(item.id, i)" *ngIf="item.userId == '0'">
+                        <button class="ui primary labeled icon button" (click)="handleCreateAccount(item.staffNum, i)" *ngIf="item.userId == '0'">
                             <i class="edit icon"></i>生成账号
                         </button>
-                        <button class="ui primary labeled icon button" (click)="handleCreateAdminAccount(item.id, i)" *ngIf="item.userId == '0'">
+                        <button class="ui primary labeled icon button" (click)="handleCreateAdminAccount(item.staffNum, i)" *ngIf="item.userId == '0'">
                             <i class="edit icon"></i>生成管理员账号
                         </button>
-                        <button class="ui primary labeled icon button" (click)="handleCreateSuperAdminAccount(item.id, i)" *ngIf="item.userId == '0' && USER.roleId == 3">
+                        <button class="ui primary labeled icon button" (click)="handleCreateSuperAdminAccount(item.staffNum, i)" *ngIf="item.userId == '0' && USER.roleId == 3">
                             <i class="edit icon"></i>生成超级管理员账号
                         </button>
                         <button class="ui teal labeled icon button" (click)="handleModifyAccount(item, i)">

@@ -43,7 +43,7 @@ export class HYPersonalIndexComponent {
 	        var file = e.target;
 	        if (file.files && file.files[0]) {
 
-	            div.innerHTML ='<img id=imghead class="ui small image avatar imghead" style="width: 100%;height: 200px">';
+	            div.innerHTML ='<img id=imghead class="ui small image avatar imghead" style="width: 200px;height: 200px">';
 	            var img: any = document.getElementById('imghead');
 	            img.onload = function(){
 	                var rect = that.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
