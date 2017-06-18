@@ -4,32 +4,44 @@
             <i class="reply icon"></i>
             返回资产列表
         </a>
+
+        <a class="item" (click)="infoModal.show({inverted: true})">
+            <i class="content icon"></i>
+            报废
+        </a>
+
+        <a class="item" (click)="infoModal.show({inverted: true})">
+            <i class="content icon"></i>
+            删除
+        </a>
+
+        <a class="item" (click)="infoModal.show({inverted: true})">
+            <i class="content icon"></i>
+            打印二维码
+        </a>
     </div>
     <div class="ui attached segment">
         <table class="ui striped table">
             <thead>
                 <tr>
-                    <th>设备编号</th>
-                    <th>设备名称</th>
-                    <th>单价</th>
-                    <th>借出时间</th>
-                    <th>供货商</th>
-                    <th>联系电话</th>
-                    <th>设备状态</th>
-                    <th>历史记录</th>
+                    <th></th>
+                    <th>序号</th>
+                    <th>资产编号</th>
+                    <th>状态</th>
+                    <th>使用人员</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let infoData of infoDatas.entries" class="">
-                    <td>{{infoData.barCode}}</td>
-                    <td>{{infoData.id}}</td>
+                    <td><div class="ui checkbox"><input type="checkbox" id="{{infoData.id}}"></div></td>
                     <td>{{infoData.equipmentGeneralId}}</td>
-                    <td>{{infoData.comment}}</td>
+                    <td>{{infoData.id}}</td>
+                    <td>{{infoData.status}}</td>
                     <td>{{infoData.staffId}}</td>
-                    <td>{{infoData.seriesNumber}}</td>
-                    <td *ngIf="infoData.status == '尚未出借'" (click)="borrowHandle(infoData)"><button class="ui blue basic button">{{infoData.status}}</button></td>
-                    <td *ngIf="infoData.status == '未归还'" ><button class="ui red basic button disabled ">{{infoData.status}}</button></td>
-                    <td><button class="ui brown basic button" (click)="libraryHistoryHandle(infoData.id)">历史记录</button></td>
+                    <td><button class="ui brown basic button" (click)="inOutStockHandle(infoData.id)">出/入库</button></td>
+                    <td><button class="ui brown basic button" (click)="libraryHistoryHandle(infoData.id)">出入库记录</button></td>
                 </tr>
 
             </tbody>
@@ -93,6 +105,55 @@
         <div class="ui buttons">
             <div class="ui button green" (click)="handleLibrarySave()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
             <div class="ui button red" (click)="libraryModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+<sm-modal title="资产出入库" class="" icon="dashboard icon" #inOutStockModel>
+    <modal-content>
+        <form class="ui form">
+            <div class="four fields">
+                <div class="field disabled">
+                    <label>资产名称</label>
+                    <input type="text" name="name" value="{{inOutStockData.name}}">
+                </div>
+                <div class="field disabled">
+                    <label>类别</label>
+                    <input type="text" name="type"  value="{{inOutStockData.type}}">
+                </div>
+                <div class="field disabled">
+                    <label>品牌</label>
+                    <input type="text" name="brand"  value="{{inOutStockData.brand}}">
+                </div>
+                <div class="field disabled">
+                    <label>规格型号</label>
+                    <input type="text" name="model"  value="{{inOutStockData.model}}">
+                </div>
+            </div>
+            <div class="four fields">
+                <div class="field disabled">
+                    <label>资产编号</label>
+                    <input type="text" name="barCode"  value="{{inOutStockData.barCode}}">
+                </div>
+                <div class="field">
+                    <label>出入库</label>
+                    <input type="text" name="status"  value="{{inOutStockData.status}}" [(ngModel)]="equipment.status">
+                </div>
+                <div class="field">
+                    <label>姓名</label>
+                    <input type="text" name="staffId"  value="{{inOutStockData.staffId}}" [(ngModel)]="equipment.staffId" required>
+                </div>
+                <div class="field">
+                    <label>电话</label>
+                    <input type="number" name="seriesNumber"  value="{{inOutStockData.seriesNumber}}" [(ngModel)]="equipment.seriesNumber" required>
+                </div>
+            </div>
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleInOutStockSave()">&nbsp;&nbsp;&nbsp;确认&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="inOutStockModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
         </div>
     </modal-actions>
 </sm-modal>

@@ -19,11 +19,15 @@ export class HYAssetsDetailComponent {
 	infoDatas:any = {};
     borrowData:any = {};
     historys:any = {};
+	inOutStockData:any = {};
+	equipment: any = {};
 
     @ViewChild('libraryModal')
     libraryModal:any;
     @ViewChild('libraryHistoryModal')
-    libraryHistoryModal:any;
+	libraryHistoryModal:any;
+	@ViewChild('inOutStockModel')
+	inOutStockModel: any;
 	constructor (
 		private urlService: UrlService,
 		private aRoute: ActivatedRoute
@@ -38,7 +42,7 @@ export class HYAssetsDetailComponent {
 
 	}
 	ngAfterViewInit(): void {
-		
+		setTimeout(() => {$('.checkbox').checkbox()}, 0);
 	}
 	handleChange():void {
 
@@ -53,6 +57,16 @@ export class HYAssetsDetailComponent {
             ...e
         };   
 	}
+	inOutStockHandle(e:any):void {
+		let that = this;
+		// 获取设备次级记录
+		this.urlService.hy_req_get(`api/equipment-specific/${e}`).then((response: any) => {
+			that.inOutStockData = response.json();
+		});
+
+		that.inOutStockModel.show({inverted: true});
+	}
+
 	libraryHistoryHandle(e:any):void {
 		this.libraryHistoryModal.show({inverted: true});
         let that = this;

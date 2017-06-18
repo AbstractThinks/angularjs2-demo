@@ -3,49 +3,74 @@
     <div class="ui top attached menu">
         <a class="item" (click)="infoModal.show({inverted: true})">
             <i class="content icon"></i>
-            新增设备
+            新增资产
         </a>
 
-        <a class="item" (click)="handleMake()">
+        <a class="item" (click)="qrCodeModel.show({inverted: true})">
             <i class="content icon"></i>
-            生成选中二维码
+            二维码查询资产
         </a>
 
-        <a class="item" (click)="handleMake()">
+        <a class="item" (click)="typeModel.show({inverted: true})">
             <i class="content icon"></i>
-            生成所有二维码
+            资产类别设置
         </a>
+
+        <a class="item" (click)="supplierModel.show({inverted: true})">
+            <i class="content icon"></i>
+            供应商管理
+        </a>
+
+        <a class="item" (click)="numberRuleModel.show({inverted: true})">
+            <i class="content icon"></i>
+            资产编号规则设置
+        </a>
+    </div>
+    <div class="ui segment mg-tb24">
+        <div class="ui menu ASSETSSTATUSDICTIONARY">
+            <a class="item">
+                <div class="header">资产状态</div>
+            </a>
+            <a class="item active 0" name="0" (click)="handleChangeCondition(['ASSETSSTATUSDICTIONARY','0'])">全部</a>
+            <a class="item 1"  name="1" (click)="handleChangeCondition(['ASSETSSTATUSDICTIONARY','1'])">使用中</a>
+            <a class="item 2"  name="2" (click)="handleChangeCondition(['ASSETSSTATUSDICTIONARY','2'])">已报废</a>
+        </div>
     </div>
     <div class="ui attached segment table-frame">
         <table class="ui striped table">
             <thead>
                 <tr>
-                    <th>二维码</th>
-                    <th>设备编码</th>
-                    <th>设备名称</th>
-                    <th>设备数量</th>
-                    <th>库存号</th>
-                    <th>使用状态</th>
-                    <th>设备数量</th>
-                    <th>库存号</th>
-                    <th>使用状态</th>
-                    <th>设备数量</th>
-                    <th>库存号</th>
+                    <th>序号</th>
+                    <th>资产名称</th>
+                    <th>类别</th>
+                    <th>品牌</th>
+                    <th>规格型号</th>
+                    <th>供应商</th>
+                    <th>总数量</th>
+                    <th>使用数</th>
+                    <th>库存数</th>
+                    <th>单价(元)</th>
+                    <th>总价(元)</th>
+                    <th>购买时间</th>
+                    <th>操作</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let infoData of infoDatas.entries" class="">
-                    <td ><div class="ui checkbox"><input type="checkbox" id={{infoData.id}} name="{{infoData.name}}"></div></td>
-                    <td><a routerLink="/hy/assets/detail/{{infoData.id}}">{{infoData.id}}</a></td>
+                    <!--<td><div class="ui checkbox"><input type="checkbox" id={{infoData.id}} name="{{infoData.name}}"></div></td>-->
+                    <td>{{infoData.id}}</td>
+                    <td><a routerLink="/hy/assets/detail/{{infoData.id}}">{{infoData.name}}</a></td>
+                    <td>{{infoData.type}}</td>
                     <td>{{infoData.brand}}</td>
-                    <td>{{infoData.inventoryQuantity}}</td>
                     <td>{{infoData.model}}</td>
-                    <td>{{infoData.name}}</td>
-                    <td>{{infoData.price}}</td>
-                    <td>{{infoData.schoolId}}</td>
                     <td>{{infoData.supplier}}</td>
                     <td>{{infoData.totalQuantity}}</td>
-                    <td>{{infoData.type}}</td>
+                    <td>使用数</td>
+                    <td>{{infoData.inventoryQuantity}}</td>
+                    <td>{{infoData.price}}</td>
+                    <td>{{infoData.totalQuantity * infoData.price}}</td>
+                    <td>{{infoData.purchaseDate|date:'yyyy.MM.dd'}}</td>
+                    <td><a>编辑</a></td>
                 </tr>
             </tbody>
         </table>
@@ -61,49 +86,47 @@
     </div>
 
 </div>
-<sm-modal title="新增设备" class="" icon="dashboard icon" #infoModal>
+<sm-modal title="新增资产" class="" icon="dashboard icon" #infoModal>
     <modal-content>
         <form class="ui form">
-            <div class="three fields">
+            <div class="four fields">
                 <div class="field">
-                  <label>设备名称</label>
-                  <input type="text" name="first-name"  [(ngModel)]="equipment.name">
+                  <label>资产名称</label>
+                  <input type="text" name="name"  [(ngModel)]="equipment.name" required>
                 </div>
                 <div class="field">
-                  <label>设备品牌</label>
-                  <input type="text" name="last-name"  [(ngModel)]="equipment.brand">
+                  <label>类别</label>
+                  <select class="ui dropdown" [(ngModel)]="equipment.type" name="type" required>
+                    <!--<option value="{{item.id}}" *ngFor="let item of typeDatas">{{item.typeName}}</option>-->
+                  </select>
                 </div>
                 <div class="field">
-                  <label>设备型号</label>
-                  <input type="text" name="first-name"  [(ngModel)]="equipment.model">
+                  <label>品牌</label>
+                  <input type="text" name="brand"  [(ngModel)]="equipment.brand" required>
+                </div>
+                <div class="field">
+                    <label>规格型号</label>
+                    <input type="text" name="model"  [(ngModel)]="equipment.model" required>
                 </div>
             </div>
-            <div class="three fields">
-                <div class="field">
-                  <label>设备类型</label>
-                  <input type="text" name="last-name"  [(ngModel)]="equipment.type">
-                </div>
-                <div class="field">
-                  <label>设备价格</label>
-                  <input type="number" name="first-name"  [(ngModel)]="equipment.price">
-                </div>
+            <div class="four fields">
                 <div class="field">
                   <label>供应商</label>
-                  <input type="text" name="last-name"  [(ngModel)]="equipment.supplier">
-                </div>
-            </div>
-            <div class="three fields">
-                <div class="field">
-                  <label>购买时间</label>
-                  <input type="date" name="last-name"  [(ngModel)]="equipment.purchaseDate">
+                    <select class="ui dropdown" [(ngModel)]="equipment.supplier" name="supplier" required>
+                        <!--<option value="{{item.id}}" *ngFor="let item of supplierForAllDatas">{{item.supplierName}}</option>-->
+                    </select>
                 </div>
                 <div class="field">
-                  <label>生产日期</label>
-                  <input type="date" name="first-name"  [(ngModel)]="equipment.productionDate">
+                  <label>单价(元)</label>
+                  <input type="number" name="price"  [(ngModel)]="equipment.price" required>
                 </div>
                 <div class="field">
-                  <label>数量</label>
-                  <input type="number" name="first-name"  [(ngModel)]="equipment.totalQuantity">
+                    <label>数量</label>
+                    <input type="number" name="totalQuantity"  [(ngModel)]="equipment.totalQuantity" required>
+                </div>
+                <div class="field">
+                    <label>购买时间</label>
+                    <input type="date" name="purchaseDate"  [(ngModel)]="equipment.purchaseDate" required>
                 </div>
             </div>
         </form>
@@ -116,26 +139,183 @@
     </modal-actions>
 </sm-modal>
 
-<sm-modal title="二维码" class="" icon="dashboard icon" #quickMarkModal>
+<sm-modal title="二维码查询" class="" icon="dashboard icon" #qrCodeModel>
     <modal-content>
-        <div class="image content" *ngFor="let quickMarkData of quickMarkDatas">
-            <div class="description">
-                <label>设备编码</label>
-                {{quickMarkData.id}}
+        <form class="ui form">
+            <div class="one fields">
+                <label>请使用扫码枪扫描二维码</label>
             </div>
-            <div class="description">
-                <label>设备名称</label>
-                {{quickMarkData.name}}
+            <div class="one fields">
+                <input type="text" name="qrCode"  [(ngModel)]="equipment.qrCode" required>
             </div>
-            <div class="ui medium image">
-                <div class="quickMark"></div>
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleInOutStock()">&nbsp;&nbsp;&nbsp;确定&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="qrCodeModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+<sm-modal title="资产类别设置" class="" icon="dashboard icon" #typeModel>
+    <modal-content>
+        <div class="ui container row">
+            <div class="ui top attached menu">
+                <a class="item">
+                    <i class="content icon"></i>
+                    新增
+                </a>
+
+                <a class="item">
+                    <i class="content icon"></i>
+                    删除
+                </a>
+            </div>
+
+            <div class="ui attached segment table-frame">
+                <table class="ui striped table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>序号</th>
+                        <th>类别名</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--<tr *ngFor="let typeData of typeDatas" class="">
+                        <td><div class="ui checkbox"><input type="checkbox" id={{typeData.id}} name="{{typeData.typeName}}"></div></td>
+                        <td>{{typeData.id}}</td>
+                        <td>{{typeData.typeName}}</td>
+                    </tr>-->
+                    </tbody>
+                </table>
             </div>
         </div>
     </modal-content>
     <modal-actions>
         <div class="ui buttons">
-            <div class="ui button green" (click)="handlePrint()">&nbsp;&nbsp;&nbsp;打印&nbsp;&nbsp;&nbsp;</div>
-            <div class="ui button red" (click)="quickMarkModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button green" (click)="handleType()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="typeModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+<sm-modal title="供应商设置" class="" icon="dashboard icon" #supplierModel>
+    <modal-content>
+        <div class="ui container row">
+            <div class="ui top attached menu">
+                <a class="item">
+                    <i class="content icon"></i>
+                    新增
+                </a>
+
+                <a class="item">
+                    <i class="content icon"></i>
+                    删除
+                </a>
+            </div>
+
+            <div class="ui attached segment table-frame">
+                <table class="ui striped table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>序号</th>
+                        <th>供应商名称</th>
+                        <th>供应商电话</th>
+                        <th>供应商邮箱</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let supplierData of supplierDatas.entries" class="">
+                        <td><div class="ui checkbox"><input type="checkbox" id={{supplierData.id}}></div></td>
+                        <td>{{supplierData.id}}</td>
+                        <td>{{supplierData.supplierName}}</td>
+                        <td>{{supplierData.supplierPhone}}</td>
+                        <td>{{supplierData.supplierEmail}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleSupplier()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="supplierModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+<sm-modal title="资产编号规则设置" class="" icon="dashboard icon" #numberRuleModel>
+    <modal-content>
+        <form class="ui form">
+            <div class="two fields">
+                <div class="field">
+                    <label>前缀</label>
+                    <input type="text" name="prefix"  [(ngModel)]="equipment.prefix" required>
+                </div>
+                <div class="field">
+                    <label>数字位数</label>
+                    <input type="number" name="digit"  [(ngModel)]="equipment.digit" required>
+                </div>
+            </div>
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleNumberRuleModel()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="numberRuleModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+<sm-modal title="资产出入库" class="" icon="dashboard icon" #inOutStockModel>
+    <modal-content>
+        <form class="ui form">
+            <div class="four fields">
+                <div class="field disabled">
+                    <label>资产名称</label>
+                    <input type="text" name="name" value="{{inOutStockData.name}}">
+                </div>
+                <div class="field disabled">
+                    <label>类别</label>
+                    <input type="text" name="type"  value="{{inOutStockData.type}}">
+                </div>
+                <div class="field disabled">
+                    <label>品牌</label>
+                    <input type="text" name="brand"  value="{{inOutStockData.brand}}">
+                </div>
+                <div class="field disabled">
+                    <label>规格型号</label>
+                    <input type="text" name="model"  value="{{inOutStockData.model}}">
+                </div>
+            </div>
+            <div class="four fields">
+                <div class="field disabled">
+                    <label>资产编号</label>
+                    <input type="text" name="barCode"  value="{{inOutStockData.barCode}}">
+                </div>
+                <div class="field">
+                    <label>出入库</label>
+                    <input type="text" name="status"  value="{{inOutStockData.status}}" [(ngModel)]="equipment.status">
+                </div>
+                <div class="field">
+                    <label>姓名</label>
+                    <input type="text" name="staffId"  value="{{inOutStockData.staffId}}" [(ngModel)]="equipment.staffId" required>
+                </div>
+                <div class="field">
+                    <label>电话</label>
+                    <input type="number" name="seriesNumber"  value="{{inOutStockData.seriesNumber}}" [(ngModel)]="equipment.seriesNumber" required>
+                </div>
+            </div>
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleInOutStockSave()">&nbsp;&nbsp;&nbsp;确认&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="inOutStockModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
         </div>
     </modal-actions>
 </sm-modal>
