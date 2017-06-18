@@ -11,7 +11,7 @@
             二维码查询资产
         </a>
 
-        <a class="item" (click)="typeModel.show({inverted: true})">
+        <a class="item" (click)="handletypeModel()">
             <i class="content icon"></i>
             资产类别设置
         </a>
@@ -21,7 +21,7 @@
             供应商管理
         </a>
 
-        <a class="item" (click)="numberRuleModel.show({inverted: true})">
+        <a class="item" (click)="equipmentNoModel.show({inverted: true})">
             <i class="content icon"></i>
             资产编号规则设置
         </a>
@@ -65,12 +65,12 @@
                     <td>{{infoData.model}}</td>
                     <td>{{infoData.supplier}}</td>
                     <td>{{infoData.totalQuantity}}</td>
-                    <td>使用数</td>
+                    <td>{{infoData.totalQuantity - infoData.inventoryQuantity}}</td>
                     <td>{{infoData.inventoryQuantity}}</td>
                     <td>{{infoData.price}}</td>
                     <td>{{infoData.totalQuantity * infoData.price}}</td>
                     <td>{{infoData.purchaseDate|date:'yyyy.MM.dd'}}</td>
-                    <td><a>编辑</a></td>
+                    <td><a class="item" (click)="handleUpdateModel(infoData.id)">编辑</a></td>
                 </tr>
             </tbody>
         </table>
@@ -162,12 +162,12 @@
     <modal-content>
         <div class="ui container row">
             <div class="ui top attached menu">
-                <a class="item">
+                <a class="item" (click)="handleCliAddTypeItem()">
                     <i class="content icon"></i>
                     新增
                 </a>
 
-                <a class="item">
+                <a class="item" (click)="handleRemoveType()">
                     <i class="content icon"></i>
                     删除
                 </a>
@@ -188,6 +188,13 @@
                         <td>{{typeData.id}}</td>
                         <td>{{typeData.equipmentTypeName}}</td>
                     </tr>
+                    <tr class="addItem fields" style="display: none">
+                        <td colspan="3">
+                            <div class="ui fluid input">
+                                <input type="text" placeholder="输入新增的类别名" name="equipmentTypeName" [(ngModel)]="equipment.equipmentTypeName">
+                            </div>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -195,7 +202,7 @@
     </modal-content>
     <modal-actions>
         <div class="ui buttons">
-            <div class="ui button green" (click)="handleType()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button green" (click)="handleSaveType()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
             <div class="ui button red" (click)="typeModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
         </div>
     </modal-actions>
@@ -205,12 +212,12 @@
     <modal-content>
         <div class="ui container row">
             <div class="ui top attached menu">
-                <a class="item">
+                <a class="item" (click)="handleCliAddSupplierItem()">
                     <i class="content icon"></i>
                     新增
                 </a>
 
-                <a class="item">
+                <a class="item" (click)="handleRemoveSupplier()">
                     <i class="content icon"></i>
                     删除
                 </a>
@@ -235,6 +242,25 @@
                         <td>{{supplierData.supplierPhone}}</td>
                         <td>{{supplierData.supplierEmail}}</td>
                     </tr>
+                    <tr class="addSupplierItem fields" style="display: none">
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="ui fluid input">
+                                <input type="text" placeholder="供应商名称" name="supplierName" [(ngModel)]="equipment.supplierName">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui fluid input">
+                                <input type="text" placeholder="供应商电话" name="supplierPhone" [(ngModel)]="equipment.supplierPhone">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui fluid input">
+                                <input type="text" placeholder="供应商邮箱" name="supplierEmail" [(ngModel)]="equipment.supplierEmail">
+                            </div>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -242,13 +268,13 @@
     </modal-content>
     <modal-actions>
         <div class="ui buttons">
-            <div class="ui button green" (click)="handleSupplier()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button green" (click)="handleSaveSupplier()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
             <div class="ui button red" (click)="supplierModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
         </div>
     </modal-actions>
 </sm-modal>
 
-<sm-modal title="资产编号规则设置" class="" icon="dashboard icon" #numberRuleModel>
+<sm-modal title="资产编号规则设置" class="" icon="dashboard icon" #equipmentNoModel>
     <modal-content>
         <form class="ui form">
             <div class="two fields">
@@ -258,15 +284,15 @@
                 </div>
                 <div class="field">
                     <label>数字位数</label>
-                    <input type="number" name="digit"  [(ngModel)]="equipment.digit" required>
+                    <input type="number" name="digit"  [(ngModel)]="equipment.suffixno" required>
                 </div>
             </div>
         </form>
     </modal-content>
     <modal-actions>
         <div class="ui buttons">
-            <div class="ui button green" (click)="handleNumberRuleModel()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
-            <div class="ui button red" (click)="numberRuleModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button green" (click)="handleSaveEquipmentNo()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="equipmentNoModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
         </div>
     </modal-actions>
 </sm-modal>
@@ -316,6 +342,59 @@
         <div class="ui buttons">
             <div class="ui button green" (click)="handleInOutStockSave()">&nbsp;&nbsp;&nbsp;确认&nbsp;&nbsp;&nbsp;</div>
             <div class="ui button red" (click)="inOutStockModel.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+<sm-modal title="更新资产" class="" icon="dashboard icon" #updateModal>
+    <modal-content>
+        <form class="ui form">
+            <div class="four fields">
+                <div class="field">
+                    <label>资产名称</label>
+                    <input type="text" name="name"  [(ngModel)]="equipment.name">
+                </div>
+                <div class="field">
+                    <label>类别</label>
+                    <select class="ui dropdown" [(ngModel)]="equipment.type" name="type">
+                        <option value="{{typeData.id}}" *ngFor="let typeData of typeDatas">{{typeData.equipmentTypeName}}</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>品牌</label>
+                    <input type="text" name="brand"  [(ngModel)]="equipment.brand">
+                </div>
+                <div class="field">
+                    <label>规格型号</label>
+                    <input type="text" name="model"  [(ngModel)]="equipment.model">
+                </div>
+            </div>
+            <div class="four fields">
+                <div class="field">
+                    <label>供应商</label>
+                    <select class="ui dropdown" [(ngModel)]="equipment.supplier" name="supplier">
+                        <option value="{{supplierForAllData.id}}" *ngFor="let supplierForAllData of supplierForAllDatas">{{supplierForAllData.supplierName}}</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>单价(元)</label>
+                    <input type="number" name="price"  [(ngModel)]="equipment.price">
+                </div>
+                <div class="field">
+                    <label>数量</label>
+                    <input type="number" name="totalQuantity"  [(ngModel)]="equipment.totalQuantity">
+                </div>
+                <div class="field">
+                    <label>购买时间</label>
+                    <input type="date" name="purchaseDate"  [(ngModel)]="equipment.purchaseDate">
+                </div>
+            </div>
+        </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui buttons">
+            <div class="ui button green" (click)="handleUpdate()">&nbsp;&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</div>
+            <div class="ui button red" (click)="updateModal.hide()">&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;</div>
         </div>
     </modal-actions>
 </sm-modal>

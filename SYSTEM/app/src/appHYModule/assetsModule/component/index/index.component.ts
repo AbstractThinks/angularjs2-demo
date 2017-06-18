@@ -21,10 +21,12 @@ export class HYAssetsIndexComponent {
     typeModel: any;
     @ViewChild('supplierModel')
     supplierModel: any;
-    @ViewChild('numberRuleModel')
-    numberRuleModel: any;
+    @ViewChild('equipmentNoModel')
+    equipmentNoModel: any;
     @ViewChild('inOutStockModel')
     inOutStockModel: any;
+    @ViewChild('updateModal')
+    updateModal: any;
     infoDatas: any = {};
     quickMarkDatas: any = [];
     equipment: any = {};
@@ -33,6 +35,7 @@ export class HYAssetsIndexComponent {
     supplierDatas: any = {};
     supplierForAllDatas: any = [];
     inOutStockData: any = {};
+    equipmentNoData: any = {};
 
     constructor(private urlService: UrlService, private hyService: HYService) {
 
@@ -62,7 +65,6 @@ export class HYAssetsIndexComponent {
             that.supplierForAllDatas = response.json();
         });
 
-        setTimeout(() => {$('.checkbox').checkbox()}, 0);
     }
 
     handleInOutStock(e: any): void {
@@ -114,6 +116,88 @@ export class HYAssetsIndexComponent {
         });
     }
 
+    handletypeModel(): void {
+        let that = this;
+        that.typeModel.show({inverted: true});
+
+        setTimeout(() => {$('.checkbox').checkbox()}, 0);
+
+    }
+
+    handleCliAddTypeItem(): void {
+        $(".addTypeItem").show();
+    }
+
+    handleSaveType(): void {
+        let data = this.hyService.urlEncode(this.equipment).substr(1);
+        let that = this;
+
+        this.urlService.hy_req_post(`api/equipment-type?${data}`, this.equipment).then((response: any) => {
+            that.typeDatas.push(response.json());
+            setTimeout(() => {$('.checkbox').checkbox()}, 0);
+        });
+    }
+
+    handleRemoveType(): void {
+        let that = this;
+        let idList: any = [];
+        let typeDatasLen = that.typeDatas.length;
+        for (var i = 0; i < $('.checkbox.checked').length; i++) {
+            idList.push($('.checkbox.checked input')[i].id);
+        }
+
+        for (var j = 0; j < typeDatasLen; j++) {
+            if (-1 != idList.indexOf(that.typeDatas[j].id.toString())) {
+                this.urlService.hy_req_delete(`api/equipment-type/${that.typeDatas[j].id}`).then((response: any) => {
+                    that.typeDatas.splice(j, 1);
+                });
+            }
+        }
+    }
+
+    handleCliAddSupplierItem():void {
+        $(".addSupplierItem").show();
+    }
+
+    handleSaveSupplier(): void {
+        let data = this.hyService.urlEncode(this.equipment).substr(1);
+        let that = this;
+
+        this.urlService.hy_req_post(`api/equipment-supplier?${data}`, this.equipment).then((response: any) => {
+            that.supplierDatas.entries.push(response.json());
+            setTimeout(() => {$('.checkbox').checkbox()}, 0);
+        });
+    }
+
+    handleRemoveSupplier(): void {
+        let that = this;
+        let idList: any = [];
+        let supplierDatasLen = that.supplierDatas.entries.length;
+        for (var i = 0; i < $('.checkbox.checked').length; i++) {
+            idList.push($('.checkbox.checked input')[i].id);
+        }
+
+        for (var j = 0; j < supplierDatasLen; j++) {
+            if (-1 != idList.indexOf(that.supplierDatas.entries[j].id.toString())) {
+                this.urlService.hy_req_delete(`api/equipment-supplier/${that.supplierDatas.entries[j].id}`).then((response: any) => {
+                    that.supplierDatas.entries.splice(j, 1);
+                });
+            }
+        }
+    }
+
+
+    handleSaveEquipmentNo(): void {
+        let data = this.hyService.urlEncode(this.equipment).substr(1);
+        let that = this;
+
+        this.urlService.hy_req_post(`api/equipment-no?${data}`, this.equipment).then((response: any) => {
+            that.equipmentNoData = response.json();
+
+            that.equipmentNoModel.hide();
+        });
+    }
+
     // handleMake(): void {
     //     let that = this;
     //     that.quickMarkModal.show({inverted: true});
@@ -124,6 +208,24 @@ export class HYAssetsIndexComponent {
     //         that.quickMarkDatas.push({"id": id, "name": name});
     //     }
     //
+    // }
+
+    // handleUpdateModel(e:any): void {
+    //     let that = this;
+    //     this.urlService.hy_req_get(`api/equipment/${e}`).then((response: any) => {
+    //         that.equipment = response.json();
+    //
+    //         that.updateModal.show({inverted: true});
+    //     })
+    // }
+
+    // handleUpdate(): void {
+    //     let data = this.hyService.urlEncode(this.equipment).substr(1);
+    //     let that = this;
+    //
+    //     this.urlService.hy_req_post(`api/equipment?${data}`, this.equipment).then((response: any) => {
+    //         that.updateModal.hide();
+    //     });
     // }
 
     onFirstHandler(e: any): void {
