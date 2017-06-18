@@ -27,5 +27,14 @@ export class HYSheduleIndexComponent {
 			$('#friday').get(0),
 			$('#saturday').get(0),
 			$('#sunday').get(0)]);
+		// setTimeout( () => {$('.tabular.menu .item').tab();}, 100)
+		$('.sheduleTab .menu .item').on('click', function (e) {
+			$('.sheduleTab .item.active').removeClass('active');
+			$(`.sheduleTab .item.${$(e.target).data("tab")}`).addClass('active');
+		});
+		$('.ui.accordion').accordion({
+			'exclusive': false
+		});
+		
 	}
 }
