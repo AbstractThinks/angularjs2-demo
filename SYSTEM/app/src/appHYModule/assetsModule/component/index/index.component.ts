@@ -29,9 +29,9 @@ export class HYAssetsIndexComponent {
     quickMarkDatas: any = [];
     equipment: any = {};
     userProfile: any = {};
-    typeDatas: any = {};
+    typeDatas: any = [];
     supplierDatas: any = {};
-    supplierForAllDatas: any = {};
+    supplierForAllDatas: any = [];
     inOutStockData: any = {};
 
     constructor(private urlService: UrlService, private hyService: HYService) {
