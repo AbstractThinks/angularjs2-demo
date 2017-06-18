@@ -97,7 +97,7 @@
                 <div class="field">
                   <label>类别</label>
                   <select class="ui dropdown" [(ngModel)]="equipment.type" name="type" required>
-                    <!--<option value="{{item.id}}" *ngFor="let item of typeDatas">{{item.typeName}}</option>-->
+                    <option value="{{typeData.id}}" *ngFor="let typeData of typeDatas">{{typeData.equipmentTypeName}}</option>
                   </select>
                 </div>
                 <div class="field">
@@ -113,7 +113,7 @@
                 <div class="field">
                   <label>供应商</label>
                     <select class="ui dropdown" [(ngModel)]="equipment.supplier" name="supplier" required>
-                        <!--<option value="{{item.id}}" *ngFor="let item of supplierForAllDatas">{{item.supplierName}}</option>-->
+                        <option value="{{supplierForAllData.id}}" *ngFor="let supplierForAllData of supplierForAllDatas">{{supplierForAllData.supplierName}}</option>
                     </select>
                 </div>
                 <div class="field">
@@ -183,11 +183,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <!--<tr *ngFor="let typeData of typeDatas" class="">
-                        <td><div class="ui checkbox"><input type="checkbox" id={{typeData.id}} name="{{typeData.typeName}}"></div></td>
+                    <tr *ngFor="let typeData of typeDatas" class="">
+                        <td><div class="ui checkbox"><input type="checkbox" id={{typeData.id}} name="{{typeData.equipmentTypeName}}"></div></td>
                         <td>{{typeData.id}}</td>
-                        <td>{{typeData.typeName}}</td>
-                    </tr>-->
+                        <td>{{typeData.equipmentTypeName}}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
