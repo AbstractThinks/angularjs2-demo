@@ -22,6 +22,11 @@ export class Login1Component {
 			if (!data.error) {
 				this.router.navigate(['/hy']);
 			}
+		}, (e)=> {
+			// console.log(e._body.error.message)
+			// let data = e.json();
+			// console.log(data.error)
+			toastr.error(e._body.error.message);
 		});
 	}
 }

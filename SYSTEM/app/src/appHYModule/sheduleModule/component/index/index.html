@@ -1,4 +1,356 @@
-<div class="ui top attached menu">
+
+
+<div class="ui grid sheduleTab">
+  <div class="four wide column">
+    <div class="ui vertical fluid tabular menu">
+      <a class="active item first" data-tab="first">课程基础信息录入</a>
+      <a class="item second" data-tab="second">班级信息录入</a>
+      <a class="item third" data-tab="third">课程信息录入</a>
+      <a class="item forth" data-tab="forth">教师信息录入</a>
+      <a class="item fivth" data-tab="fivth">指定授课老师</a>
+      <a class="item sixth" data-tab="sixth">规则设置</a>
+    </div>
+  </div>
+  <div class="twelve wide stretched column content" >
+    <div class="ui segment item active first" data-tab="first">
+        <form class="ui form">
+          <div class="field">
+            <label>学期开始时间</label>
+            <input type="date" name="startDate" placeholder="学期开始时间">
+          </div>
+          <div class="field">
+            <label>学期结束时间</label>
+            <input type="date" name="endDate" placeholder="学期结束时间">
+          </div>
+          <div class="field">
+            <label>学期周次总数</label>
+            <input type="text" name="weekTime" placeholder="学期周次总数">
+          </div>
+          <div class="field">
+            <label>设置上课天数</label>
+            <input type="text" name="day" placeholder="设置上课天数">
+          </div>
+          <div class="field">
+            <label>上午课时</label>
+            <input type="text" name="morning" placeholder="上午课时">
+          </div>
+          <div class="field">
+            <label>下午课时</label>
+            <input type="text" name="afternoon" placeholder="下午课时">
+          </div>
+          <div class="field">
+            <label>早自习</label>
+            <input type="text" name="early" placeholder="早自习">
+          </div>
+          <div class="field">
+            <label>晚自习</label>
+            <input type="text" name="evening" placeholder="晚自习">
+          </div>
+        </form>
+        <div class="ui column grid mg-tb16">
+            <div class="column text-768-right">
+                <div class="ui large buttons">
+                    <button class="ui button teal" >保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui segment item second" data-tab="second">
+        <sm-menu  class="inverted teal mg-tb16" >
+            <a sm-item (click)="handleCreateGrade()"><i class="add user icon"></i>新增年级</a>
+            <a sm-item (click)="handleCreateClass()"><i class="add user icon"></i>新增班级</a>
+        </sm-menu>
+        <div class="ui  column doubling stackable grid">
+            <div class="column field">
+                <div class="ui styled fluid accordion">
+                  <div class="active title"><i class="dropdown icon"></i> 一年级</div>
+                  <div class="active content">
+                    一班
+                  </div>
+                  <div class="title">
+                    <i class="dropdown icon"></i> 二年级</div>
+                  <div class="content">
+                    一班
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="ui segment item third" data-tab="third">
+        <sm-menu  class="inverted teal mg-tb16" >
+            <a sm-item (click)="handleCreateDomainSubject()"><i class="add user icon"></i>新增课程科目</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th>课程id</th>
+                    <th>年级</th>
+                    <th>科目名称</th>
+                    <th>每周课时</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of domainSubjecList;let i = index">
+                    <td></td>
+                    <td>{{item.id}}</td>
+                    <td>{{item.domainid}}</td>
+                    <td>{{item.subjectid}}</td>
+                    <td>{{item.num}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ui segment item forth" data-tab="forth">
+        <sm-menu  class="inverted teal mg-tb16" >
+            <!-- <a sm-item ><i class="add user icon"></i>新增教师</a> -->
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th>教师姓名</th>
+                    <th>课程</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of staffList.entries;let i = index">
+                    <td></td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.teachingSubject}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ui segment item fivth" data-tab="fivth">
+
+        <sm-menu  class="inverted teal mg-tb16" >
+            <a sm-item ><i class="add user icon"></i>添加约束</a>
+            <a sm-item ><i class="add user icon"></i>删除选中</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th>年级</th>
+                    <th>科目一</th>
+                    <th>科目二</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of clazzSubjectStaffList;let i = index">
+                    <td></td>
+                    <td></td>
+                    <td>{{item.subjectid}}</td>
+                    <td>{{item.clazzid}}</td>
+                    <td>{{item.staffid}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ui segment item sixth" data-tab="sixth">
+        <h3>连课设置</h3>
+        <sm-menu  class="inverted teal mg-tb16" >
+            <a sm-item ><i class="add user icon" (click)="handleCreateTargetTargetValue()"></i>添加约束</a>
+            <a sm-item ><i class="add user icon"></i>删除选中</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th>id</th>
+                    <th>教师姓名</th>
+                    <th>教师编号</th>
+                    <th>教师账号</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>同天互斥</h3>
+        <sm-menu  class="inverted teal mg-tb16" >
+            <a sm-item ><i class="add user icon"></i>添加约束</a>
+            <a sm-item ><i class="add user icon"></i>删除选中</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th>id</th>
+                    <th>教师姓名</th>
+                    <th>教师编号</th>
+                    <th>教师账号</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>多天互斥</h3>
+        <sm-menu  class="inverted teal mg-tb16" >
+            <a sm-item ><i class="add user icon"></i>添加约束</a>
+            <a sm-item ><i class="add user icon"></i>删除选中</a>
+        </sm-menu>
+        <table class="ui teal compact celled definition table">
+            <thead class="full-width">
+                <tr>
+                    <th></th>
+                    <th>id</th>
+                    <th>教师姓名</th>
+                    <th>教师编号</th>
+                    <th>教师账号</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div> 
+</div>
+
+
+<sm-modal title="新增年级" class="" #addGradeModal>
+    <modal-content>
+       <form class="ui form">
+            <div class="field">
+                <label>年级</label>
+                <input type="text" name="grade" placeholder="年级" [(ngModel)]="addGradeModalData.name"> 
+            </div>   
+       </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui large buttons">
+            <button class="ui button teal submit" (click)="handleSaveGrade()">保存</button>
+            <div class="or"></div>
+            <div class="ui button red" (click)="addGradeModal.hide()">关闭</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+<sm-modal title="新增班级" class="" #addClassModal>
+    <modal-content>
+       <form class="ui form">
+                <div class="column field">
+                    <label>班级</label>
+                     <select class="ui dropdown" name="gradeid" required [(ngModel)]="addClassModalData.domainId">
+                      <option value="{{item.id}}" *ngFor="let item of gradeList">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>班级</label>
+                    <input type="text" name="class" placeholder="年级" [(ngModel)]="addClassModalData.name">
+                </div>   
+       </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui large buttons">
+            <button class="ui button teal submit" (click)="handleSaveClass()">保存</button>
+            <div class="or"></div>
+            <div class="ui button red" (click)="addClassModal.hide()">关闭</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+<sm-modal title="新增课程科目" class="" #addDomainSubjectModal>
+    <modal-content>
+       <form class="ui form">
+                <div class="column field">
+                    <label>年级</label>
+                     <select class="ui dropdown" name="gradeid" required [(ngModel)]="addDomainSubjectModalData.domainid">
+                      <option value="{{item.id}}" *ngFor="let item of gradeList">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>学科</label>
+                    <select class="ui dropdown" name="subjectid" required [(ngModel)]="addDomainSubjectModalData.subjectid">
+                      <option value="{{item.id}}" *ngFor="let item of subjectList">{{item.name}}</option>
+                    </select>
+                </div> 
+                <div class="field">
+                    <label>课时</label>
+                    <input type="text" name="class" placeholder="年级" [(ngModel)]="addDomainSubjectModalData.num">
+                </div>  
+       </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui large buttons">
+            <button class="ui button teal submit" (click)="handleSaveDomainSubject()">保存</button>
+            <div class="or"></div>
+            <div class="ui button red" (click)="addDomainSubjectModal.hide()">关闭</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+<sm-modal title="新增课程科目" class="" #addTargetTargetValueModal>
+    <modal-content>
+       <form class="ui form">
+                <div class="column field">
+                    <label>年级</label>
+                     <select class="ui dropdown" name="gradeid" required [(ngModel)]="addDomainSubjectModalData.domainid">
+                      <option value="{{item.id}}" *ngFor="let item of gradeList">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>科目一</label>
+                    <select class="ui dropdown" name="subjectid" required [(ngModel)]="addDomainSubjectModalData.subjectid">
+                      <option value="{{item.id}}" *ngFor="let item of subjectList">{{item.name}}</option>
+                    </select>
+                </div> 
+                <div class="field">
+                    <label>科目二</label>
+                    <input type="text" name="class" placeholder="年级" [(ngModel)]="addDomainSubjectModalData.num">
+                </div>  
+       </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui large buttons">
+            <button class="ui button teal submit" (click)="handleTargetTargetValue()">保存</button>
+            <div class="or"></div>
+            <div class="ui button red" (click)="addTargetTargetValueModal.hide()">关闭</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="ui top attached menu">
     <a class="item">
         <i class="content icon"></i>
         开始排课
@@ -10,7 +362,6 @@
 </div>
 <div class='parent'>
 	<div id='side-top' class='container'>
-		<!-- <div class='wrapper'> -->
 			<div>时间</div>
     		<div>星期一</div>
     		<div>星期二</div>
@@ -19,7 +370,6 @@
     		<div>星期五</div>
     		<div>星期六</div>
     		<div>星期日</div>
-		<!-- </div> -->
     </div>
     <div class='wrapper'>
     	<div id='side-left' class='container'>
@@ -104,4 +454,4 @@
             <div>体育</div>
         </div>
     </div>
-</div>
+</div> -->

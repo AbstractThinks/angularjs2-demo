@@ -117,7 +117,13 @@
                 width:100%;
             }
         }
-        
+        .sheduleTab .content .item {
+          display: none;
+          margin-top: 0px;
+        }
+        .sheduleTab .content .item.active {
+          display: block;
+        }
     }  
  }
 
