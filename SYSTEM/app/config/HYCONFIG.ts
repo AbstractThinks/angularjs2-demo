@@ -123,12 +123,6 @@ export const HYMENUS:any = [
                 "admin": "0",
                 "iconFont": "money icon",
                 "url": "/hy/assets/index"
-            },
-            {
-                "name": "供应商管理",
-                "admin": "0",
-                "iconFont": "archive icon",
-                "url": "/hy/assets/supplier"
             }
         ]
     },{
@@ -224,11 +218,6 @@ export const HYMENUS:any = [
                 "admin": "0",
                 "iconFont": "folder open icon",
                 "url": "/hy/resource/index"
-            },{
-                "name": "我的资源",
-                "admin": "0",
-                "iconFont": "folder open outline icon",
-                "url": "/hy/resource/myresource"
             }
         ]
     },{
@@ -240,12 +229,6 @@ export const HYMENUS:any = [
                 "admin": "0",
                 "iconFont": "money icon",
                 "url": "/hy/assets/index"
-            },
-            {
-                "name": "供应商管理",
-                "admin": "0",
-                "iconFont": "archive icon",
-                "url": "/hy/assets/supplier"
             }
         ]
     },{

@@ -68,7 +68,7 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
         reqData = {
             id : e,
             account : e,
-            password : "123456"
+            password : "1234567"
         }
         this.urlservice.hy_req_post(`api/staff/${e}/3/account`, reqData).then((response:any) => {
             that.STAFFUS.entries[i] = response.json()
@@ -80,7 +80,7 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
         reqData = {
             id : e,
             account : e,
-            password : "123456"
+            password : "1234567"
         }
         this.urlservice.hy_req_post(`api/staff/${e}/2/account`, reqData).then((response:any) => {
             that.STAFFUS.entries[i] = response.json()
@@ -92,7 +92,7 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
         reqData = {
             id : e,
             account : e,
-            password : "123456"
+            password : "1234567"
         }
         this.urlservice.hy_req_post(`api/staff/${e}/1/account`, reqData).then((response:any) => {
             that.STAFFUS.entries[i] = response.json()
