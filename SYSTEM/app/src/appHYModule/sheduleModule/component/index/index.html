@@ -143,7 +143,6 @@
             <tbody>
                 <tr *ngFor="let item of clazzSubjectStaffList;let i = index">
                     <td></td>
-                    <td></td>
                     <td>{{item.subjectid}}</td>
                     <td>{{item.clazzid}}</td>
                     <td>{{item.staffid}}</td>
@@ -154,78 +153,54 @@
     <div class="ui segment item sixth" data-tab="sixth">
         <h3>连课设置</h3>
         <sm-menu  class="inverted teal mg-tb16" >
-            <a sm-item ><i class="add user icon" (click)="handleCreateTargetTargetValue()"></i>添加约束</a>
+            <a sm-item (click)="handleCreateTargetTargetValue()"><i class="add user icon" ></i>添加约束</a>
             <a sm-item ><i class="add user icon"></i>删除选中</a>
         </sm-menu>
         <table class="ui teal compact celled definition table">
             <thead class="full-width">
                 <tr>
                     <th></th>
-                    <th>id</th>
-                    <th>教师姓名</th>
-                    <th>教师编号</th>
-                    <th>教师账号</th>
+                    <th>年级</th>
+                    <th>科目一</th>
+                    <th>科目二</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr >
-                    <td>1</td>
+                <tr *ngFor="let item of targetTargetValueList;let i = index">
+                    <td></td>
+                    <td>2</td>
                     <td>2</td>
                     <td>3</td>
                 </tr>
             </tbody>
         </table>
-        <h3>同天互斥</h3>
+        <!-- <h3>互斥设置</h3>
         <sm-menu  class="inverted teal mg-tb16" >
             <a sm-item ><i class="add user icon"></i>添加约束</a>
             <a sm-item ><i class="add user icon"></i>删除选中</a>
         </sm-menu>
         <table class="ui teal compact celled definition table">
             <thead class="full-width">
-                <tr>
+                <tr *ngFor="let item of subjectSubjectList;let i = index">
                     <th></th>
-                    <th>id</th>
-                    <th>教师姓名</th>
-                    <th>教师编号</th>
-                    <th>教师账号</th>
-
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                </tr>
-            </tbody>
-        </table>
-        <h3>多天互斥</h3>
-        <sm-menu  class="inverted teal mg-tb16" >
-            <a sm-item ><i class="add user icon"></i>添加约束</a>
-            <a sm-item ><i class="add user icon"></i>删除选中</a>
-        </sm-menu>
-        <table class="ui teal compact celled definition table">
-            <thead class="full-width">
-                <tr>
-                    <th></th>
-                    <th>id</th>
-                    <th>教师姓名</th>
-                    <th>教师编号</th>
-                    <th>教师账号</th>
-
+                    <th>序号</th>
+                    <th>科目一</th>
+                    <th>科目二</th>
+                    <th>类别</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr >
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
+                <tr *ngFor="let item of subjectSubjectList;let i = index">
+                    <td></td>
+                    <td>{{item.groupid}}</td>
+                    <td>{{item.subjectid}}</td>
+                    <td>{{item.type}}</td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
+        
     </div>
   </div> 
 </div>
@@ -300,24 +275,26 @@
         </div>
     </modal-actions>
 </sm-modal>
-<sm-modal title="新增课程科目" class="" #addTargetTargetValueModal>
+<sm-modal title="" class="" #addTargetTargetValueModal>
     <modal-content>
        <form class="ui form">
                 <div class="column field">
                     <label>年级</label>
-                     <select class="ui dropdown" name="gradeid" required [(ngModel)]="addDomainSubjectModalData.domainid">
+                     <select class="ui dropdown" name="gradeid" required [(ngModel)]="addTargetTargetValueModalData.value">
                       <option value="{{item.id}}" *ngFor="let item of gradeList">{{item.name}}</option>
                     </select>
                 </div>
                 <div class="field">
                     <label>科目一</label>
-                    <select class="ui dropdown" name="subjectid" required [(ngModel)]="addDomainSubjectModalData.subjectid">
+                    <select class="ui dropdown" name="subjectid" required [(ngModel)]="addTargetTargetValueModalData.target1">
                       <option value="{{item.id}}" *ngFor="let item of subjectList">{{item.name}}</option>
                     </select>
                 </div> 
                 <div class="field">
                     <label>科目二</label>
-                    <input type="text" name="class" placeholder="年级" [(ngModel)]="addDomainSubjectModalData.num">
+                    <select class="ui dropdown" name="subjectid" required [(ngModel)]="addTargetTargetValueModalData.target2">
+                      <option value="{{item.id}}" *ngFor="let item of subjectList">{{item.name}}</option>
+                    </select>
                 </div>  
        </form>
     </modal-content>
@@ -326,6 +303,37 @@
             <button class="ui button teal submit" (click)="handleTargetTargetValue()">保存</button>
             <div class="or"></div>
             <div class="ui button red" (click)="addTargetTargetValueModal.hide()">关闭</div>
+        </div>
+    </modal-actions>
+</sm-modal>
+<sm-modal title="" class="" #addSubjectSubjectConfigModal>
+    <modal-content>
+       <form class="ui form">
+                <div class="column field">
+                    <label>年级</label>
+                     <select class="ui dropdown" name="gradeid" required [(ngModel)]="addTargetTargetValueModalData.value">
+                      <option value="{{item.id}}" *ngFor="let item of gradeList">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>科目一</label>
+                    <select class="ui dropdown" name="subjectid" required [(ngModel)]="addTargetTargetValueModalData.target1">
+                      <option value="{{item.id}}" *ngFor="let item of subjectList">{{item.name}}</option>
+                    </select>
+                </div> 
+                <div class="field">
+                    <label>科目二</label>
+                    <select class="ui dropdown" name="subjectid" required [(ngModel)]="addTargetTargetValueModalData.target2">
+                      <option value="{{item.id}}" *ngFor="let item of subjectList">{{item.name}}</option>
+                    </select>
+                </div>  
+       </form>
+    </modal-content>
+    <modal-actions>
+        <div class="ui large buttons">
+            <button class="ui button teal submit" (click)="handleAddSubjectSubjectConfig()">保存</button>
+            <div class="or"></div>
+            <div class="ui button red" (click)="addSubjectSubjectConfigModal.hide()">关闭</div>
         </div>
     </modal-actions>
 </sm-modal>

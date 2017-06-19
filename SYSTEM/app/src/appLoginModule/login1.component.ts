@@ -22,7 +22,7 @@ export class Login1Component {
 			if (!data.error) {
 				this.router.navigate(['/hy']);
 			}
-		}, (e)=> {
+		}, (e:any)=> {
 			// console.log(e._body.error.message)
 			// let data = e.json();
 			// console.log(data.error)

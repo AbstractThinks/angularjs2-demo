@@ -70,11 +70,11 @@
                 </div>
             </div>
             <div class="ui buttons vertical full-width">
-              <button class="ui button large fluid " (click)="passExamine()" *ngIf="USER.roleId == 3">
+              <button class="ui button large fluid " (click)="passExamine()" *ngIf="USER.roleId == 3 || USER.roleId == 2">
                 <i class="smile icon"></i> 审核通过
               </button>
               <br/>
-              <button class="ui button large fluid " (click)="failedExamine()" *ngIf="USER.roleId == 3">
+              <button class="ui button large fluid " (click)="failedExamine()" *ngIf="USER.roleId == 3 || USER.roleId == 2">
                   <i class="meh icon"></i> 审核失败
               </button>
               <br/>

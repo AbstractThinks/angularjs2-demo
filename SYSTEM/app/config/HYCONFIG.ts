@@ -115,6 +115,17 @@ export const HYMENUS:any = [
             }
         ]
     },{
+        "title": "审核平台",
+        "admin": "3",
+        "Submenus": [
+            {
+                "name": "资源审核",
+                "admin": "3",
+                "iconFont": "bullseye icon",
+                "url": "/hy/reviewed/index"
+            }
+        ]
+    },{
         "title": "资产管理",
         "admin": "0",
         "Submenus": [

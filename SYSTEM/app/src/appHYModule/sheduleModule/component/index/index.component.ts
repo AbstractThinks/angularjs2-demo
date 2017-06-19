@@ -21,16 +21,21 @@ export class HYSheduleIndexComponent {
     addDomainSubjectModal:any;
     @ViewChild('addTargetTargetValueModal')
     addTargetTargetValueModal:any;
+    @ViewChild('addSubjectSubjectConfigModal')
+    addSubjectSubjectConfigModal:any;
+    
 
     gradeList: any = [];
     subjectList: any = [];
     domainSubjecList: any = [];
     clazzSubjectStaffList: any = [];
     staffList: object = {};
+    subjectSubjectList: object = {};
     targetTargetValueList: any = [];
     addGradeModalData:object = {"name": ""};
     addClassModalData:object = {"name": ""};
     addDomainSubjectModalData:object = {"domainid":0,"subjectid":0,"num":0}
+    addTargetTargetValueModalData:object = {"target1":"","target2":"","value":"","type":"DOMAINSUBJECTID_DAYINDEX_CONTINUOUSCOURSE"}
 	constructor (private urlService: UrlService, private hyService: HYService) {
 
 	}
@@ -79,14 +84,23 @@ export class HYSheduleIndexComponent {
         })
 	}
 	handleCreateTargetTargetValue() {
+
 		let that = this;
-		// this.urlService.hy_req_get(`api/subjects?page=1`).then((response:any) => {
-  //           that.subjectList = response.json();
-  //       })
-  //       this.urlService.hy_req_get(`api/domain/list}`).then((response:any) => {
-  //           that.gradeList = response.json();
-  //       })
+		this.addTargetTargetValueModalData = {"target1":"","target2":"","value":"","type":"DOMAINSUBJECTID_DAYINDEX_CONTINUOUSCOURSE"}
+
+		this.urlService.hy_req_get(`api/subjects?page=1`).then((response:any) => {
+            that.subjectList = response.json();
+        })
+        this.urlService.hy_req_get(`api/domain/list}`).then((response:any) => {
+            that.gradeList = response.json();
+        })
         this.addTargetTargetValueModal.show();
+	}
+	handleAddSubjectSubjectConfig () {
+		let that = this;
+		this.urlService.hy_req_get(`api/subjectsubjectconfig/list}`).then((response:any) => {
+            that.subjectSubjectList = response.json();
+        })
 	}
 	ngAfterViewInit(): void {
 		let that = this;
@@ -100,7 +114,6 @@ export class HYSheduleIndexComponent {
 		// 	$('#sunday').get(0)]);
 		// setTimeout( () => {$('.tabular.menu .item').tab();}, 100)
 		$('.sheduleTab .tabular.menu .item').on('click', function (e:any) {
-			
 			if ($(e.target).data("tab") == "third") {
 				that.urlService.hy_req_get(`api/domainsubjectrelation/list}`).then((response:any) => {
 		            that.domainSubjecList = response.json();
@@ -117,9 +130,12 @@ export class HYSheduleIndexComponent {
 		        })
 			}
 			if ($(e.target).data("tab") == "sixth") {
-				that.urlService.hy_req_get(`api/targettargetvaluerelation/list}`).then((response:any) => {
+				that.urlService.hy_req_get(`/api/subjectsubjectconfig/list}`).then((response:any) => {
 		            that.targetTargetValueList = response.json();
 		        })
+		        // this.urlService.hy_req_get(`api/subjectsubjectconfig/list}`).then((response:any) => {
+		        //     that.subjectSubjectList = response.json();
+		        // })
 			}
 			$('.sheduleTab .item.active').removeClass('active');
 			$(`.sheduleTab .item.${$(e.target).data("tab")}`).addClass('active');
