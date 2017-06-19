@@ -46,12 +46,16 @@ export class HYAssetsIndexComponent {
         this.urlService.hy_req_get('api/profile').then((response: any) => {
             that.userProfile = response.json();
             // 获取所有设备列表
-            this.urlService.hy_req_get(`api/equipment/1/1/10`).then((response: any) => {
+            this.urlService.hy_req_get(`api/equipment/${that.userProfile.schoolId}/1/10`).then((response: any) => {
                 that.infoDatas = response.json();
             });
             // 获取供应商列表
-            this.urlService.hy_req_get(`api/equipment-supplier/1/1/10`).then((response: any) => {
+            this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/1/10`).then((response: any) => {
                 that.supplierDatas = response.json();
+            });
+            // 获取所有供应商
+            this.urlService.hy_req_get(`api/equipment-supplier-names/${that.userProfile.schoolId}`).then((response: any) => {
+                that.supplierForAllDatas = response.json();
             });
         });
 
@@ -59,12 +63,6 @@ export class HYAssetsIndexComponent {
         this.urlService.hy_req_get(`api/equipment-type-names`).then((response: any) => {
             that.typeDatas = response.json();
         });
-
-        // 获取所有供应商
-        this.urlService.hy_req_get(`api/equipment-supplier-names/1`).then((response: any) => {
-            that.supplierForAllDatas = response.json();
-        });
-
     }
 
     handleInOutStock(e: any): void {
@@ -210,14 +208,11 @@ export class HYAssetsIndexComponent {
     //
     // }
 
-    // handleUpdateModel(e:any): void {
-    //     let that = this;
-    //     this.urlService.hy_req_get(`api/equipment/${e}`).then((response: any) => {
-    //         that.equipment = response.json();
-    //
-    //         that.updateModal.show({inverted: true});
-    //     })
-    // }
+    handleUpdateModel(e:any): void {
+        let that = this;
+        that.equipment = e;
+        that.updateModal.show({inverted: true});
+    }
 
     // handleUpdate(): void {
     //     let data = this.hyService.urlEncode(this.equipment).substr(1);
