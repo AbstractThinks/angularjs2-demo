@@ -5,7 +5,7 @@
             返回资产列表
         </a>
 
-        <a class="item" (click)="infoModal.show({inverted: true})">
+        <a class="item" (click)="handle">
             <i class="content icon"></i>
             报废
         </a>
@@ -113,27 +113,27 @@
     <modal-content>
         <form class="ui form">
             <div class="four fields">
-                <div class="field disabled">
+                <div class="field">
                     <label>资产名称</label>
-                    <input type="text" name="name" value="{{inOutStockData.name}}">
+                    <input type="text" name="name" value="{{inOutStockData.name}}" readonly="readonly">
                 </div>
-                <div class="field disabled">
+                <div class="field">
                     <label>类别</label>
-                    <input type="text" name="type"  value="{{inOutStockData.type}}">
+                    <input type="text" name="type"  value="{{inOutStockData.type}}" readonly="readonly">
                 </div>
-                <div class="field disabled">
+                <div class="field">
                     <label>品牌</label>
-                    <input type="text" name="brand"  value="{{inOutStockData.brand}}">
+                    <input type="text" name="brand"  value="{{inOutStockData.brand}}" readonly="readonly">
                 </div>
-                <div class="field disabled">
+                <div class="field">
                     <label>规格型号</label>
-                    <input type="text" name="model"  value="{{inOutStockData.model}}">
+                    <input type="text" name="model"  value="{{inOutStockData.model}}" readonly="readonly">
                 </div>
             </div>
             <div class="four fields">
-                <div class="field disabled">
+                <div class="field">
                     <label>资产编号</label>
-                    <input type="text" name="barCode"  value="{{inOutStockData.barCode}}">
+                    <input type="text" name="barCode"  value="{{inOutStockData.barCode}}" readonly="readonly">
                 </div>
                 <div class="field">
                     <label>出入库</label>

@@ -34,7 +34,7 @@ export class HYAssetsDetailComponent {
 	) {
 		let that = this;
 		this.aRoute.params.subscribe((params) => {
-			this.urlService.hy_req_get(`api/equipment-specific/${params.id}/1/2`).then((response:any) => {
+			this.urlService.hy_req_get(`api/equipment-specific/${params.id}/1/10`).then((response:any) => {
 				that.infoDatas = response.json();
 			})
 		});
@@ -59,6 +59,11 @@ export class HYAssetsDetailComponent {
 	}
 	inOutStockHandle(e:any):void {
 		let that = this;
+		// 获取主设备信息
+		// this.urlService.hy_req_get(`api/equipment-specific/${e}`).then((response: any) => {
+		// 	that.inOutStockData = response.json();
+		// });
+
 		// 获取设备次级记录
 		this.urlService.hy_req_get(`api/equipment-specific/${e}`).then((response: any) => {
 			that.inOutStockData = response.json();
