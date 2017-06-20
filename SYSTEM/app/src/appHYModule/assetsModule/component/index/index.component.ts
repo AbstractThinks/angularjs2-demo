@@ -45,6 +45,7 @@ export class HYAssetsIndexComponent {
         let that = this;
         this.urlService.hy_req_get('api/profile').then((response: any) => {
             that.userProfile = response.json();
+
             // 获取所有设备列表
             this.urlService.hy_req_get(`api/equipment/${that.userProfile.schoolId}/1/10`).then((response: any) => {
                 that.infoDatas = response.json();
@@ -53,16 +54,22 @@ export class HYAssetsIndexComponent {
             this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/1/10`).then((response: any) => {
                 that.supplierDatas = response.json();
             });
-            // 获取所有供应商
-            this.urlService.hy_req_get(`api/equipment-supplier-names/${that.userProfile.schoolId}`).then((response: any) => {
-                that.supplierForAllDatas = response.json();
-            });
         });
 
         // 获取资产类型列表
         this.urlService.hy_req_get(`api/equipment-type-names`).then((response: any) => {
             that.typeDatas = response.json();
         });
+    }
+
+    handleInfoModal(): void {
+        let that = this;
+        // 获取所有供应商
+        this.urlService.hy_req_get(`api/equipment-supplier-names/${that.userProfile.schoolId}`).then((response: any) => {
+            that.supplierForAllDatas = response.json();
+        });
+
+        that.infoModal.show({inverted: true});
     }
 
     handleInOutStock(e: any): void {
@@ -114,12 +121,11 @@ export class HYAssetsIndexComponent {
         });
     }
 
-    handletypeModel(): void {
+    handleTypeModel(): void {
         let that = this;
         that.typeModel.show({inverted: true});
 
         setTimeout(() => {$('.checkbox').checkbox()}, 0);
-
     }
 
     handleCliAddTypeItem(): void {
@@ -134,22 +140,23 @@ export class HYAssetsIndexComponent {
             that.typeDatas.push(response.json());
             setTimeout(() => {$('.checkbox').checkbox()}, 0);
         });
+
+        $(".addTypeItem").empty().hide();
     }
 
     handleRemoveType(): void {
         let that = this;
-        let idList: any = [];
-        let typeDatasLen = that.typeDatas.length;
-        for (var i = 0; i < $('.checkbox.checked').length; i++) {
-            idList.push($('.checkbox.checked input')[i].id);
-        }
 
-        for (var j = 0; j < typeDatasLen; j++) {
-            if (-1 != idList.indexOf(that.typeDatas[j].id.toString())) {
-                this.urlService.hy_req_delete(`api/equipment-type/${that.typeDatas[j].id}`).then((response: any) => {
-                    that.typeDatas.splice(j, 1);
-                });
-            }
+        let id = null;
+
+        for (var i = 0; i < $('.checkbox.checked').length; i++) {
+            id = $('.checkbox.checked input')[i].id;
+
+            // 删除资产类别
+            this.urlService.hy_req_delete(`api/equipment-type/${id}`).then((response: any) => {
+                that.typeDatas.delete(i, 1);
+            });
+
         }
     }
 
@@ -165,6 +172,7 @@ export class HYAssetsIndexComponent {
             that.supplierDatas.entries.push(response.json());
             setTimeout(() => {$('.checkbox').checkbox()}, 0);
         });
+        $(".addSupplierItem").empty().hide();
     }
 
     handleRemoveSupplier(): void {
@@ -210,7 +218,14 @@ export class HYAssetsIndexComponent {
 
     handleUpdateModel(e:any): void {
         let that = this;
+        // 获取所有供应商
+        this.urlService.hy_req_get(`api/equipment-supplier-names/${that.userProfile.schoolId}`).then((response: any) => {
+            that.supplierForAllDatas = response.json();
+        });
+
         that.equipment = e;
+        that.equipment.purchaseDate = that.handleDateTimer(e.purchaseDate);
+
         that.updateModal.show({inverted: true});
     }
 
@@ -249,5 +264,22 @@ export class HYAssetsIndexComponent {
         this.urlService.hy_req_get(`api/equipment/${that.userProfile.schoolId}/${that.infoDatas.pageNumber - 1}/2`).then((response: any) => {
             that.infoDatas = response.json();
         })
+    }
+
+    handleDateTimer(e: any): string {
+        let datetime = new Date();
+        datetime.setTime(e);
+
+        if(isNaN(datetime.getFullYear())) {
+            return e;
+        }
+
+        let year = datetime.getFullYear();
+        let month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+        let date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+        // let hour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+        // let minute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+        // let second = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+        return year + "-" + month + "-" + date;
     }
 }

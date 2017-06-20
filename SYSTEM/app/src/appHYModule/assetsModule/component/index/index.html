@@ -1,7 +1,7 @@
 
 <div class="ui container row">
     <div class="ui top attached menu">
-        <a class="item" (click)="infoModal.show({inverted: true})">
+        <a class="item" (click)="handleInfoModal()">
             <i class="content icon"></i>
             新增资产
         </a>
@@ -11,7 +11,7 @@
             二维码查询资产
         </a>
 
-        <a class="item" (click)="handletypeModel()">
+        <a class="item" (click)="handleTypeModel()">
             <i class="content icon"></i>
             资产类别设置
         </a>
@@ -188,7 +188,7 @@
                         <td>{{typeData.id}}</td>
                         <td>{{typeData.equipmentTypeName}}</td>
                     </tr>
-                    <tr class="addItem fields" style="display: none">
+                    <tr class="addTypeItem fields" style="display: none">
                         <td colspan="3">
                             <div class="ui fluid input">
                                 <input type="text" placeholder="输入新增的类别名" name="equipmentTypeName" [(ngModel)]="equipment.equipmentTypeName">
