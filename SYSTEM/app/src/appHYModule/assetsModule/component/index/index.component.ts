@@ -141,7 +141,8 @@ export class HYAssetsIndexComponent {
             setTimeout(() => {$('.checkbox').checkbox()}, 0);
         });
 
-        $(".addTypeItem").empty().hide();
+        $(".addTypeItem input").val("");
+        $(".addTypeItem").hide();
     }
 
     handleRemoveType(): void {
@@ -153,11 +154,21 @@ export class HYAssetsIndexComponent {
             id = $('.checkbox.checked input')[i].id;
 
             // 删除资产类别
-            this.urlService.hy_req_delete(`api/equipment-type/${id}`).then((response: any) => {
-                that.typeDatas.delete(i, 1);
-            });
-
+            this.urlService.hy_req_delete(`api/equipment-type/${id}`).then((response: any) => { });
         }
+
+        // 重新获取资产类别
+        this.urlService.hy_req_get(`api/equipment-type-names`).then((response: any) => {
+            that.typeDatas = response.json();
+            setTimeout(() => {$('.checkbox').checkbox()}, 0);
+        });
+    }
+
+    handleSupplierModel(): void {
+        let that = this;
+        that.supplierModel.show({inverted: true});
+
+        setTimeout(() => {$('.checkbox').checkbox()}, 0);
     }
 
     handleCliAddSupplierItem():void {
@@ -172,24 +183,25 @@ export class HYAssetsIndexComponent {
             that.supplierDatas.entries.push(response.json());
             setTimeout(() => {$('.checkbox').checkbox()}, 0);
         });
-        $(".addSupplierItem").empty().hide();
+        $(".addSupplierItem input").val("");
+        $(".addSupplierItem").hide();
     }
 
     handleRemoveSupplier(): void {
         let that = this;
-        let idList: any = [];
-        let supplierDatasLen = that.supplierDatas.entries.length;
+        let id = null;
+
         for (var i = 0; i < $('.checkbox.checked').length; i++) {
-            idList.push($('.checkbox.checked input')[i].id);
+            id = $('.checkbox.checked input')[i].id;
+
+            that.urlService.hy_req_delete(`api/equipment-supplier/${id}`).then((response: any) => { });
         }
 
-        for (var j = 0; j < supplierDatasLen; j++) {
-            if (-1 != idList.indexOf(that.supplierDatas.entries[j].id.toString())) {
-                this.urlService.hy_req_delete(`api/equipment-supplier/${that.supplierDatas.entries[j].id}`).then((response: any) => {
-                    that.supplierDatas.entries.splice(j, 1);
-                });
-            }
-        }
+        // 重新获取供应商列表
+        this.urlService.hy_req_get(`api/equipment-supplier/${that.userProfile.schoolId}/1/10`).then((response: any) => {
+            that.supplierDatas = response.json();
+            setTimeout(() => {$('.checkbox').checkbox()}, 0);
+        });
     }
 
 
