@@ -23,7 +23,7 @@
 <div class="ui divider"></div>
 
 <sm-list class="animated divided relaxed">
-    <sm-item *ngFor="let item of resources.entries;let i = index">
+    <sm-item *ngFor="let item of resources.entries;let i = index"  routerLink="/hy/resource/detail/{{item.id}}">
         <img class="ui middle aligned tiny image" src="http://www.marchezvousblue.cn/k12/img/preview/{{item.resourcePhysicalId}}.png">
         <span>{{item.resourceName}}</span>
     </sm-item>

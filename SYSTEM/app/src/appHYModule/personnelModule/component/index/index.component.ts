@@ -49,6 +49,9 @@ export class HYPersonnelIndexComponent implements AfterViewInit{
             });
         } else {
             this.STAFFMODALDATA.description = "简介";
+            if (this.USER.roleId == 2) {
+                this.STAFFMODALDATA.schoolId = this.USER.schoolId
+            }
             let urlParam = this.hyService.urlEncode(this.STAFFMODALDATA).substring(1);
             this.urlservice.hy_req_post(`api/staff?${urlParam}`, that.STAFFMODALDATA).then((response:any) => {
                 if (response.json().status == 'fail') {

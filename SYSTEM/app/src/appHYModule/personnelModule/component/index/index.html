@@ -1,5 +1,5 @@
     <sm-menu  class="inverted teal mg-tb16" >
-        <a sm-item (click)="handleAddStaff()"><i class="add user icon"></i>新增教师</a>
+        <a sm-item (click)="handleAddStaff()" ><i class="add user icon"></i>新增教师</a>
     </sm-menu>
     <table class="ui teal compact celled definition table">
         <thead class="full-width">
@@ -38,7 +38,7 @@
                         <button class="ui red labeled icon button" (click)="handleRemoveAccount(item.id, i)">
                             <i class="remove user icon"></i>删除账号
                         </button>
-                        <button class="ui teal labeled icon button" (click)="handleResetAccount(item.i, i)" *ngIf="USER.roleId == 3">
+                        <button class="ui teal labeled icon button" (click)="handleResetAccount(item.i, i)" *ngIf="USER.roleId == '3'">
                             <i class="edit icon"></i>重置密码
                         </button>
                     </div>
@@ -58,10 +58,10 @@
         (onPrevious)="onPreviousHandler($event)"
     ></pagination-container> -->
 
-    <sm-modal title="教师基本信息" class="" icon="child icon" #staffModal>
+<sm-modal title="教师基本信息" class="" icon="child icon" #staffModal>
     <modal-content>
        <form class="ui form" #myForm>
-            <div class="ui two column doubling stackable grid">
+            <!-- <div class="ui two column doubling stackable grid"> -->
                 <div class="column field">
                    <label>教师姓名</label>
                     <input class="form-control left labeled" type="text" [(ngModel)]="STAFFMODALDATA.name" name="name" required/>
@@ -70,7 +70,7 @@
                     <label>教师编号</label>
                     <input class="left labeled" label="教师姓名" type="text" placeholder="教师编号" [(ngModel)]="STAFFMODALDATA.staffNum" name="staffNum" required>
                 </div>
-                 <div class="column field">
+                 <div class="column field" *ngIf="USER.roleId == '3'">
                     <label>学校</label>
                     <select class="ui dropdown SCHOOLSDICTIONARY" [(ngModel)]="STAFFMODALDATA.schoolId" name="schoolId" required>
                       <option value="{{item.id}}" *ngFor="let item of SCHOOLSDICTIONARY">{{item.name}}</option>
@@ -82,7 +82,7 @@
                       <option value="{{item.id}}" *ngFor="let item of SUBJECTSDICTIONARY">{{item.name}}</option>
                     </select>
                 </div>
-            </div>
+            <!-- </div> -->
        </form>
     </modal-content>
     <modal-actions>
