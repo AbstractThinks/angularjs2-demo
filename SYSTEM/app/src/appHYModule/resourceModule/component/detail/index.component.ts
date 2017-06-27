@@ -98,7 +98,7 @@ export class HYResourceDetailComponent implements OnInit,AfterViewInit{
       });
       this.urlService.hy_req_post(`api/resources/favorite/${articleId}`, {resourceId:articleId}).then((response:any) => {
         toastr.success('搜藏成功');
-		that.article.collection = true;
+		    that.article.collection = true;
       })
 
     }

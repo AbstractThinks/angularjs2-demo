@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ChartRouterModule } from './chart-router/chart-router.module';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+// import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { 
@@ -36,6 +36,6 @@ import { ChartReportComponent } from './chart-report/chart-report.component';
 	MdAutocompleteModule,
 	MdSelectModule,
   ],
-  declarations: [ChartComponent, ChartReportComponent]
+  declarations: [ChartComponent]
 })
 export class ChartModule { }
