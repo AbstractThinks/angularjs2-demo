@@ -6,9 +6,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule }   from '@angular/forms';
 
 import { 
-	MdButtonModule,
-	MdInputModule, 
-  	MdAutocompleteModule,
+  MdButtonModule,
+  MdInputModule, 
+  MdAutocompleteModule,
 } from '@angular/material';
 
 import { LoginComponent } from './login.component';
