@@ -9,6 +9,7 @@ import {
   MdButtonModule,
   MdInputModule, 
   MdAutocompleteModule,
+  MdIconModule,
 } from '@angular/material';
 
 import { LoginComponent } from './login.component';
@@ -26,6 +27,7 @@ import { IndexComponent } from './index/index.component';
     MdButtonModule,
     MdInputModule,
     MdAutocompleteModule,
+    MdIconModule,
   ],
   declarations: [LoginComponent, IndexComponent]
 })

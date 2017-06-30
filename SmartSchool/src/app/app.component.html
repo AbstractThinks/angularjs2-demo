@@ -4,10 +4,23 @@
 <md-sidenav-container  class="container">
   <md-sidenav #sidenav mode="side" opened="true" id="app-nav-list" class="slide-in-left">
 	<md-list>
-		<a md-list-item routerLinkActive="active" routerLink="app/basic/schools">学校管理</a>
-		<a md-list-item routerLinkActive="active" routerLink="app/basic/grades">年级管理</a>
-		<a md-list-item routerLinkActive="active" routerLink="app/basic/classes">班级管理</a>
-		<a md-list-item routerLinkActive="active" routerLink="app/basic/subjects">学科管理</a>
+		<h3  md-subheader>基础数据管理</h3>
+		<a md-list-item routerLinkActive="active" routerLink="app/basic/schools">
+			<md-icon>school</md-icon>
+			<h4 md-line>学校管理</h4>
+		</a>
+		<a md-list-item routerLinkActive="active" routerLink="app/basic/grades">
+			<md-icon>grade</md-icon>
+			<h4 md-line>年级管理</h4>
+		</a>
+		<a md-list-item routerLinkActive="active" routerLink="app/basic/classes">
+			<md-icon>class</md-icon>
+			<h4 md-line>班级管理</h4>
+		</a>
+		<a md-list-item routerLinkActive="active" routerLink="app/basic/subjects">
+			<md-icon>subject</md-icon>
+			<h4 md-line>学科管理</h4>
+		</a>
 	</md-list>
   </md-sidenav>
   <router-outlet></router-outlet>

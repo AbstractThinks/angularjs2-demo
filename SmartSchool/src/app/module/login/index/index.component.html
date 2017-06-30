@@ -2,13 +2,18 @@
 	<h1>教育系统</h1>
 	<form #LoginForm="ngForm" fxLayout="column" fxLayoutAlign="center center">
 		<md-input-container>
+		<!-- <i class="material-icons">account_circle</i> -->
+			<span mdPrefix><md-icon>people_outline</md-icon></span>
 			<input id="username" type="text" mdInput placeholder="用户名" name="username">
 		</md-input-container>
 		<md-input-container>
+		<!-- <i class="material-icons">lock_outline</i> -->
+			<span mdPrefix><md-icon>lock_outline</md-icon></span>
 			<input id="password" type="password" mdInput placeholder="密码" name="password">
 		</md-input-container>
-		<div fxLayout="row" fxLayoutAlign="end start">
+		<div fxLayout="row" fxLayoutAlign="end start" fxFill>
 			<button
+			fxFill
 		    md-raised-button
 		    color="primary"
 		    >登陆</button>

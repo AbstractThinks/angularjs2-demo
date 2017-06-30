@@ -11,6 +11,7 @@ import {
   MdIconModule,
   MdListModule,
   MdDialogModule,
+  MdSelectModule,
 } from '@angular/material';
 import { 
   CovalentDataTableModule,
@@ -41,6 +42,7 @@ import { SchoolsmodalComponent } from './public/schoolsmodal/schoolsmodal.compon
     MdToolbarModule,
     MdIconModule,
     MdDialogModule,
+    MdSelectModule,
     CovalentDataTableModule,
     CovalentPagingModule,
   ],
