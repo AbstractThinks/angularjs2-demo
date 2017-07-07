@@ -51,8 +51,8 @@ md-sidenav-container {
     	width: 44px;
     }
 }
-.spacer {
-	flex: 1 1 auto;
+.mat-toolbar-layout {
+	width: 100%;
 }
 .search {
 	cursor: pointer;
@@ -69,8 +69,18 @@ md-sidenav-container {
 .mat-input-prefix {
 	padding-right: 8px;
 }
+.avatar {
+	height: 48px;
+	width: 48px;
+	border-radius: 50%;
+}
 
-
+app-homepage {
+	app-menus {
+		display: flex;
+	    justify-content: center;
+	}
+}
 
 
 

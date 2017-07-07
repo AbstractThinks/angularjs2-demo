@@ -29,6 +29,7 @@ const router: Routes = [
 		    {
 				path: 'homepage',
 				component: HomepageComponent,
+				canActivateChild: [AuthGuard],
 				loadChildren: '../module/homepage/homepage.module#HomepageModule',
 		    },
 		    {
