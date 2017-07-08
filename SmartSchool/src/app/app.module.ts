@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AppRouterModule } from './router/router.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
@@ -12,6 +13,7 @@ import {
   MdSidenavModule,
   MdIconModule,
   MdListModule,
+  MdMenuModule,
 } from '@angular/material';
 import { AuthGuard } from './guard/auth.guard';
 @NgModule({
@@ -29,6 +31,9 @@ import { AuthGuard } from './guard/auth.guard';
     MdListModule,
     MdIconModule,
     MdToolbarModule,
+    MdMenuModule,
+    MdButtonModule,
+    FlexLayoutModule,
 
   ],
   providers: [AuthGuard],

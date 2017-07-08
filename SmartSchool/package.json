@@ -6,8 +6,8 @@
     "ng": "ng",
     "start": "ng serve --aot --prod",
     "dev": "ng serve --aot --prod --proxy-config proxy.conf.json --env=dev",
-    "dev:prod": "ng serve --aot --prod --proxy-config proxy.conf.json --env=prod",
-    "build": "ng build --aot --prod",
+    "dev:prod":"ng serve --aot --prod --proxy-config proxy.conf.json --env=prod",
+    "build": "ng build --aot --prod --env=prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -9,6 +9,7 @@ import { PersonalComponent } from '../module/personal/personal.component';
 import { BasicComponent } from '../module/basic/basic.component';
 import { ResourcesComponent } from '../module/resources/resources.component';
 import { AssetsComponent } from '../module/assets/assets.component';
+import { HomepageComponent } from '../module/homepage/homepage.component';
 import { AuthGuard } from '../guard/auth.guard';
 
 
@@ -24,6 +25,12 @@ const router: Routes = [
 				component: LoginComponent,
 				canActivateChild: [AuthGuard],
 				loadChildren: '../module/login/login.module#LoginModule',
+		    },
+		    {
+				path: 'homepage',
+				component: HomepageComponent,
+				canActivateChild: [AuthGuard],
+				loadChildren: '../module/homepage/homepage.module#HomepageModule',
 		    },
 		    {
 				path: 'personal',
