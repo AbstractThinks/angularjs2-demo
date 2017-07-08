@@ -1,9 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import '../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css';*/
-/*@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+// @import '../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css';
+// @import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
 // @import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
-@import '../node_modules/@angular/material/prebuilt-themes/purple-green.css';
+// @import '../node_modules/@angular/material/prebuilt-themes/purple-green.css';
 @import '../node_modules/material-design-icons/iconfont/material-icons.css';
+
+
+/* Defining a custom theme */
+@import '../node_modules/@angular/material/theming';
+@include mat-core();
+$candy-app-primary: mat-palette($mat-teal);
+$candy-app-accent:  mat-palette($mat-light-blue, A200, A100, A400);
+$candy-app-warn:    mat-palette($mat-red);
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+@include angular-material-theme($candy-app-theme);
+/* Defining a custom theme */
+
+
 
 html,body {
 	margin: 0;
@@ -53,7 +66,9 @@ md-sidenav-container {
 .text-right {
 	text-align: right;
 }
-
+.mat-input-prefix {
+	padding-right: 8px;
+}
 
 
 

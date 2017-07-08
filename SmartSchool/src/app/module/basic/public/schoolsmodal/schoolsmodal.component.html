@@ -1,19 +1,71 @@
 <h2 md-dialog-title>新增学校</h2>
 <md-dialog-content>
 
-	<form #addForm="ngForm" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-	    <md-input-container >
-	      <input mdInput placeholder="姓名" name="name" >
-	    </md-input-container>
-	    <md-input-container class="full-width" >
-	      <input mdInput placeholder="编号" name="name" >
-	    </md-input-container>
-	    <md-input-container class="full-width">
-	      <input mdInput placeholder="电话" name="name" >
-	    </md-input-container>
-	    <md-input-container class="full-width">
-	      <input mdInput placeholder="邮箱" name="name" >
-	    </md-input-container>
+	<form #addForm="ngForm">
+		<div fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="8px" fxLayoutWrap fxFill>
+			<md-select placeholder="Favorite food" fxFlex="30">
+			<md-option *ngFor="let food of foods" [value]="food.value">
+				{{ food.viewValue }}
+			</md-option>
+		</md-select>
+		<md-select placeholder="Favorite food" fxFlex="30">
+			<md-option *ngFor="let food of foods" [value]="food.value">
+				{{ food.viewValue }}
+			</md-option>
+		</md-select>
+		<md-select placeholder="Favorite food" fxFlex="30">
+			<md-option *ngFor="let food of foods" [value]="food.value">
+				{{ food.viewValue }}
+			</md-option>
+		</md-select>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="8px" fxLayoutWrap fxFill>
+			<md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		    <md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		    <md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="8px" fxLayoutWrap fxFill>
+			<md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		    <md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		    <md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="8px" fxLayoutWrap fxFill>
+			<md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		    <md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		    <md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		</div>
+		<div fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="8px" fxLayoutWrap fxFill>
+			<md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		    <md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		    <md-input-container fxFlex="30">
+		      <input mdInput placeholder="电话" name="name" >
+		    </md-input-container>
+		</div>
+		    
+			
+
 	</form>
   
 </md-dialog-content>
