@@ -26,6 +26,8 @@ import { SubjectsComponent } from './subjects/subjects.component';
 import { GradesComponent } from './grades/grades.component';
 import { ClassesComponent } from './classes/classes.component';
 import { SchoolsmodalComponent } from './public/schoolsmodal/schoolsmodal.component';
+import { StaffComponent } from './staff/staff.component';
+import { DepartmentComponent } from './department/department.component';
 
 
 
@@ -46,7 +48,7 @@ import { SchoolsmodalComponent } from './public/schoolsmodal/schoolsmodal.compon
     CovalentDataTableModule,
     CovalentPagingModule,
   ],
-  declarations: [BasicComponent, SchoolsComponent, SubjectsComponent, GradesComponent, ClassesComponent, SchoolsmodalComponent],
+  declarations: [BasicComponent, SchoolsComponent, SubjectsComponent, GradesComponent, ClassesComponent, SchoolsmodalComponent, StaffComponent, DepartmentComponent],
   entryComponents: [
     SchoolsmodalComponent
   ],
