@@ -12,13 +12,16 @@ import {
   MdListModule,
   MdDialogModule,
   MdSelectModule,
+  MdMenuModule,
 } from '@angular/material';
 import { 
   CovalentDataTableModule,
-  CovalentPagingModule, 
+  CovalentPagingModule,
+  CovalentSearchModule, 
 } from '@covalent/core';
 
 import { ApiService } from '../../service/api.service';
+import { UtilService }  from '../../service/util.service';
 import { BasicrouterModule } from './basicrouter/basicrouter.module';
 import { BasicComponent } from './basic.component';
 import { SchoolsComponent } from './schools/schools.component';
@@ -45,15 +48,19 @@ import { DepartmentComponent } from './department/department.component';
     MdIconModule,
     MdDialogModule,
     MdSelectModule,
+    MdMenuModule,
     CovalentDataTableModule,
     CovalentPagingModule,
+    CovalentSearchModule,
   ],
   declarations: [BasicComponent, SchoolsComponent, SubjectsComponent, GradesComponent, ClassesComponent, SchoolsmodalComponent, StaffComponent, DepartmentComponent],
   entryComponents: [
     SchoolsmodalComponent
   ],
   providers:[
-    ApiService
+    ApiService,
+    UtilService
+
   ]
 })
 export class BasicModule { }

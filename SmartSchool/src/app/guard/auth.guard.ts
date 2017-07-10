@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate {
       document.getElementById("app-nav-list").style.display="none";
     } else if (state.url.indexOf("/app/basic") > -1) {
       document.getElementById("app-nav").style.display="flex";
-      document.getElementById("app-nav-list").style.display="block";
+      document.getElementById("app-nav-list").style.display="none";
     } else if (state.url.indexOf("/app/homepage") > -1) {
       document.getElementById("app-nav").style.display="flex";
     }else {

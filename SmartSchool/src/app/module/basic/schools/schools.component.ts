@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { 
   ITdDataTableColumn,
-  IPageChangeEvent
+  IPageChangeEvent,
+  TdDataTableSortingOrder,
+  ITdDataTableSortChangeEvent,
 } from '@covalent/core';
 import { MdDialog } from '@angular/material';
 import { ApiService } from '../../../service/api.service';
@@ -61,6 +63,9 @@ export class SchoolsComponent implements OnInit {
   event: IPageChangeEvent;
   firstLast: boolean = false;
   pageSizeAll: boolean = false;
+  searchInputTerm: string;
+  sortBy: string = 'name';
+  sortOrder: TdDataTableSortingOrder = TdDataTableSortingOrder.Descending;
   constructor(
     public dialog: MdDialog,
     private _service: ApiService
@@ -76,11 +81,7 @@ export class SchoolsComponent implements OnInit {
   	console.log(this.selectedRows)
   }
 
-  search(e:any):any {
-  	console.log(e)
-  }
-
-  openDialog() {
+  openDialog():void {
     let dialogRef = this.dialog.open(SchoolsmodalComponent, {
       data:{"value":"test"},
       width:"60%"
@@ -88,7 +89,9 @@ export class SchoolsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-
+  handleSearch(searchInputTerm: string):void {
+    console.log(searchInputTerm)
+  }
 
 
   change(event: IPageChangeEvent): void {
@@ -99,5 +102,10 @@ export class SchoolsComponent implements OnInit {
   toggleFirstLast(): void {
     this.firstLast = !this.firstLast;
     console.log("firstLast")
+  }
+  sort(sortEvent: ITdDataTableSortChangeEvent): void {
+    console.log(sortEvent)
+    this.sortBy = sortEvent.name;
+    this.sortOrder = sortEvent.order;
   }
 }

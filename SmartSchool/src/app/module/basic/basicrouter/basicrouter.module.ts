@@ -6,6 +6,7 @@ import { GradesComponent } from '../grades/grades.component';
 import { ClassesComponent } from '../classes/classes.component';
 import { SubjectsComponent } from '../subjects/subjects.component';
 import { StaffComponent } from '../staff/staff.component';
+import { DepartmentComponent } from '../department/department.component';
 
 const BasicRoutes: Route[] = [
 	{ path: '', redirectTo: 'schools',  pathMatch: 'full'},
@@ -13,7 +14,8 @@ const BasicRoutes: Route[] = [
 	{ path: 'grades', component: GradesComponent },
 	{ path: 'subjects', component: SubjectsComponent },
 	{ path: 'classes', component: ClassesComponent },
-	{ path: 'staffs', component: StaffComponent }
+	{ path: 'staffs', component: StaffComponent },
+	{ path: 'departs', component: DepartmentComponent}
 ];
 
 

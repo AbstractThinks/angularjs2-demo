@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject  } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild  } from '@angular/core';
 import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+
 
 @Component({
   selector: 'app-schoolsmodal',
@@ -12,14 +13,23 @@ export class SchoolsmodalComponent implements OnInit {
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ]
+  data = {
+    "name":"",
+    "tel":"",
+    "address": ""
+  }
+  @ViewChild('nameinput')
+  nameinput;
   constructor(
   	@Inject(MD_DIALOG_DATA) groups: any, 
   	private dialogRef: MdDialogRef<SchoolsmodalComponent>
   ) { 
   	console.log(groups);
+    
   }
 
   ngOnInit() {
+      console.log(this.nameinput)
   }
 
 }

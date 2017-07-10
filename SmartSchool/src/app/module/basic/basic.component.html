@@ -1,6 +1,5 @@
 
-<!-- <md-sidenav-container #sidenav mode="side" opened="true">
-  <md-sidenav>
-  </md-sidenav> -->
-  <router-outlet></router-outlet>
-<!-- </md-sidenav-container> -->
+  <router-outlet>
+  	<a md-button *ngFor="let child of menu.children; let o = index;" routerLink="{{child.url}}">{{child.name}}</a>
+  	<div class="divider"></div>
+  </router-outlet>
