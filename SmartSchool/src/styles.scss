@@ -268,17 +268,6 @@ app-homepage {
 
 
 // global animate
-.zoom-in {animation:zoomIn 0.3s 0s 1 both}
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale3d(.3, .3, .3);
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
 .slide-in-down {animation:slideInDown 0.3s linear 0s 1 both}
 @keyframes slideInDown {
   from {
@@ -334,5 +323,27 @@ app-homepage {
     opacity: 1;
   }
 }
-  
+
+.light-speed-in {animation:lightSpeedIn 0.5s 0s 1 both}
+@keyframes lightSpeedIn {
+  from {
+    transform: translate3d(100%, 0, 0) skewX(-30deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: skewX(20deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: skewX(-5deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}  
 // global animate
